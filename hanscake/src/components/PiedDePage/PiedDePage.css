@@ -1,0 +1,44 @@
+.pied {
+  padding-block: 48px 32px;
+  border-top: 1px solid var(--cacao-bord);
+}
+
+.pied__grille {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 32px;
+}
+
+.pied__titre {
+  font-size: 1.3rem;
+  color: var(--or);
+  margin-bottom: 10px;
+}
+
+.pied__adresse {
+  font-style: normal;
+  margin-bottom: 8px;
+}
+
+.pied__liste {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--creme-doux);
+}
+
+.pied__liste li {
+  padding-block: 3px;
+}
+
+/* Zone de toucher confortable pour les liens. */
+.pied__liste a {
+  display: inline-block;
+  padding-block: 6px;
+}
+
+.pied__mention {
+  margin-top: 32px;
+  color: var(--creme-doux);
+  font-size: 0.85rem;
+}

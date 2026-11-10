@@ -1,0 +1,78 @@
+.accueil {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 92svh;
+  padding-block: 56px 96px;
+  text-align: center;
+  /* Lueur framboise et dorée, pour l'ambiance « cinéma ». */
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(214, 51, 108, 0.28), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 50% 100%, rgba(227, 184, 102, 0.12), transparent 70%);
+}
+
+.accueil__contenu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.accueil__logo {
+  font-family: var(--police-titre);
+  font-size: 1.7rem;
+  font-style: italic;
+  font-weight: 600;
+  color: var(--or);
+  margin-bottom: 28px;
+}
+
+.accueil__titre {
+  font-size: clamp(2.4rem, 9vw, 4.6rem);
+  margin-bottom: 18px;
+}
+
+.accueil__titre em {
+  color: var(--framboise-clair);
+}
+
+.accueil__texte {
+  color: var(--creme-doux);
+  font-size: 1.08rem;
+  max-width: 46ch;
+  margin-bottom: 14px;
+}
+
+.accueil__prix {
+  font-weight: 600;
+  margin-bottom: 28px;
+}
+
+.accueil__defiler {
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
+  translate: -50% 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--creme-doux);
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.accueil__defiler svg {
+  animation: rebond 1.8s ease-in-out infinite;
+}
+
+@keyframes rebond {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}

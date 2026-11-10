@@ -1,0 +1,51 @@
+.vitrine__liste {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.vitrine__carte {
+  overflow: hidden;
+  border: 1px solid var(--cacao-bord);
+  border-radius: var(--rayon);
+  background: var(--cacao-clair);
+}
+
+.vitrine__photo {
+  width: 100%;
+  aspect-ratio: 4 / 3; /* réserve la place avant le chargement : la page ne « saute » pas */
+  object-fit: cover;
+}
+
+.vitrine__photo--provisoire {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
+.vitrine__photo--provisoire span {
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: rgba(26, 15, 10, 0.75);
+  color: var(--creme);
+  font-size: 0.75rem;
+}
+
+.vitrine__texte {
+  padding: 16px;
+}
+
+.vitrine__texte h3 {
+  font-size: 1.25rem;
+  margin-bottom: 6px;
+}
+
+.vitrine__texte p {
+  color: var(--creme-doux);
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+}
