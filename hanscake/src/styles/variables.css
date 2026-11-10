@@ -1,0 +1,26 @@
+/*
+  Toutes les couleurs, polices et espacements du site sont ici.
+  Pour changer l'ambiance du site, on modifie ce fichier et rien d'autre.
+*/
+:root {
+  /* Couleurs */
+  --cacao: #1a0f0a; /* fond principal */
+  --cacao-clair: #2a1a12; /* cartes, panneaux */
+  --cacao-bord: #4a3226; /* bordures discrètes */
+  --creme: #f5e9d7; /* texte principal */
+  --creme-doux: #cdbba5; /* texte secondaire */
+  --framboise: #c2255c; /* boutons (texte blanc lisible dessus) */
+  --framboise-vif: #d6336c; /* survol des boutons */
+  --framboise-clair: #ff8fb1; /* accent sur fond sombre (lisible) */
+  --or: #e3b866;
+
+  /* Polices */
+  --police-titre: "Playfair Display Variable", Georgia, "Times New Roman", serif;
+  --police-texte: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  /* Mise en page */
+  --largeur-max: 1100px;
+  --marge: 20px;
+  --rayon: 14px;
+  --hauteur-barre: 72px; /* barre « Commander » fixée en bas */
+}

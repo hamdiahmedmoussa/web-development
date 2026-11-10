@@ -1,0 +1,150 @@
+/* Styles communs à tout le site. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--cacao);
+  color: var(--creme);
+  font-family: var(--police-texte);
+  font-size: 1rem;
+  line-height: 1.6;
+  /* On laisse la place de la barre « Commander » fixée en bas. */
+  padding-bottom: calc(var(--hauteur-barre) + env(safe-area-inset-bottom));
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--police-titre);
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0;
+  text-wrap: balance;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: var(--framboise-clair);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Contour bien visible quand on navigue au clavier. */
+:focus-visible {
+  outline: 3px solid var(--or);
+  outline-offset: 3px;
+}
+
+/* Bloc centré, utilisé par toutes les sections. */
+.conteneur {
+  width: 100%;
+  max-width: var(--largeur-max);
+  margin-inline: auto;
+  padding-inline: var(--marge);
+}
+
+.section {
+  padding-block: 72px;
+}
+
+.section__titre {
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  margin-bottom: 12px;
+}
+
+.section__intro {
+  color: var(--creme-doux);
+  max-width: 60ch;
+  margin-bottom: 32px;
+}
+
+/* Petit texte en majuscules au-dessus des titres. */
+.surtitre {
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--framboise-clair);
+  margin-bottom: 10px;
+}
+
+/* Bouton principal (framboise). */
+.bouton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px; /* assez grand pour le doigt */
+  padding: 12px 24px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--framboise);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    transform 0.2s;
+}
+
+.bouton:hover {
+  background: var(--framboise-vif);
+}
+
+.bouton:active {
+  transform: scale(0.97);
+}
+
+/* Étiquette « Exemple » sur les contenus provisoires. */
+.etiquette-exemple {
+  display: inline-block;
+  padding: 2px 8px;
+  border: 1px dashed var(--or);
+  border-radius: 6px;
+  color: var(--or);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Texte lu par les lecteurs d'écran mais invisible à l'écran. */
+.visuellement-cache {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Les personnes qui ont demandé moins d'animations n'en ont pas. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
