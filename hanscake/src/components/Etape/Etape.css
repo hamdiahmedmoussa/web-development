@@ -1,0 +1,35 @@
+.etape {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* Sur téléphone, le gâteau occupe 40 % de l'écran : une étape remplit le reste. */
+  min-height: 60svh;
+  padding: 24px var(--marge);
+  /* Les étapes qui ne sont pas en cours sont atténuées. */
+  opacity: 0.4;
+  transition: opacity 0.4s;
+}
+
+/* L'étape en cours, ou celle où se trouve le clavier, est bien visible. */
+.etape--active,
+.etape:focus-within {
+  opacity: 1;
+}
+
+.etape__titre {
+  font-size: clamp(1.7rem, 6vw, 2.6rem);
+  margin-bottom: 8px;
+}
+
+.etape__texte {
+  color: var(--creme-doux);
+  margin-bottom: 20px;
+  max-width: 44ch;
+}
+
+@media (min-width: 900px) {
+  .etape {
+    min-height: 90svh;
+    padding-inline: 40px;
+  }
+}

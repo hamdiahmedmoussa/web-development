@@ -1,0 +1,37 @@
+.atelier {
+  padding-top: 72px;
+}
+
+.atelier__entete {
+  text-align: center;
+}
+
+.atelier__entete .section__intro {
+  margin-inline: auto;
+}
+
+/* position: sticky = l'élément défile normalement, puis reste « collé »
+   en haut de l'écran tant que son parent (la grille) est visible. */
+.atelier__scene {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  height: 40svh;
+  /* Fond opaque : les étapes passent derrière le gâteau sans se mélanger à lui. */
+  background: linear-gradient(to bottom, var(--cacao) 90%, transparent);
+}
+
+/* Grand écran : le gâteau à gauche, les étapes à droite. */
+@media (min-width: 900px) {
+  .atelier__grille {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: var(--largeur-max);
+    margin-inline: auto;
+  }
+
+  .atelier__scene {
+    height: 100svh;
+    background: none;
+  }
+}
