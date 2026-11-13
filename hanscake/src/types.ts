@@ -1,59 +1,57 @@
-// Les « formes » des données du site. TypeScript vérifie qu'on les respecte partout.
+// Les « formes » des données. TypeScript vérifie qu'on les respecte partout.
 
-/** Les quatre étapes de la composition du gâteau. */
-export type CategorieId = "genoise" | "creme" | "glacage" | "decor";
-
-/** Un choix possible dans une étape (ex. : génoise au chocolat). */
-export interface Option {
-  id: string;
-  nom: string;
-  /** Couleur utilisée pour dessiner cette option sur le gâteau. */
-  couleur: string;
-}
-
-/** Une étape : son titre, son texte et ses trois options. */
-export interface Categorie {
-  id: CategorieId;
+/** Une étape du film : ses temps dans la vidéo et ses textes. */
+export interface EtapeFilm {
+  /** Début et fin de l'étape dans la vidéo, en secondes. */
+  debut: number;
+  fin: number;
+  /** Part de défilement donnée à cette étape (plus c'est grand, plus elle dure). */
+  poids: number;
   titre: string;
   texte: string;
-  options: Option[];
 }
 
-/**
- * Le gâteau composé par le client : pour chaque étape, l'id de l'option choisie.
- * Exemple : { genoise: "chocolat", creme: "chantilly", ... }
- */
-export type GateauChoisi = Record<CategorieId, string>;
+/** Un ingrédient qui flotte autour d'un gâteau du carrousel. */
+export interface Ingredient {
+  /** Nom du fichier dans public/images/ingredients/, sans extension. */
+  fichier: string;
+  nom: string;
+}
 
-/** Une pâtisserie de la section « En vitrine ». */
+/** Un gâteau du carrousel. */
+export interface Parfum {
+  id: string;
+  nom: string;
+  /** Mot géant affiché derrière le gâteau. */
+  motGeant: string;
+  description: string;
+  prix: number;
+  /** Couleur de fond de l'écran et couleur du texte posé dessus. */
+  fond: string;
+  encre: string;
+  ingredients: Ingredient[];
+}
+
+/** Une pâtisserie de la vitrine. */
 export interface Patisserie {
+  id: string;
   nom: string;
   description: string;
-  /** Chemin de la photo (dans public/images/vitrine). Vide = pas encore de photo. */
-  photo?: string;
-  /** Couleurs du visuel provisoire affiché tant qu'il n'y a pas de photo. */
-  couleurs: [string, string];
+  prix: number;
+  couleur: string;
+  encre: string;
 }
 
-/** Ce que le client saisit dans le formulaire de commande. */
+/** Ce que le client commande : un gâteau du carrousel ou une boîte de pâtisseries. */
+export type Article = { type: "gateau"; parfum: Parfum } | { type: "boite"; patisseries: Patisserie[] };
+
+/** Ce que le client saisit dans le formulaire. */
 export interface InfosCommande {
   prenom: string;
-  /** Date de retrait au format AAAA-MM-JJ (celui du champ <input type="date">). */
+  /** AAAA-MM-JJ, format du champ <input type="date"> */
   date: string;
-  /** Heure de retrait au format HH:MM. */
+  /** HH:MM */
   heure: string;
   parts: number;
-  /** Texte à écrire sur le gâteau (facultatif). */
   inscription: string;
-}
-
-/**
- * Ce que reçoit la scène du gâteau, qu'elle soit dessinée (canvas) ou filmée (vidéo).
- * Les deux versions respectent ce même « contrat » : c'est ce qui permet de passer
- * de l'une à l'autre sans toucher au reste du site.
- */
-export interface SceneProps {
-  gateau: GateauChoisi;
-  /** Avancement dans les quatre étapes : 0 = début, 1 = gâteau terminé. */
-  progression: number;
 }

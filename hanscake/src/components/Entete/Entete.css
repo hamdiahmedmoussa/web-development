@@ -1,0 +1,32 @@
+.entete {
+  position: absolute;
+  inset: 0 0 auto 0;
+  z-index: 5;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+  padding: 16px var(--marge);
+}
+
+.entete__logo {
+  font-family: var(--police-titre);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 1.6rem;
+  text-decoration: none;
+}
+
+.entete__logo span {
+  color: var(--framboise);
+}
+
+.entete__mention {
+  padding: 4px 12px;
+  border: 1px solid var(--trait);
+  border-radius: 999px;
+  background: rgba(43, 33, 32, 0.6);
+  color: var(--creme-doux);
+  font-size: 0.72rem;
+}

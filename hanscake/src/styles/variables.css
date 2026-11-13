@@ -1,26 +1,33 @@
 /*
-  Toutes les couleurs, polices et espacements du site sont ici.
-  Pour changer l'ambiance du site, on modifie ce fichier et rien d'autre.
+  Couleurs, polices et tailles du site. Changer l'ambiance = modifier ce fichier.
+  Les couleurs propres à chaque parfum sont dans src/data/parfums.ts.
 */
 :root {
-  /* Couleurs */
-  --cacao: #1a0f0a; /* fond principal */
-  --cacao-clair: #2a1a12; /* cartes, panneaux */
-  --cacao-bord: #4a3226; /* bordures discrètes */
-  --creme: #f5e9d7; /* texte principal */
-  --creme-doux: #cdbba5; /* texte secondaire */
-  --framboise: #c2255c; /* boutons (texte blanc lisible dessus) */
-  --framboise-vif: #d6336c; /* survol des boutons */
-  --framboise-clair: #ff8fb1; /* accent sur fond sombre (lisible) */
-  --or: #e3b866;
+  /* L'univers du film : le mur brun de la pâtisserie */
+  --brun: #372c2b;
+  --brun-profond: #2b2120;
+  --brun-panneau: #463938;
+  --creme: #f7ecdc;
+  --creme-doux: #d2c0b4;
+  --framboise: #ec5c84; /* accent sur fond brun */
+  --framboise-bouton: #c9305c; /* fond des boutons : le blanc y reste lisible */
+  --or: #e2bd86;
+  --trait: rgba(247, 236, 220, 0.18);
+  --vert-ok: #3ccf7a;
 
   /* Polices */
-  --police-titre: "Playfair Display Variable", Georgia, "Times New Roman", serif;
-  --police-texte: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --police-titre: "Bodoni Moda Variable", "Bodoni 72", Didot, Georgia, serif;
+  --police-texte: "Figtree Variable", "Segoe UI", system-ui, sans-serif;
 
   /* Mise en page */
-  --largeur-max: 1100px;
-  --marge: 20px;
-  --rayon: 14px;
-  --hauteur-barre: 72px; /* barre « Commander » fixée en bas */
+  --largeur-max: 1180px;
+  --marge: 16px;
+  --hauteur-barre: 68px;
+  --rayon: 22px;
+}
+
+@media (min-width: 760px) {
+  :root {
+    --marge: 32px;
+  }
 }

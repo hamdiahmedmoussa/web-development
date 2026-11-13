@@ -1,5 +1,3 @@
-/* Styles communs à tout le site. */
-
 *,
 *::before,
 *::after {
@@ -7,18 +5,20 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  overflow-x: clip;
   -webkit-text-size-adjust: 100%;
+  color-scheme: dark;
 }
 
 body {
   margin: 0;
-  background: var(--cacao);
+  background: var(--brun);
   color: var(--creme);
   font-family: var(--police-texte);
-  font-size: 1rem;
-  line-height: 1.6;
-  /* On laisse la place de la barre « Commander » fixée en bas. */
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  overflow-x: clip;
+  /* La barre « Commander » est fixée en bas : on lui laisse la place. */
   padding-bottom: calc(var(--hauteur-barre) + env(safe-area-inset-bottom));
 }
 
@@ -26,8 +26,8 @@ h1,
 h2,
 h3 {
   font-family: var(--police-titre);
-  font-weight: 600;
-  line-height: 1.15;
+  font-weight: 500;
+  line-height: 1.02;
   margin: 0;
   text-wrap: balance;
 }
@@ -36,22 +36,25 @@ p {
   margin: 0;
 }
 
-a {
-  color: var(--framboise-clair);
-}
-
 img {
   max-width: 100%;
   display: block;
 }
 
-/* Contour bien visible quand on navigue au clavier. */
+button {
+  font: inherit;
+  color: inherit;
+}
+
+a {
+  color: inherit;
+}
+
 :focus-visible {
-  outline: 3px solid var(--or);
+  outline: 2px solid var(--or);
   outline-offset: 3px;
 }
 
-/* Bloc centré, utilisé par toutes les sections. */
 .conteneur {
   width: 100%;
   max-width: var(--largeur-max);
@@ -59,72 +62,41 @@ img {
   padding-inline: var(--marge);
 }
 
-.section {
-  padding-block: 72px;
-}
-
-.section__titre {
-  font-size: clamp(1.8rem, 5vw, 2.6rem);
-  margin-bottom: 12px;
-}
-
-.section__intro {
-  color: var(--creme-doux);
-  max-width: 60ch;
-  margin-bottom: 32px;
-}
-
-/* Petit texte en majuscules au-dessus des titres. */
-.surtitre {
-  font-size: 0.8rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--framboise-clair);
-  margin-bottom: 10px;
-}
-
-/* Bouton principal (framboise). */
+/* Bouton principal. */
 .bouton {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  min-height: 48px; /* assez grand pour le doigt */
-  padding: 12px 24px;
+  min-height: 48px;
+  padding: 12px 26px;
   border: 0;
   border-radius: 999px;
-  background: var(--framboise);
+  background: var(--framboise-bouton);
   color: #fff;
-  font: inherit;
   font-weight: 600;
   text-decoration: none;
   cursor: pointer;
-  transition:
-    background-color 0.2s,
-    transform 0.2s;
+  transition: filter 0.2s;
 }
 
 .bouton:hover {
-  background: var(--framboise-vif);
+  filter: brightness(1.12);
 }
 
-.bouton:active {
-  transform: scale(0.97);
+.bouton:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  filter: none;
 }
 
-/* Étiquette « Exemple » sur les contenus provisoires. */
-.etiquette-exemple {
-  display: inline-block;
-  padding: 2px 8px;
-  border: 1px dashed var(--or);
-  border-radius: 6px;
-  color: var(--or);
-  font-size: 0.72rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+/* Bouton sombre, utilisé sur les fonds colorés des parfums. */
+.bouton--encre {
+  background: var(--encre, var(--brun-profond));
+  color: var(--fond, #fff);
 }
 
-/* Texte lu par les lecteurs d'écran mais invisible à l'écran. */
+/* Texte réservé aux lecteurs d'écran. */
 .visuellement-cache {
   position: absolute;
   width: 1px;
@@ -134,17 +106,25 @@ img {
   white-space: nowrap;
 }
 
-/* Les personnes qui ont demandé moins d'animations n'en ont pas. */
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
+/* Petite pastille « exemple » sur les contenus à confirmer. */
+.exemple {
+  display: inline-block;
+  padding: 1px 8px;
+  border: 1px dashed currentColor;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
 
+@media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* Le logo de l'en-tête se place par rapport à la page. */
+.page {
+  position: relative;
 }

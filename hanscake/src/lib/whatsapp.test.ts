@@ -1,12 +1,14 @@
 import { describe, expect, it } from "vitest";
-import { gateauParDefaut } from "../data/options";
-import { creerLienWhatsApp, creerMessage, dateMinimum, formaterDate } from "./whatsapp";
+import { parfums } from "../data/parfums";
+import { vitrine } from "../data/vitrine";
+import { creerLienWhatsApp, creerMessage, dateMinimum, formaterDate, resumerBoite, totalBoite } from "./whatsapp";
 
 const infos = { prenom: " Amina ", date: "2026-12-24", heure: "16:30", parts: 12, inscription: "" };
+const [fraisier, , , eclair] = vitrine;
 
 describe("formaterDate", () => {
-  it("écrit la date en toutes lettres, en français", () => {
-    expect(formaterDate("2026-12-24")).toBe("jeudi 24 décembre 2026");
+  it("écrit la date en toutes lettres", () => {
+    expect(formaterDate("2026-12-24")).toBe("jeudi 24 décembre");
   });
 });
 
@@ -16,26 +18,40 @@ describe("dateMinimum", () => {
   });
 });
 
+describe("boîte", () => {
+  it("additionne les prix", () => {
+    expect(totalBoite([eclair, eclair, fraisier])).toBe(eclair.prix * 2 + fraisier.prix);
+  });
+  it("regroupe les doublons", () => {
+    expect(resumerBoite([eclair, fraisier, eclair])).toEqual(["2 × Éclair au chocolat", "1 × Fraisier"]);
+  });
+});
+
 describe("creerMessage", () => {
-  it("contient les quatre choix et les informations de retrait", () => {
-    const message = creerMessage("Han'sCake", gateauParDefaut, infos);
-    expect(message).toContain("• Génoise : Vanille");
-    expect(message).toContain("• Décor : Framboises fraîches");
-    expect(message).toContain("Nombre de parts : 12");
-    expect(message).toContain("Retrait : jeudi 24 décembre 2026 à 16 h 30");
+  it("décrit un gâteau, avec l'inscription seulement si elle existe", () => {
+    const message = creerMessage({ type: "gateau", parfum: parfums[0] }, infos);
+    expect(message).toContain("• Parfum : Chocolat framboise");
+    expect(message).toContain("• Nombre de parts : 12");
+    expect(message).toContain("Retrait : jeudi 24 décembre à 16 h 30");
     expect(message).toContain("Prénom : Amina");
+    expect(message).not.toContain("Inscription");
+    const avec = creerMessage({ type: "gateau", parfum: parfums[0] }, { ...infos, inscription: "Joyeux 18 ans" });
+    expect(avec).toContain("• Inscription : « Joyeux 18 ans »");
   });
 
-  it("n'ajoute la ligne d'inscription que si elle est remplie", () => {
-    expect(creerMessage("Han'sCake", gateauParDefaut, infos)).not.toContain("Inscription");
-    const avec = creerMessage("Han'sCake", gateauParDefaut, { ...infos, inscription: "Joyeux anniversaire" });
-    expect(avec).toContain("Inscription sur le gâteau : « Joyeux anniversaire »");
+  it("décrit une boîte avec son total", () => {
+    const message = creerMessage({ type: "boite", patisseries: [eclair, eclair, fraisier] }, infos);
+    expect(message).toContain("boîte de pâtisseries");
+    expect(message).toContain("• 2 × Éclair au chocolat");
+    expect(message).toContain("Total indiqué sur le site : 1 400 FDJ");
+    expect(message).not.toContain("Nombre de parts");
   });
 });
 
 describe("creerLienWhatsApp", () => {
-  it("encode le message dans le lien wa.me", () => {
-    const lien = creerLienWhatsApp("25377000000", "Bonjour & merci\nÀ demain");
-    expect(lien).toBe("https://wa.me/25377000000?text=Bonjour%20%26%20merci%0A%C3%80%20demain");
+  it("encode le message dans le lien", () => {
+    expect(creerLienWhatsApp("25377000000", "Bonjour & merci\nÀ demain")).toBe(
+      "https://wa.me/25377000000?text=Bonjour%20%26%20merci%0A%C3%80%20demain",
+    );
   });
 });
