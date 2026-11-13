@@ -14,7 +14,6 @@ import { useCommande } from "../../context/CommandeContext";
 import { parfums } from "../../data/parfums";
 import { vitrine } from "../../data/vitrine";
 import { Visuel } from "../Visuel/Visuel";
-import { Tampon } from "./Tampon";
 import "./Arc.css";
 
 /*
@@ -142,7 +141,6 @@ export function Arc() {
         </ul>
       </motion.div>
 
-      <Tampon />
     </section>
   );
 }

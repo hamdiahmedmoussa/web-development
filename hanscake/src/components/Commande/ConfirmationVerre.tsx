@@ -67,8 +67,8 @@ export function ConfirmationVerre({ lien, prenom, retour }: Props) {
           Commande prête à envoyer
         </h2>
         <p className="verre__texte">
-          Merci {prenom.trim()}. Votre message est écrit, il ne reste qu'à l'envoyer sur WhatsApp. On vous répond
-          avec le prix et le numéro CAC.
+          Merci {prenom.trim()}. Votre message est écrit, il ne reste qu'à l'envoyer sur WhatsApp. Nous vous
+          répondons avec le prix et le numéro CAC.
         </p>
         <a className="bouton verre__bouton" href={lien} target="_blank" rel="noopener noreferrer">
           Ouvrir WhatsApp

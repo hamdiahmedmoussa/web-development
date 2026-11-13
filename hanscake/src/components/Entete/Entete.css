@@ -2,12 +2,28 @@
   position: absolute;
   inset: 0 0 auto 0;
   z-index: 5;
+}
+
+/* Une ligne de texte discrète, pas un bandeau : la maquette est signalée sans prendre la place du site. */
+.entete__maquette {
+  padding: 6px var(--marge);
+  font-size: 0.72rem;
+  color: var(--texte-doux);
+  background: color-mix(in srgb, var(--fond-profond) 80%, transparent);
+}
+
+.entete__maquette a {
+  color: var(--accent);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.entete__ligne {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 8px 16px;
-  padding: 16px var(--marge);
+  gap: 12px;
+  padding: 12px var(--marge);
 }
 
 .entete__logo {
@@ -21,32 +37,6 @@
 
 .entete__logo span {
   color: var(--accent);
-}
-
-.entete__mention {
-  padding: 4px 12px;
-  border: 1px solid var(--trait);
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--fond-profond) 70%, transparent);
-  color: var(--texte-doux);
-  font-size: 0.72rem;
-}
-
-.entete__demo {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px;
-}
-
-.entete__version {
-  padding: 4px 12px;
-  border-radius: 999px;
-  background: var(--accent);
-  color: var(--sur-accent);
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-decoration: none;
 }
 
 .entete__statut {

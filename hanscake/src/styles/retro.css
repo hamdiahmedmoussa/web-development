@@ -26,14 +26,13 @@
 }
 
 [data-theme="retro"] .arc__lien-carte,
-[data-theme="retro"] .vitrine__carte,
 [data-theme="retro"] .boite__ajout {
   border: var(--contour);
   box-shadow: var(--ombre-retro);
 }
 
-[data-theme="retro"] .vitrine__carte {
-  color: inherit;
+[data-theme="retro"] .vitrine__pastille {
+  border: var(--contour);
 }
 
 [data-theme="retro"] .arc__etiquette {

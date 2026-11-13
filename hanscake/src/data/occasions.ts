@@ -8,7 +8,7 @@ export const occasions: Occasion[] = [
   {
     id: "anniversaire",
     nom: "Anniversaire",
-    texte: "On écrit le prénom dessus. Les bougies chiffres, apportez-les : on n'en vend pas.",
+    texte: "Nous écrivons le prénom dessus. Les bougies chiffres, apportez-les : nous n'en vendons pas.",
     parfumId: "chocolat-framboise",
     couleur: "#f6c1cf",
     encre: "#4a1420",
@@ -16,7 +16,7 @@ export const occasions: Occasion[] = [
   {
     id: "mariage",
     nom: "Mariage",
-    texte: "Au-delà de 24 parts, on fait plusieurs gâteaux. Écrivez-nous quelques jours avant.",
+    texte: "Au-delà de 24 parts, nous faisons plusieurs gâteaux. Écrivez-nous quelques jours avant.",
     parfumId: "vanille-fraise",
     couleur: "#f3e6cf",
     encre: "#4a3110",

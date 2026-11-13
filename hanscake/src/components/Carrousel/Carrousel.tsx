@@ -5,7 +5,6 @@ import { useCommande } from "../../context/CommandeContext";
 import { parfums } from "../../data/parfums";
 import { Visuel } from "../Visuel/Visuel";
 import { Ingredient } from "./Ingredient";
-import { Vermicelles } from "./Vermicelles";
 import "./Carrousel.css";
 
 /*
@@ -102,7 +101,6 @@ export function Carrousel() {
       <h2 className="visuellement-cache">Nos gâteaux</h2>
 
       <div className="carrousel__scene" ref={refScene}>
-        {!reduit && <Vermicelles />}
         {/* Le mot géant, derrière le gâteau */}
         <AnimatePresence initial={false} custom={direction}>
           <motion.p

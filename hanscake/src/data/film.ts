@@ -10,7 +10,7 @@ export const etapesFilm: EtapeFilm[] = [
     fin: 0.8,
     poids: 1.1,
     titre: "Un gâteau, du bol à la boîte",
-    texte: "Faites défiler : voici comment on prépare le chocolat framboise, rue de Rome.",
+    texte: "Faites défiler : voici comment nous préparons le chocolat framboise, rue de Rome.",
   },
   {
     debut: 0.8,

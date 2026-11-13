@@ -9,9 +9,8 @@
   font-style: var(--style-titre);
   font-weight: 700;
   font-stretch: var(--etroit-titre);
-  font-size: clamp(3rem, 14vw, 7rem);
-  line-height: 1;
-  margin-bottom: 36px;
+  font-size: 1.4rem;
+  margin-bottom: 28px;
 }
 
 .pied__logo span {

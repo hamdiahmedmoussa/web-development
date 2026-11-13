@@ -6,7 +6,7 @@
   position: relative;
   overflow: hidden;
   min-height: 100svh;
-  padding-top: 92px;
+  padding-top: 120px;
   padding-bottom: 24px;
   background: var(--fond-page);
   isolation: isolate;
@@ -190,23 +190,11 @@
   opacity: 0.75;
 }
 
-.arc__tampon {
-  position: absolute;
-  right: max(var(--marge), 4vw);
-  top: 96px;
-  z-index: 2;
-  width: clamp(76px, 11vw, 120px);
-}
 
 @media (max-width: 759px) {
   /* Sur téléphone, l'en-tête passe sur deux lignes : on laisse plus de place au-dessus du titre. */
   .arc {
-    padding-top: 172px;
-  }
-
-  /* Sur téléphone, le tampon n'a pas de place : on l'enlève plutôt que de tout serrer. */
-  .arc__tampon {
-    display: none;
+    padding-top: 128px;
   }
 
   .arc__liste {

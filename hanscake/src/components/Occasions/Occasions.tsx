@@ -16,7 +16,7 @@ export function Occasions() {
         <h2 id="titre-occasions" className="occasions__titre">
           C'est pour quoi ?
         </h2>
-        <p className="occasions__intro">Dites-nous la fête, on vous dit quel gâteau prendre.</p>
+        <p className="occasions__intro">Dites-nous la fête, nous vous disons quel gâteau prendre.</p>
 
         <ul className="occasions__liste">
           {occasions.map((o) => {
