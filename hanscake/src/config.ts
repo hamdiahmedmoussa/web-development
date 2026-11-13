@@ -8,6 +8,13 @@ export const config = {
   estUneMaquette: true,
 
   /**
+   * Section d'ouverture :
+   * - "arc"  : tous les gâteaux et pâtisseries sur un arc rétro en 3D
+   * - "film" : le film qui avance avec le défilement
+   */
+  ouverture: "arc" as "arc" | "film",
+
+  /**
    * Numéro WhatsApp qui reçoit les commandes : indicatif + numéro, sans « + » ni espaces.
    * Pour tes essais et la démonstration, mets TON numéro : sinon chaque test
    * envoie une vraie commande à la pâtisserie.

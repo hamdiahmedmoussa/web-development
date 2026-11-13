@@ -1,3 +1,4 @@
+import { Arc } from "./components/Arc/Arc";
 import { BarreCommande } from "./components/BarreCommande/BarreCommande";
 import { ComposerBoite } from "./components/Boite/ComposerBoite";
 import { Carrousel } from "./components/Carrousel/Carrousel";
@@ -7,6 +8,7 @@ import { FAQ } from "./components/FAQ/FAQ";
 import { Film } from "./components/Film/Film";
 import { PiedDePage } from "./components/PiedDePage/PiedDePage";
 import { Vitrine } from "./components/Vitrine/Vitrine";
+import { config } from "./config";
 import { CommandeProvider } from "./context/CommandeContext";
 
 /** La page entière, section par section, dans l'ordre du brief. */
@@ -16,7 +18,7 @@ export default function App() {
       <div id="haut" className="page">
         <Entete />
         <main>
-          <Film />
+          {config.ouverture === "film" ? <Film /> : <Arc />}
           <Carrousel />
           <Vitrine />
           <ComposerBoite />

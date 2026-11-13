@@ -22,7 +22,7 @@ Sur ton téléphone (même Wi-Fi) : `npm run dev -- --host`, puis ouvre l'adress
 
 | # | Section | Composant |
 |---|---|---|
-| 1 | Film piloté par le défilement | `components/Film` |
+| 1 | Ouverture : arc rétro en 3D avec tous les gâteaux et pâtisseries (ou le film, au choix) | `components/Arc`, `components/Film` |
 | 2 | Carrousel des parfums | `components/Carrousel` |
 | 3 | Vitrine | `components/Vitrine` |
 | 4 | Composez votre boîte | `components/Boite` |
@@ -37,6 +37,7 @@ Barre « Commander » fixée en bas : `components/BarreCommande`.
 | Je veux changer… | Fichier |
 |---|---|
 | Numéro WhatsApp, horaires, adresse, réseaux | `src/config.ts` |
+| Ouverture en arc ou en film | `ouverture` dans `src/config.ts` |
 | Textes et temps du film | `src/data/film.ts` |
 | Parfums du carrousel (couleurs, prix, ingrédients) | `src/data/parfums.ts` |
 | Pâtisseries de la vitrine et de la boîte | `src/data/vitrine.ts` |

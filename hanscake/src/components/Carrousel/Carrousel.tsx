@@ -1,5 +1,5 @@
 import { AnimatePresence, motion, useReducedMotion, type PanInfo } from "motion/react";
-import { useState, type CSSProperties, type KeyboardEvent } from "react";
+import type { CSSProperties, KeyboardEvent } from "react";
 import { config, formaterPrix } from "../../config";
 import { useCommande } from "../../context/CommandeContext";
 import { parfums } from "../../data/parfums";
@@ -20,17 +20,12 @@ import "./Carrousel.css";
 const ressort = { type: "spring", stiffness: 260, damping: 30 } as const;
 
 export function Carrousel() {
-  const [[index, direction], setEtat] = useState<[number, number]>([0, 0]);
-  const { ouvrir, setParfumCourant } = useCommande();
+  // Le parfum affiché est rangé dans le contexte : l'arc d'ouverture peut aussi le choisir.
+  const { ouvrir, indexParfum: index, direction, choisirParfum } = useCommande();
   const reduit = useReducedMotion();
   const parfum = parfums[index];
 
-  function allerA(nouvelIndex: number) {
-    // Le modulo fait boucler : après le dernier, on revient au premier.
-    const n = (nouvelIndex + parfums.length) % parfums.length;
-    setEtat([n, nouvelIndex > index ? 1 : -1]);
-    setParfumCourant(parfums[n]);
-  }
+  const allerA = choisirParfum;
 
   // Glissement du doigt : au-delà de 60 px ou d'un geste rapide, on change de gâteau.
   function finGlisse(_: unknown, info: PanInfo) {

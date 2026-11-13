@@ -4,8 +4,9 @@ import type { Article, Parfum } from "../types";
 
 /*
   LE CONTEXTE DE COMMANDE
-  Plusieurs composants éloignés ont besoin des mêmes informations :
-  le carrousel, la boîte et la barre du bas ouvrent tous le formulaire.
+  Plusieurs composants éloignés partagent les mêmes informations :
+   - l'arc d'ouverture, le carrousel et la barre du bas montrent le même parfum ;
+   - le carrousel, la boîte et la barre du bas ouvrent le formulaire.
   Au lieu de passer ces données de parent en enfant (« prop drilling »),
   on les place dans un contexte : tout composant peut les lire avec useCommande().
 */
@@ -14,26 +15,44 @@ interface ValeurCommande {
   article: Article | null;
   ouvrir: (article: Article) => void;
   fermer: () => void;
-  /** Le parfum affiché dans le carrousel : la barre du bas le propose. */
+  /** Parfum affiché dans le carrousel, et de quel côté il est arrivé (+1 ou -1). */
+  indexParfum: number;
+  direction: number;
   parfumCourant: Parfum;
-  setParfumCourant: (parfum: Parfum) => void;
+  choisirParfum: (index: number) => void;
 }
 
 const Contexte = createContext<ValeurCommande | null>(null);
 
 export function CommandeProvider({ children }: { children: ReactNode }) {
   const [article, setArticle] = useState<Article | null>(null);
-  const [parfumCourant, setParfumCourant] = useState<Parfum>(parfums[0]);
+  const [[indexParfum, direction], setParfum] = useState<[number, number]>([0, 0]);
+
+  function choisirParfum(nouvel: number) {
+    // Le modulo fait boucler : après le dernier parfum, on revient au premier.
+    const n = (nouvel + parfums.length) % parfums.length;
+    setParfum(([ancien]) => [n, nouvel > ancien ? 1 : -1]);
+  }
 
   return (
     <Contexte.Provider
-      value={{ article, ouvrir: setArticle, fermer: () => setArticle(null), parfumCourant, setParfumCourant }}
+      value={{
+        article,
+        ouvrir: setArticle,
+        fermer: () => setArticle(null),
+        indexParfum,
+        direction,
+        parfumCourant: parfums[indexParfum],
+        choisirParfum,
+      }}
     >
       {children}
     </Contexte.Provider>
   );
 }
 
+// Le hook vit à côté du Provider qu'il lit : c'est le schéma habituel en React.
+// oxlint-disable-next-line react/only-export-components
 export function useCommande(): ValeurCommande {
   const valeur = useContext(Contexte);
   if (!valeur) throw new Error("useCommande doit être utilisé dans <CommandeProvider>.");
