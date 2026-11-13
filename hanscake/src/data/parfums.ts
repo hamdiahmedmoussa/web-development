@@ -1,83 +1,54 @@
 import type { Parfum } from "../types";
 
 /*
-  Les gâteaux du carrousel. EXEMPLES À CONFIRMER (parfums et prix).
-  Images attendues :
-   - le gâteau : public/images/parfums/<id>.png
-   - les ingrédients : public/images/ingredients/<fichier>.png
+  Les gâteaux du carrousel : ceux qu'on voit dans le réfrigérateur de la boutique
+  et sur le compte Instagram hanscake.cafeteria.
+  NOMS EXACTS ET PRIX À CONFIRMER avec la pâtisserie.
+  Photo : public/images/parfums/<id>.webp
+
+  Ingrédients flottants : facultatifs. Ajoute par exemple
+  { fichier: "pistache", nom: "Pistache" } et la photo détourée
+  public/images/ingredients/pistache.png : elle apparaîtra autour du gâteau.
 */
 export const parfums: Parfum[] = [
   {
-    id: "chocolat-framboise",
-    nom: "Chocolat framboise",
+    id: "chocolat-miroir",
+    nom: "Chocolat glaçage miroir",
     motGeant: "Chocolat",
-    description: "Génoise au cacao, ganache fondante et framboises fraîches. Le gâteau du film.",
+    description: "Le gâteau de notre vitrine : crème au chocolat, glaçage qui coule sur les bords, plaque Han's Cake sur le dessus.",
     prix: 3500,
-    fond: "#e2557a",
-    encre: "#2a0d16",
-    ingredients: [
-      { fichier: "framboise", nom: "Framboise" },
-      { fichier: "copeau-chocolat", nom: "Copeau de chocolat" },
-      { fichier: "framboise", nom: "Framboise" },
-      { fichier: "feuille-menthe", nom: "Feuille de menthe" },
-    ],
+    fond: "#6b4434",
+    encre: "#fbeee4",
+    ingredients: [],
   },
   {
-    id: "vanille-fraise",
-    nom: "Vanille fraise",
-    motGeant: "Vanille",
-    description: "Génoise vanille, chantilly légère et fraises coupées le matin même.",
+    id: "moka",
+    nom: "Moka",
+    motGeant: "Moka",
+    description: "Crème au café, coulure de chocolat et rosaces, avec une fraise sur le dessus.",
     prix: 3500,
-    fond: "#f7d3cb",
-    encre: "#5c1f2c",
-    ingredients: [
-      { fichier: "fraise", nom: "Fraise" },
-      { fichier: "gousse-vanille", nom: "Gousse de vanille" },
-      { fichier: "creme-fouettee", nom: "Crème fouettée" },
-      { fichier: "fraise", nom: "Fraise" },
-    ],
+    fond: "#d8bd9c",
+    encre: "#3a2414",
+    ingredients: [],
   },
   {
-    id: "pistache",
-    nom: "Pistache",
-    motGeant: "Pistache",
-    description: "Crème de pistache torréfiée, éclats croquants et une pointe de fleur d'oranger.",
+    id: "dubai-chocolate",
+    nom: "Dubai chocolate",
+    motGeant: "Dubaï",
+    description: "La nouveauté de la maison, inspirée du chocolat de Dubaï : chocolat et pistache, en couches.",
     prix: 4000,
-    fond: "#b5cc8a",
+    fond: "#a3c27a",
     encre: "#1e3312",
-    ingredients: [
-      { fichier: "pistache-eclat", nom: "Éclats de pistache" },
-      { fichier: "feuille-menthe", nom: "Feuille de menthe" },
-      { fichier: "pistache-eclat", nom: "Éclats de pistache" },
-    ],
+    ingredients: [],
   },
   {
-    id: "red-velvet",
-    nom: "Red velvet",
-    motGeant: "Velvet",
-    description: "Génoise rouge veloutée, crème au fromage frais et cerises confites.",
+    id: "kitkat",
+    nom: "Kit Kat",
+    motGeant: "Kit Kat",
+    description: "Chocolat, rosaces de crème et barres Kit Kat sur le dessus.",
     prix: 4000,
-    fond: "#8e1b2c",
-    encre: "#fde9e3",
-    ingredients: [
-      { fichier: "cerise", nom: "Cerise" },
-      { fichier: "creme-fouettee", nom: "Crème" },
-      { fichier: "cerise", nom: "Cerise" },
-    ],
-  },
-  {
-    id: "caramel",
-    nom: "Caramel noisette",
-    motGeant: "Caramel",
-    description: "Caramel au beurre salé qui coule sur les bords, noisettes torréfiées.",
-    prix: 3500,
-    fond: "#e4a24c",
-    encre: "#3a1d06",
-    ingredients: [
-      { fichier: "caramel-morceau", nom: "Morceau de caramel" },
-      { fichier: "noisette", nom: "Noisette" },
-      { fichier: "noisette", nom: "Noisette" },
-      { fichier: "caramel-morceau", nom: "Morceau de caramel" },
-    ],
+    fond: "#c8102e",
+    encre: "#fff3e8",
+    ingredients: [],
   },
 ];

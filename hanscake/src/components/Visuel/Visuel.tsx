@@ -8,6 +8,8 @@ interface VisuelProps {
   className?: string;
   /** true pour l'image principale visible dès l'arrivée (pas de chargement différé). */
   prioritaire?: boolean;
+  /** true : n'affiche rien si l'image manque (pour les décorations, comme les ingrédients). */
+  discret?: boolean;
 }
 
 /*
@@ -20,10 +22,11 @@ interface VisuelProps {
 */
 const EXTENSIONS = [".webp", ".png"];
 
-export function Visuel({ chemin, alt, className = "", prioritaire = false }: VisuelProps) {
+export function Visuel({ chemin, alt, className = "", prioritaire = false, discret = false }: VisuelProps) {
   const [essai, setEssai] = useState(0);
 
   if (essai >= EXTENSIONS.length) {
+    if (discret) return null;
     const fichier = chemin.split("/").pop();
     return (
       <div className={`visuel-manquant ${className}`} role="img" aria-label={alt}>

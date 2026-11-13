@@ -1,0 +1,140 @@
+.galerie {
+  padding-block: 72px;
+}
+
+.galerie__titre {
+  font-size: clamp(2.4rem, 8vw, 4.4rem);
+  font-variation-settings: var(--axes-titre);
+  margin-bottom: 12px;
+}
+
+.galerie__intro {
+  color: var(--texte-doux);
+  max-width: 46ch;
+  margin-bottom: 24px;
+}
+
+/* Onglets : défilent de côté sur téléphone */
+.galerie__onglets {
+  display: flex;
+  gap: 8px;
+  margin: 0 calc(var(--marge) * -1) 18px;
+  padding: 0 var(--marge) 6px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.galerie__onglet {
+  flex: none;
+  min-height: 44px;
+  padding: 8px 16px;
+  border: 1px solid var(--trait);
+  border-radius: var(--rayon-bouton);
+  background: transparent;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.galerie__onglet[aria-selected="true"] {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--sur-accent);
+}
+
+.galerie__texte {
+  max-width: 56ch;
+  margin-bottom: 18px;
+  font-size: 1.05rem;
+}
+
+.galerie__photos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.galerie__photo {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--rayon);
+  background: var(--panneau);
+  text-align: left;
+  cursor: pointer;
+}
+
+.galerie__photo img,
+.galerie__photo .visuel-manquant {
+  width: 100%;
+  aspect-ratio: 232 / 270;
+  object-fit: cover;
+  border-radius: 0;
+  transition: scale 0.4s ease;
+}
+
+.galerie__photo:hover img {
+  scale: 1.04;
+}
+
+/* La légende et l'action, posées sur un dégradé sombre en bas de la photo */
+.galerie__legende,
+.galerie__action {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  color: #fff;
+}
+
+.galerie__legende {
+  bottom: 34px;
+  font-size: 0.78rem;
+  line-height: 1.25;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.galerie__action {
+  bottom: 10px;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.galerie__photo::after {
+  content: "";
+  position: absolute;
+  inset: 45% 0 0 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.72));
+  pointer-events: none;
+}
+
+.galerie__legende,
+.galerie__action {
+  z-index: 1;
+}
+
+@media (min-width: 900px) {
+  .galerie {
+    padding-block: 112px;
+  }
+
+  .galerie__onglets {
+    flex-wrap: wrap;
+    margin-inline: 0;
+    padding-inline: 0;
+  }
+
+  .galerie__photos {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+
+[data-theme="retro"] .galerie__photo {
+  border: var(--contour);
+  box-shadow: var(--ombre-retro);
+}

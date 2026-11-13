@@ -81,7 +81,8 @@
 }
 
 .champ input,
-.champ select {
+.champ select,
+.champ textarea {
   width: 100%;
   min-height: 48px;
   padding: 10px 12px;
@@ -94,7 +95,13 @@
   font-weight: 400;
 }
 
-.champ input::placeholder {
+.champ textarea {
+  resize: vertical;
+  line-height: 1.4;
+}
+
+.champ input::placeholder,
+.champ textarea::placeholder {
   color: var(--texte-doux);
   opacity: 0.7;
 }

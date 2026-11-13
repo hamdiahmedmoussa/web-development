@@ -35,7 +35,7 @@ Sur ton téléphone (même Wi-Fi) : `npm run dev -- --host`, puis ouvre l'adress
 |---|---|---|
 | 1 | Ouverture : arc rétro en 3D avec tous les gâteaux et pâtisseries (ou le film, au choix) | `components/Arc`, `components/Film` |
 | 2 | Carrousel des parfums (ingrédients aspirés puis rejaillis, répulsion du pointeur, gâteau qui s'incline, vermicelles) | `components/Carrousel` |
-| 2b | Occasions : anniversaire, mariage, naissance, Aïd, fin d'année | `components/Occasions` |
+| 2b | Galerie de vrais gâteaux par occasion, commande « comme celui-ci » | `components/Galerie` |
 | 2c | Calculateur de parts | `components/Calculateur` |
 | 3 | Vitrine | `components/Vitrine` |
 | 4 | Composez votre boîte | `components/Boite` |
@@ -56,7 +56,7 @@ Barre « Commander » fixée en bas : `components/BarreCommande`.
 | Parfums du carrousel (couleurs, prix, ingrédients) | `src/data/parfums.ts` |
 | Pâtisseries de la vitrine et de la boîte | `src/data/vitrine.ts` |
 | Questions fréquentes | `src/data/faq.ts` |
-| Occasions et gâteau conseillé | `src/data/occasions.ts` |
+| Galerie par occasion | `src/data/galerie.ts` |
 | Avis clients (vrais avis uniquement) | `src/data/avis.ts` |
 | Horaires de chaque boutique, lien Maps | `boutiques` dans `src/config.ts` |
 | Couleurs générales et polices | `src/styles/variables.css` |
@@ -64,17 +64,23 @@ Barre « Commander » fixée en bas : `components/BarreCommande`.
 ⚠️ Pour tes essais, mets **ton** numéro dans `config.whatsapp` : sinon chaque test envoie une vraie
 commande à la pâtisserie.
 
-## Images à fournir
+## Images
 
-PNG à fond transparent. Tant qu'une image manque, le site affiche un cercle en pointillés
-avec le nom du fichier attendu. Après avoir ajouté des images, lance `npm run images`.
+Les photos viennent du compte Instagram de la pâtisserie (**hanscake.cafeteria**) et de son réfrigérateur
+de vitrine, recadrées et converties en WebP (716 Ko pour 39 photos).
 
-| Dossier | Fichiers |
+| Dossier | Contenu |
 |---|---|
-| `public/images/parfums/` (≈ 1000 × 1000) | `chocolat-framboise.png`, `vanille-fraise.png`, `pistache.png`, `red-velvet.png`, `caramel.png` |
-| `public/images/ingredients/` (≈ 300 × 300) | `framboise.png`, `copeau-chocolat.png`, `feuille-menthe.png`, `fraise.png`, `gousse-vanille.png`, `creme-fouettee.png`, `pistache-eclat.png`, `cerise.png`, `caramel-morceau.png`, `noisette.png` |
-| `public/images/vitrine/` (≈ 700 × 700) | `fraisier.png`, `millefeuille.png`, `tarte-citron.png`, `eclair-chocolat.png`, `paris-brest.png`, `opera.png` |
-| `public/images/logo/` | `logo.png` (pas encore branché : le logo est écrit en texte) |
+| `public/images/galerie/` | gâteaux personnalisés par occasion (voir `src/data/galerie.ts`) |
+| `public/images/parfums/` | gâteaux du carrousel (voir `src/data/parfums.ts`) |
+| `public/images/vitrine/` | pâtisseries à la pièce (voir `src/data/vitrine.ts`) |
+| `public/images/boutique/` | devanture et réfrigérateur |
+| `public/images/ingredients/` | facultatif : PNG détourés qui flottent autour des gâteaux |
+
+⚠️ Avant toute mise en ligne publique, demander l'accord de Han'sCake pour ces photos
+(et des familles quand un prénom d'enfant est écrit sur le gâteau).
+Une image manquante affiche un cercle en pointillés avec le nom du fichier attendu.
+`npm run images` convertit en WebP les nouveaux PNG déposés.
 
 ## Le film
 

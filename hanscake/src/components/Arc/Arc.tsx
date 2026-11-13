@@ -99,14 +99,14 @@ export function Arc() {
 
       <div className="conteneur arc__entete">
         <h1 id="titre-arc" className="arc__titre">
-          Votre gâteau pour demain, commandé ce soir
+          Votre idée, en gâteau
         </h1>
         <p className="arc__texte">
-          Choisissez le parfum, le nombre de parts et le prénom à écrire dessus. La commande arrive sur notre WhatsApp, vous passez la chercher rue de Rome.
+          Le héros de votre enfant, un prénom, des couleurs, un âge : décrivez-le, nous le faisons en pâte à sucre. La commande arrive sur notre WhatsApp.
         </p>
         <div className="arc__actions">
-          <a className="bouton" href="#parfums">
-            Choisir mon gâteau
+          <a className="bouton" href="#galerie">
+            Voir nos gâteaux
           </a>
           <a className="arc__lien" href="#boite">
             Composer une boîte

@@ -155,7 +155,8 @@
 .boite__retirer img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 .boite__retirer .visuel-manquant {
@@ -211,4 +212,11 @@
     gap: 64px;
     align-items: center;
   }
+}
+
+.boite__ajout-image img {
+  width: 44px;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;
 }

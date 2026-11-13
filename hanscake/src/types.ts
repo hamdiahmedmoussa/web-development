@@ -44,20 +44,26 @@ export interface Patisserie {
 
 /** Ce que le client commande : un gâteau du carrousel ou une boîte de pâtisseries. */
 /** Ce que le client commande : un gâteau (avec un nombre de parts conseillé) ou une boîte. */
-export type Article = { type: "gateau"; parfum: Parfum; parts?: number } | { type: "boite"; patisseries: Patisserie[] };
+/**
+ * Ce que le client commande :
+ * - un gâteau de la vitrine (avec un nombre de parts conseillé),
+ * - un gâteau personnalisé à partir d'un modèle de la galerie,
+ * - une boîte de pâtisseries.
+ */
+export type Article =
+  | { type: "gateau"; parfum: Parfum; parts?: number }
+  | { type: "sur-mesure"; theme: string; modele: string }
+  | { type: "boite"; patisseries: Patisserie[] };
 
 /** Horaires d'une boutique : jour (0 = dimanche … 6 = samedi) → [ouverture, fermeture] ou null. */
 export type Horaires = Record<number, [string, string] | null>;
 
-/** Une occasion de fête et le gâteau qu'on conseille pour elle. */
-export interface Occasion {
+/** Un thème de la galerie (anniversaire enfant, mariage…) et ses vraies photos. */
+export interface Theme {
   id: string;
   nom: string;
   texte: string;
-  /** id du parfum conseillé (voir data/parfums.ts) */
-  parfumId: string;
-  couleur: string;
-  encre: string;
+  photos: { fichier: string; description: string }[];
 }
 
 /** Un avis client. Uniquement de VRAIS avis, fournis par la pâtisserie. */
@@ -77,4 +83,6 @@ export interface InfosCommande {
   heure: string;
   parts: number;
   inscription: string;
+  /** Gâteau personnalisé : l'idée du client (thème, personnage, couleurs, âge). */
+  idee: string;
 }

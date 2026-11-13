@@ -1,56 +1,56 @@
 import type { Patisserie } from "../types";
 
 /*
-  Les classiques de la maison. Prix = EXEMPLES À CONFIRMER.
-  Image attendue : public/images/vitrine/<id>.png
+  Pâtisseries à la pièce, vues sur le compte Instagram hanscake.cafeteria.
+  NOMS EXACTS ET PRIX À CONFIRMER. Photo : public/images/vitrine/<id>.webp
 */
 export const vitrine: Patisserie[] = [
   {
-    id: "fraisier",
-    nom: "Fraisier",
-    description: "Génoise, crème mousseline, fraises fraîches.",
+    id: "dubai-chocolate",
+    nom: "Part de Dubai chocolate",
+    description: "Chocolat et pistache en couches, la nouveauté de la maison.",
+    prix: 700,
+    couleur: "#c9dca8",
+    encre: "#1e3312",
+  },
+  {
+    id: "trois-chocolats",
+    nom: "Mousse trois chocolats",
+    description: "Noir, lait et blanc, sur un biscuit fin.",
     prix: 600,
-    couleur: "#f4b6c2",
-    encre: "#4a1420",
-  },
-  {
-    id: "millefeuille",
-    nom: "Millefeuille vanille",
-    description: "Feuilletage caramélisé, crème pâtissière.",
-    prix: 500,
-    couleur: "#f1d9a7",
-    encre: "#4a3110",
-  },
-  {
-    id: "tarte-citron",
-    nom: "Tarte citron meringuée",
-    description: "Pâte sablée, crème de citron, meringue dorée.",
-    prix: 500,
-    couleur: "#f5e27a",
-    encre: "#3d3605",
-  },
-  {
-    id: "eclair-chocolat",
-    nom: "Éclair au chocolat",
-    description: "Pâte à choux, crémeux chocolat noir.",
-    prix: 400,
     couleur: "#8a5a44",
     encre: "#fbeee4",
   },
   {
-    id: "paris-brest",
-    nom: "Paris-brest",
-    description: "Couronne de choux, crème pralinée aux noisettes.",
+    id: "cheesecake-oreo",
+    nom: "Cheesecake Oreo",
+    description: "Crème au fromage et biscuits Oreo.",
     prix: 600,
-    couleur: "#d9a066",
-    encre: "#3a210a",
+    couleur: "#e9e4dc",
+    encre: "#2b2120",
   },
   {
-    id: "opera",
-    nom: "Opéra",
-    description: "Biscuit au café, ganache, glaçage miroir.",
-    prix: 600,
-    couleur: "#4a3029",
-    encre: "#f7e3cf",
+    id: "cheesecake-chocolat",
+    nom: "Chocolate cheesecake",
+    description: "En verrine, avec une fraise enrobée de chocolat.",
+    prix: 500,
+    couleur: "#f4c6cf",
+    encre: "#4a1420",
+  },
+  {
+    id: "mousse-coco",
+    nom: "Coconut mousse",
+    description: "Mousse à la noix de coco, servie dans une coque.",
+    prix: 500,
+    couleur: "#f3e7d3",
+    encre: "#4a3110",
+  },
+  {
+    id: "eclairs",
+    nom: "Éclair",
+    description: "Pâte à choux et crème, parfums du jour.",
+    prix: 400,
+    couleur: "#e8b77a",
+    encre: "#3a210a",
   },
 ];

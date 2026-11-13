@@ -46,6 +46,21 @@ export const config = {
         6: ["07:00", "21:00"],
       } as Horaires,
     },
+    {
+      // Deuxième boutique, inaugurée le 15 mai 2022 (affiche Instagram). ADRESSE ET HORAIRES À CONFIRMER.
+      nom: "Han'sCake, Cité Saoudi",
+      adresse: "Cité Saoudi, Djibouti",
+      recherche: "Han's Cake, Cité Saoudi, Djibouti",
+      horaires: {
+        0: ["07:00", "21:00"],
+        1: ["07:00", "21:00"],
+        2: ["07:00", "21:00"],
+        3: ["07:00", "21:00"],
+        4: ["07:00", "21:00"],
+        5: ["15:00", "21:00"],
+        6: ["07:00", "21:00"],
+      } as Horaires,
+    },
   ],
   /** Fuseau horaire des boutiques : l'état « ouvert » est juste même pour un visiteur à l'étranger. */
   fuseau: "Africa/Djibouti",
@@ -53,7 +68,7 @@ export const config = {
   /** Réseaux sociaux : remplacer « # » par les vrais liens. */
   reseaux: [
     { nom: "Facebook", lien: "#" },
-    { nom: "Instagram", lien: "#" },
+    { nom: "Instagram", lien: "https://www.instagram.com/hanscake.cafeteria/" },
   ],
 };
 

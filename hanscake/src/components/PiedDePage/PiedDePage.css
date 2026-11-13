@@ -101,3 +101,13 @@
   padding: 3px 10px;
   background: color-mix(in srgb, var(--fond-profond) 70%, transparent);
 }
+
+.pied__logo small {
+  margin-left: 8px;
+  font-family: var(--police-texte);
+  font-stretch: 100%;
+  font-style: normal;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--texte-doux);
+}

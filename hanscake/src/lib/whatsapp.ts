@@ -44,6 +44,19 @@ export function creerMessage(article: Article, infos: InfosCommande): string {
     );
     const inscription = infos.inscription.trim();
     if (inscription) lignes.push(`• Inscription : « ${inscription} »`);
+  } else if (article.type === "sur-mesure") {
+    lignes.push(
+      `Bonjour ${config.nom} ! Je souhaite un gâteau personnalisé :`,
+      "",
+      `• Occasion : ${article.theme}`,
+      `• Modèle vu sur votre site : ${article.modele}`,
+    );
+    const idee = infos.idee.trim();
+    if (idee) lignes.push(`• Mon idée : ${idee}`);
+    lignes.push(`• Nombre de parts : ${infos.parts}`);
+    const inscription = infos.inscription.trim();
+    if (inscription) lignes.push(`• Inscription : « ${inscription} »`);
+    lignes.push("", "Je vous envoie une photo d'exemple juste après ce message.");
   } else {
     lignes.push(`Bonjour ${config.nom} ! Je souhaite commander une boîte de pâtisseries :`, "");
     for (const ligne of resumerBoite(article.patisseries)) lignes.push(`• ${ligne}`);

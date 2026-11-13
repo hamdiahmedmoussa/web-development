@@ -1,7 +1,7 @@
 import { Arc } from "./components/Arc/Arc";
 import { Avis } from "./components/Avis/Avis";
 import { Calculateur } from "./components/Calculateur/Calculateur";
-import { Occasions } from "./components/Occasions/Occasions";
+import { Galerie } from "./components/Galerie/Galerie";
 import { BarreCommande } from "./components/BarreCommande/BarreCommande";
 import { ComposerBoite } from "./components/Boite/ComposerBoite";
 import { Carrousel } from "./components/Carrousel/Carrousel";
@@ -23,8 +23,8 @@ export default function App() {
         <main>
           {/* L'ouverture dépend de la version : le film (Cinéma) ou l'arc (Rétro). */}
           {version === "cinema" ? <Film /> : <Arc />}
+          <Galerie />
           <Carrousel />
-          <Occasions />
           <Calculateur />
           <Vitrine />
           <ComposerBoite />

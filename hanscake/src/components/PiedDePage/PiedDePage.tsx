@@ -9,7 +9,7 @@ export function PiedDePage() {
     <footer className="pied" id="boutiques">
       <div className="conteneur">
         <p className="pied__logo">
-          Han's<span>Cake</span>
+          Han's<span>Cake</span> <small>Pâtisserie & Café</small>
         </p>
 
         <div className="pied__grille">

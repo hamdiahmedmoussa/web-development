@@ -52,6 +52,7 @@ function Contenu({ article, fermer }: { article: Article; fermer: () => void }) 
     // Si le calculateur a conseillé une taille, on la pré-remplit.
     parts: article.type === "gateau" && article.parts ? article.parts : config.partsMinimum,
     inscription: "",
+    idee: "",
   });
   const [dateMin] = useState(() => dateMinimum(new Date(), config.delaiJours));
   const [lien, setLien] = useState<string | null>(null);
@@ -66,6 +67,7 @@ function Contenu({ article, fermer }: { article: Article; fermer: () => void }) 
   }
 
   const estGateau = article.type === "gateau";
+  const estSurMesure = article.type === "sur-mesure";
 
   return (
     // layout : quand le contenu change de taille, la carte s'adapte en douceur.
@@ -86,12 +88,14 @@ function Contenu({ article, fermer }: { article: Article; fermer: () => void }) 
             transition={{ duration: 0.25 }}
           >
             <h2 id="titre-commande" className="commande__titre">
-              {estGateau ? article.parfum.nom : "Votre boîte"}
+              {estGateau ? article.parfum.nom : estSurMesure ? article.theme : "Votre boîte"}
             </h2>
             <p className="commande__resume">
               {estGateau
                 ? `Gâteau à partir de ${formaterPrix(article.parfum.prix)} pour ${config.partsMinimum} parts.`
-                : `${resumerBoite(article.patisseries).join(", ")}. Total ${formaterPrix(totalBoite(article.patisseries))}.`}
+                : estSurMesure
+                  ? `Modèle : ${article.modele}. Le prix dépend du décor : nous vous le donnons sur WhatsApp.`
+                  : `${resumerBoite(article.patisseries).join(", ")}. Total ${formaterPrix(totalBoite(article.patisseries))}.`}
             </p>
 
             <label className="champ">
@@ -115,7 +119,20 @@ function Contenu({ article, fermer }: { article: Article; fermer: () => void }) 
               </label>
             </div>
 
-            {estGateau && (
+            {estSurMesure && (
+              <label className="champ">
+                Votre idée (personnage, couleurs, âge…)
+                <textarea
+                  rows={3}
+                  maxLength={300}
+                  placeholder="Spider-Man, 6 ans, rouge et bleu"
+                  value={infos.idee}
+                  onChange={(e) => modifier("idee", e.target.value)}
+                />
+              </label>
+            )}
+
+            {(estGateau || estSurMesure) && (
               <>
                 <label className="champ">
                   Nombre de parts

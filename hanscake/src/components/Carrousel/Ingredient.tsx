@@ -77,7 +77,7 @@ export function Ingredient({ ingredient, position, pointeur }: Props) {
         animate={reduit ? undefined : { y: [0, -5, 0], rotate: [p.rotation, p.rotation + 3, p.rotation] }}
         transition={{ duration: p.duree, repeat: Infinity, ease: "easeInOut" }}
       >
-        <Visuel chemin={`/images/ingredients/${ingredient.fichier}`} alt="" />
+        <Visuel chemin={`/images/ingredients/${ingredient.fichier}`} alt="" discret />
       </motion.div>
     </motion.div>
   );
