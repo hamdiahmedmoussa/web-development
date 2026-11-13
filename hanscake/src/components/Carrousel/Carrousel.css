@@ -1,0 +1,214 @@
+.carrousel {
+  position: relative;
+  overflow: hidden;
+  padding-block: 56px 48px;
+}
+
+/* La zone du gâteau : le mot géant derrière, le gâteau au centre, les flèches sur les côtés. */
+.carrousel__scene {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: min(108vw, 560px);
+}
+
+.carrousel__mot {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  margin: 0;
+  font-family: var(--police-titre);
+  font-variation-settings: "opsz" 96;
+  font-weight: 700;
+  font-style: italic;
+  font-size: clamp(5rem, 27vw, 19rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+  /* Une teinte du fond, mélangée à 20 % avec la couleur du texte : présent, mais en retrait. */
+  color: color-mix(in srgb, var(--encre) 20%, var(--fond));
+  pointer-events: none;
+  user-select: none;
+}
+
+.carrousel__gateau {
+  position: relative;
+  width: min(78vw, 440px);
+  aspect-ratio: 1;
+  cursor: grab;
+  touch-action: pan-y; /* le doigt peut encore faire défiler la page verticalement */
+}
+
+.carrousel__gateau:active {
+  cursor: grabbing;
+}
+
+.carrousel__image {
+  position: absolute;
+  inset: 12%;
+  width: 76%;
+  height: 76%;
+  object-fit: contain;
+  filter: drop-shadow(0 28px 30px rgba(0, 0, 0, 0.28));
+}
+
+.ingredient {
+  position: absolute;
+  z-index: 1;
+  filter: drop-shadow(0 12px 14px rgba(0, 0, 0, 0.22));
+}
+
+.ingredient .visuel-manquant {
+  font-size: 0.55rem;
+  padding: 4%;
+}
+
+.ingredient .visuel-manquant small {
+  display: none;
+}
+
+.carrousel__fleche {
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.carrousel__fleche:hover {
+  background: var(--encre);
+  color: var(--fond);
+}
+
+.carrousel__fleche--gauche {
+  left: var(--marge);
+}
+
+.carrousel__fleche--droite {
+  right: var(--marge);
+}
+
+.carrousel__fleche--droite svg {
+  rotate: 180deg;
+}
+
+.carrousel__infos {
+  display: grid;
+  gap: 20px;
+}
+
+.carrousel__nom {
+  font-size: clamp(2.2rem, 8vw, 3.6rem);
+  font-variation-settings: "opsz" 72;
+  margin-bottom: 8px;
+}
+
+.carrousel__description {
+  max-width: 40ch;
+}
+
+.carrousel__achat {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 20px;
+}
+
+.carrousel__prix {
+  font-family: var(--police-titre);
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+
+.carrousel__prix span {
+  font-family: var(--police-texte);
+  font-size: 0.9rem;
+  font-weight: 500;
+  opacity: 0.75;
+}
+
+.carrousel__vignettes {
+  display: flex;
+  gap: 10px;
+}
+
+.carrousel__vignette {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border: 2px solid var(--encre);
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.carrousel__vignette span {
+  /* Nom visible au survol sur ordinateur, lu par les lecteurs d'écran partout */
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  translate: -50% 0;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: var(--encre);
+  color: var(--fond);
+  font-size: 0.75rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+.carrousel__vignette:focus-visible span {
+  opacity: 1;
+}
+
+@media (hover: hover) {
+  .carrousel__vignette:hover span {
+    opacity: 1;
+  }
+}
+
+.carrousel__vignette[aria-pressed="true"] {
+  opacity: 1;
+  transform: scale(1.15);
+  box-shadow: 0 0 0 3px var(--fond), 0 0 0 5px var(--encre);
+}
+
+@media (min-width: 900px) {
+  .carrousel {
+    display: flex;
+    flex-direction: column;
+    min-height: 100svh;
+    padding-block: 40px calc(var(--hauteur-barre) + 24px);
+  }
+
+  .carrousel__scene {
+    flex: 1;
+    height: auto;
+    min-height: 380px;
+  }
+
+  .carrousel__gateau {
+    width: min(58svh, 440px);
+  }
+
+  .carrousel__infos {
+    grid-template-columns: 1fr auto;
+    align-items: end;
+  }
+
+  .carrousel__vignettes {
+    grid-column: 1 / -1;
+  }
+}
