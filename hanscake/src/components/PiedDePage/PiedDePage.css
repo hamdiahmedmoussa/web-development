@@ -1,0 +1,56 @@
+.pied {
+  padding-block: 56px 32px;
+  background: var(--brun-profond);
+  border-top: 1px solid var(--trait);
+}
+
+.pied__logo {
+  font-family: var(--police-titre);
+  font-style: italic;
+  font-weight: 700;
+  font-size: clamp(3rem, 14vw, 7rem);
+  line-height: 1;
+  margin-bottom: 36px;
+}
+
+.pied__logo span {
+  color: var(--framboise);
+}
+
+.pied__grille {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 32px;
+}
+
+.pied__titre {
+  font-family: var(--police-texte);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--or);
+  margin-bottom: 10px;
+}
+
+.pied__adresse {
+  font-style: normal;
+  margin-bottom: 6px;
+}
+
+.pied__liste {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--creme-doux);
+}
+
+.pied__liste a {
+  display: inline-block;
+  padding-block: 6px;
+}
+
+.pied__mention {
+  margin-top: 40px;
+  max-width: 70ch;
+  color: var(--creme-doux);
+  font-size: 0.82rem;
+}
