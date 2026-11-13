@@ -1,0 +1,331 @@
+<title>Han'sCake Démo</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,700;1,6..96,500;1,6..96,700&family=Figtree:wght@400;500;600&display=swap">
+<style>
+/* Mise en page : un film fixe (les quatre clips montés) que le défilement fait avancer ; le texte défile par-dessus à gauche, ou sous le film sur téléphone. */
+:root{
+  color-scheme: dark;
+  --fond:#372c2b;         /* le mur du film */
+  --fond-2:#463938;       /* panneaux */
+  --creme:#f7ecdc;        /* texte principal */
+  --creme-doux:#d2c0b4;   /* texte secondaire */
+  --framboise:#ec5c84;    /* accent, la couleur des framboises du film */
+  --or:#e2bd86;           /* petits intitulés */
+  --trait:rgba(247,236,220,.18);
+  --display:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
+  --texte:"Figtree","Segoe UI",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{background:var(--fond);color:var(--creme);font-family:var(--texte);font-size:17px;line-height:1.55;overflow-x:hidden}
+
+.scene{position:fixed;inset:0;overflow:hidden;z-index:0;background:var(--fond) center/cover no-repeat}
+.scene video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:translateX(9vw) scale(1.04);-webkit-mask-image:linear-gradient(90deg,transparent 2%,#000 30%);mask-image:linear-gradient(90deg,transparent 2%,#000 30%)}
+.scene::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--fond) 0,rgba(55,44,43,.82) 22%,rgba(55,44,43,0) 52%);pointer-events:none}
+.charge{position:fixed;right:max(16px,env(safe-area-inset-right,0px));top:calc(72px + env(safe-area-inset-top,0px));z-index:4;font-size:.78rem;color:var(--creme-doux);background:rgba(55,44,43,.85);border:1px solid var(--trait);border-radius:999px;padding:6px 12px}
+
+.page{position:relative;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.col{max-width:1180px;margin:0 auto}
+.tete{position:relative;z-index:3;display:flex;justify-content:space-between;align-items:center;gap:10px 14px;padding-block:22px;flex-wrap:wrap}
+.logo{font-family:var(--display);font-style:italic;font-weight:700;font-size:1.6rem}
+.logo span{color:var(--framboise)}
+.etiquette{font-size:.72rem;color:var(--creme-doux);border:1px solid var(--trait);border-radius:999px;padding:6px 12px;white-space:nowrap;background:rgba(55,44,43,.6)}
+
+.etape,.vitrine{position:relative;z-index:1}
+.etape{min-height:var(--h,150vh)}
+.copie{position:sticky;top:19vh;max-width:27rem;padding-block:8px}
+.hero .copie,.fin .copie,.vitrine .copie{position:static}
+.hero .copie{padding-top:5vh}
+.sur{font-size:.86rem;font-weight:500;color:var(--or);margin:0 0 14px;max-width:none}
+h1,h2{font-family:var(--display);font-weight:500;line-height:1.02;margin:0 0 18px;text-wrap:balance}
+h1{font-size:clamp(2.7rem,5.6vw,4.6rem)}
+h2{font-size:clamp(2.2rem,4.8vw,3.8rem)}
+h1 em,h2 em{color:var(--framboise)}
+p{margin:0 0 20px;color:var(--creme-doux);max-width:34ch}
+.defile{display:inline-flex;align-items:center;gap:10px;font-size:.9rem}
+.defile i{width:1px;height:38px;background:linear-gradient(var(--creme),transparent);display:block}
+
+.choix{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px;padding:0;border:0}
+.choix legend{font-size:.82rem;color:var(--creme-doux);margin-bottom:8px;padding:0}
+.puce{font:inherit;font-size:.92rem;font-weight:500;color:var(--creme);background:rgba(55,44,43,.7);border:1px solid var(--trait);border-radius:999px;padding:8px 15px 8px 11px;display:inline-flex;align-items:center;gap:9px;cursor:pointer}
+.puce b{width:14px;height:14px;border-radius:50%;display:block;border:1px solid rgba(255,255,255,.3)}
+.puce:hover{border-color:var(--creme-doux)}
+.puce[aria-checked="true"]{background:var(--creme);color:#2b2120;border-color:var(--creme)}
+.puce:focus-visible,.btn:focus-visible,.lien:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--or);outline-offset:3px}
+.btn{font:inherit;font-weight:600;font-size:.95rem;color:#fff;background:#c9305c;border:0;border-radius:999px;padding:13px 24px;cursor:pointer}
+.btn:hover{filter:brightness(1.1)}
+.lien{font:inherit;font-size:.9rem;color:var(--creme);background:none;border:0;border-bottom:1px solid var(--trait);padding:0 0 2px;cursor:pointer}
+
+.fin{min-height:0;padding-block:4vh 10vh}
+.vitrine{padding-block:4vh 24vh}
+.vitrine .copie{max-width:30rem}
+.carte{list-style:none;margin:0 0 18px;padding:0;border-top:1px solid var(--trait)}
+.carte li{padding:14px 0;border-bottom:1px solid var(--trait)}
+.carte strong{display:block;font-family:var(--display);font-weight:500;font-size:1.3rem}
+.carte span{font-size:.92rem;color:var(--creme-doux)}
+.note{font-size:.8rem;max-width:44ch}
+
+.barre{position:fixed;left:0;right:0;bottom:0;z-index:5;background:rgba(43,33,32,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--trait);padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.barre .col{display:flex;align-items:center;justify-content:space-between;gap:14px}
+.compo{min-width:0;font-size:.86rem;color:var(--creme-doux);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.compo strong{color:var(--creme);font-weight:500}
+.barre .btn{padding:10px 18px;font-size:.88rem;white-space:nowrap}
+
+.points{position:fixed;right:max(22px,env(safe-area-inset-right,0px));top:50%;transform:translateY(-50%);z-index:4;display:flex;flex-direction:column;gap:12px}
+.points i{width:6px;height:6px;border-radius:50%;background:var(--trait);transition:all .3s}
+.points i.on{background:var(--framboise);transform:scale(1.7)}
+
+.voile{position:fixed;inset:0;z-index:20;background:rgba(20,13,13,.74);display:flex;align-items:center;justify-content:center;padding:16px}
+.voile[hidden]{display:none}
+.fiche{background:var(--fond-2);border:1px solid var(--trait);border-radius:18px;padding:26px;width:min(100%,29rem);max-height:100%;overflow:auto}
+.fiche h3{font-family:var(--display);font-weight:500;font-size:1.8rem;margin:0 0 6px}
+.fiche p{max-width:none;font-size:.92rem;margin-bottom:16px}
+.champs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+.champs label{display:flex;flex-direction:column;gap:6px;font-size:.78rem;color:var(--creme-doux);min-width:0}
+.champs label.large{grid-column:1/-1}
+input,select{font:inherit;font-size:.95rem;color:var(--creme);background:var(--fond);border:1px solid var(--trait);border-radius:10px;padding:10px 12px;width:100%;min-width:0}
+#message{background:var(--fond);border:1px dashed var(--trait);border-radius:10px;padding:12px 14px;font-size:.9rem;margin:0 0 16px;white-space:pre-wrap;user-select:all}
+.actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+#copie-ok{font-size:.85rem;color:var(--or)}
+
+@media (max-width:760px){
+  body{font-size:16px}
+  .scene{inset:0 0 auto 0;height:50vh;height:50svh;z-index:2}
+  .scene video{transform:none;-webkit-mask-image:none;mask-image:none}
+  .scene::after{background:linear-gradient(180deg,rgba(55,44,43,.55) 0,rgba(55,44,43,0) 22%,rgba(55,44,43,0) 72%,var(--fond) 100%)}
+  .tete{padding-block:14px 8px}
+  .etiquette{font-size:.62rem;padding:4px 9px}
+  .hero{padding-top:calc(50vh - 62px);padding-top:calc(50svh - 62px)}
+  .hero .copie{padding-top:0}
+  .copie{top:calc(50vh + 4px);top:calc(50svh + 4px)}
+  .fin,.vitrine{padding-top:2vh}
+  h1{font-size:2.5rem}
+  h2{font-size:2.05rem}
+  h1,h2{margin-bottom:10px}
+  p{margin-bottom:12px}
+  .sur{margin-bottom:8px}
+  .points{display:none}
+  .charge{top:calc(50vh - 40px);top:calc(50svh - 40px)}
+}
+@media (prefers-reduced-motion:reduce){.points i{transition:none}}
+</style>
+
+<div class="scene" id="scene">
+  <video id="film" muted playsinline webkit-playsinline preload="auto" poster="hanscake-debut.jpg" aria-hidden="true" tabindex="-1">
+    <source src="hanscake-film.mp4" type="video/mp4">
+    <source src="hanscake-film.webm" type="video/webm">
+  </video>
+</div>
+<div class="charge" id="charge" role="status">Chargement du film…</div>
+<div class="points" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+
+<div class="page">
+ <div class="col">
+  <header class="tete">
+    <div class="logo">Han's<span>Cake</span></div>
+    <div class="etiquette">Maquette de démonstration</div>
+  </header>
+
+  <section class="etape hero" data-t0="0" data-t1="0.8" style="--h:112vh">
+    <div class="copie">
+      <p class="sur">Pâtisserie, rue de Rome, Djibouti</p>
+      <h1>Votre gâteau, fait <em>sous vos yeux.</em></h1>
+      <p>Des œufs au gâteau fini, suivez chaque étape en faisant défiler la page. Puis composez le vôtre.</p>
+      <span class="defile"><i></i>Faites défiler pour commencer</span>
+    </div>
+  </section>
+
+  <section class="etape" data-t0="0.8" data-t1="7.9" style="--h:240vh">
+    <div class="copie">
+      <p class="sur">Étape 1, les ingrédients</p>
+      <h2>Des œufs, du beurre, <em>du vrai chocolat.</em></h2>
+      <p>Tout ce qui entre dans le bol, vous pourriez le nommer. Rien d'autre.</p>
+    </div>
+  </section>
+
+  <section class="etape" data-t0="7.9" data-t1="13.3" style="--h:200vh">
+    <div class="copie">
+      <p class="sur">Étape 2, la pâte</p>
+      <h2>Une pâte lisse, <em>versée d'un seul geste.</em></h2>
+      <p>Elle remplit le moule doucement, jusqu'à former un miroir de chocolat.</p>
+    </div>
+  </section>
+
+  <section class="etape" data-t0="13.3" data-t1="14.5" style="--h:130vh">
+    <div class="copie">
+      <p class="sur">Étape 3, la cuisson</p>
+      <h2>Le four fait <em>le reste.</em></h2>
+      <p>Le gâteau gonfle, se craquelle un peu, et sort encore fumant.</p>
+    </div>
+  </section>
+
+  <section class="etape" data-t0="14.5" data-t1="24.1" style="--h:290vh">
+    <div class="copie">
+      <p class="sur">Étape 4, le décor</p>
+      <h2>Un glaçage qui coule, <em>des framboises par-dessus.</em></h2>
+      <p>C'est la touche qui transforme un bon gâteau en gâteau de fête.</p>
+    </div>
+  </section>
+
+  <section class="etape fin" data-t0="24.1" data-t1="24.1">
+    <div class="copie">
+      <p class="sur">À vous</p>
+      <h2>Composez <em>le vôtre.</em></h2>
+      <p>Le film montre notre chocolat-framboises. Choisissez vos parfums, nous le préparons pour vous.</p>
+      <fieldset class="choix" data-cle="genoise"><legend>Génoise</legend></fieldset>
+      <fieldset class="choix" data-cle="creme"><legend>Crème</legend></fieldset>
+      <fieldset class="choix" data-cle="glacage"><legend>Glaçage</legend></fieldset>
+      <fieldset class="choix" data-cle="decor"><legend>Décor</legend></fieldset>
+      <button class="btn" type="button" data-commander>Commander ce gâteau</button>
+    </div>
+  </section>
+
+  <section class="vitrine">
+    <div class="copie">
+      <p class="sur">Aussi en vitrine</p>
+      <h2>Les classiques <em>de la maison.</em></h2>
+      <ul class="carte">
+        <li><strong>Fraisier</strong><span>Génoise, crème mousseline, fraises fraîches.</span></li>
+        <li><strong>Millefeuille vanille</strong><span>Feuilletage caramélisé, crème pâtissière.</span></li>
+        <li><strong>Tarte citron meringuée</strong><span>Pâte sablée, crème de citron, meringue dorée.</span></li>
+        <li><strong>Éclair au chocolat</strong><span>Pâte à choux, crémeux chocolat noir.</span></li>
+      </ul>
+      <p class="note">Maquette non officielle réalisée par Hamdi pour présenter une idée de site à Han'sCake. La carte, les textes et le film sont des exemples à remplacer par ceux de la pâtisserie.</p>
+    </div>
+  </section>
+ </div>
+</div>
+
+<div class="barre">
+  <div class="col">
+    <div class="compo" id="compo"></div>
+    <button class="btn" type="button" data-commander>Commander</button>
+  </div>
+</div>
+
+<div class="voile" id="voile" hidden>
+  <form class="fiche" id="fiche" role="dialog" aria-modal="true" aria-labelledby="fiche-titre">
+    <h3 id="fiche-titre">Votre commande</h3>
+    <p>Démo : dans le vrai site, ce message partirait directement sur le WhatsApp de la pâtisserie.</p>
+    <div class="champs">
+      <label class="large" for="c-nom">Votre prénom<input id="c-nom" autocomplete="given-name" placeholder="Amina"></label>
+      <label for="c-date">Pour quelle date<input id="c-date" type="date"></label>
+      <label for="c-parts">Nombre de parts
+        <select id="c-parts"><option selected>8 parts</option><option>12 parts</option><option>16 parts</option><option>24 parts</option></select>
+      </label>
+    </div>
+    <div id="message"></div>
+    <div class="actions">
+      <button class="btn" type="submit">Copier le message</button>
+      <button class="lien" type="button" id="fermer">Fermer</button>
+      <span id="copie-ok" role="status"></span>
+    </div>
+  </form>
+</div>
+
+<script>
+(function(){
+"use strict";
+/* ---------- Choix du client ---------- */
+var OPTIONS={
+  genoise:[{id:"chocolat",nom:"Chocolat",c:"#5E3522"},{id:"vanille",nom:"Vanille",c:"#E6C481"},{id:"velours",nom:"Red velvet",c:"#A22C38"}],
+  creme:[{id:"chocolat",nom:"Ganache chocolat",c:"#4a2617"},{id:"vanille",nom:"Chantilly vanille",c:"#FBF0DA"},{id:"pistache",nom:"Pistache",c:"#BCD08E"}],
+  glacage:[{id:"chocolat",nom:"Chocolat noir",c:"#40200F"},{id:"caramel",nom:"Caramel",c:"#CC7F2C"},{id:"fraise",nom:"Fraise",c:"#D9456C"}],
+  decor:[{id:"framboises",nom:"Framboises",c:"#D4204F"},{id:"perles",nom:"Perles dorées",c:"#E2B659"},{id:"copeaux",nom:"Copeaux de chocolat",c:"#6b3a22"}]
+};
+var CLES=["genoise","creme","glacage","decor"],choix={genoise:0,creme:0,glacage:0,decor:0};
+function opt(k){return OPTIONS[k][choix[k]];}
+document.querySelectorAll(".choix").forEach(function(fs){
+  var k=fs.dataset.cle; fs.setAttribute("role","radiogroup");
+  OPTIONS[k].forEach(function(o,i){
+    var b=document.createElement("button");
+    b.type="button"; b.className="puce"; b.id="puce-"+k+"-"+o.id; b.setAttribute("role","radio");
+    b.innerHTML='<b style="background:'+o.c+'"></b>'+o.nom;
+    b.addEventListener("click",function(){choix[k]=i; majTexte();});
+    fs.appendChild(b);
+  });
+});
+function majTexte(){
+  CLES.forEach(function(k){
+    document.querySelectorAll('.choix[data-cle="'+k+'"] .puce').forEach(function(b,i){b.setAttribute("aria-checked",i===choix[k]?"true":"false");});
+  });
+  document.getElementById("compo").innerHTML="Votre gâteau : <strong>"+CLES.map(function(k){return opt(k).nom;}).join(", ")+"</strong>";
+  majMessage();
+}
+
+/* ---------- Commande (démo) ---------- */
+var voile=document.getElementById("voile"),nom=document.getElementById("c-nom"),date=document.getElementById("c-date"),parts=document.getElementById("c-parts"),msg=document.getElementById("message"),ok=document.getElementById("copie-ok");
+function majMessage(){
+  var d=date.value?new Date(date.value+"T12:00:00").toLocaleDateString("fr-FR",{weekday:"long",day:"numeric",month:"long"}):"(date à préciser)";
+  msg.textContent="Bonjour Han'sCake, je souhaite commander un gâteau personnalisé de "+parts.value+" pour le "+d+".\n"+
+    "Génoise : "+opt("genoise").nom+"\nCrème : "+opt("creme").nom+"\nGlaçage : "+opt("glacage").nom+"\nDécor : "+opt("decor").nom+
+    (nom.value.trim()?"\nMerci, "+nom.value.trim():"");
+  ok.textContent="";
+}
+[nom,date,parts].forEach(function(el){el.addEventListener("input",majMessage);});
+document.querySelectorAll("[data-commander]").forEach(function(b){b.addEventListener("click",function(){voile.hidden=false; majMessage(); nom.focus();});});
+function fermer(){voile.hidden=true;}
+document.getElementById("fermer").addEventListener("click",fermer);
+voile.addEventListener("click",function(e){if(e.target===voile)fermer();});
+document.addEventListener("keydown",function(e){if(e.key==="Escape")fermer();});
+document.getElementById("fiche").addEventListener("submit",function(e){
+  e.preventDefault();
+  function selection(){var r=document.createRange();r.selectNodeContents(msg);var s=getSelection();s.removeAllRanges();s.addRange(r);ok.textContent="Texte sélectionné : copiez-le.";}
+  try{navigator.clipboard.writeText(msg.textContent).then(function(){ok.textContent="Message copié.";},selection);}catch(err){selection();}
+});
+majTexte();
+
+/* ---------- Le film piloté par le défilement ---------- */
+var film=document.getElementById("film"),scene=document.getElementById("scene"),charge=document.getElementById("charge");
+var sections=[].slice.call(document.querySelectorAll("[data-t0]")).map(function(s){return {el:s,t0:+s.dataset.t0,t1:+s.dataset.t1};});
+var copies=document.querySelectorAll(".etape:not(.hero):not(.fin) .copie"),points=document.querySelectorAll(".points i");
+var pret=false,duree=24.2,cur=0,dernier=0,H=window.innerHeight,mobile=false;
+function taille(){H=window.innerHeight; mobile=window.innerWidth<=760;}
+window.addEventListener("resize",taille); taille();
+
+function estPret(){
+  if(pret)return; pret=true; charge.hidden=true;
+  if(film.duration&&isFinite(film.duration))duree=film.duration;
+}
+film.addEventListener("loadeddata",estPret);
+film.addEventListener("canplay",estPret);
+film.addEventListener("error",secours,true);
+function secours(){
+  /* Si le film ne peut pas être lu, on garde une image fixe du gâteau fini. */
+  if(pret)return;
+  film.hidden=true; scene.style.backgroundImage="url(hanscake-fin.jpg)"; charge.hidden=true;
+}
+function amorce(){var p=film.play(); if(p&&p.then)p.then(function(){film.pause();}).catch(function(){});}
+amorce(); window.addEventListener("touchstart",amorce,{once:true,passive:true});
+setTimeout(function(){if(!pret&&film.networkState===3)secours();},4000);
+
+function cible(){
+  var y=window.scrollY,t=0,actif=-1;
+  for(var i=0;i<sections.length;i++){
+    var s=sections[i],p=(y+H*.55-s.el.offsetTop)/Math.max(1,s.el.offsetHeight);
+    if(p>0){t=s.t0+Math.min(1,p)*(s.t1-s.t0); actif=i-1;}
+  }
+  for(var j=0;j<points.length;j++)points[j].classList.toggle("on",j===actif);
+  return t;
+}
+function image(now){
+  var c=cible();
+  cur+=(c-cur)*.2; if(Math.abs(c-cur)<.004)cur=c;
+  if(pret){
+    var t=Math.max(0,Math.min(duree-.06,cur));
+    if(Math.abs(film.currentTime-t)>.03&&(!film.seeking||now-dernier>220)){
+      try{film.currentTime=t;}catch(e){} dernier=now;
+    }
+    if(!mobile)film.style.transform="translate(9vw,"+((.5-cur/duree)*2.4).toFixed(2)+"vh) scale(1.05)"; else film.style.transform="";
+  }
+  var seuil=mobile?H*.84:H*.66,sortie=mobile?H*.9:H*.72;
+  for(var q=0;q<copies.length;q++){
+    var top=copies[q].getBoundingClientRect().top,bas=copies[q].parentNode.getBoundingClientRect().bottom;
+    var entre=Math.max(0,Math.min(1,(seuil-top)/(H*.14))),sort=Math.max(0,Math.min(1,(bas-sortie)/(H*.16)));
+    copies[q].style.opacity=Math.min(entre,sort);
+  }
+  if(!document.hidden)requestAnimationFrame(image);
+}
+document.addEventListener("visibilitychange",function(){if(!document.hidden)requestAnimationFrame(image);});
+requestAnimationFrame(image);
+})();
+</script>
