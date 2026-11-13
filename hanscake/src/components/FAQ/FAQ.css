@@ -1,0 +1,74 @@
+.faq {
+  padding-block: 72px;
+}
+
+.faq__grille {
+  display: grid;
+  gap: 28px;
+}
+
+.faq__titre {
+  font-size: clamp(2.4rem, 8vw, 4.4rem);
+  font-variation-settings: "opsz" 96;
+  max-width: 9ch;
+}
+
+.faq__item {
+  border-bottom: 1px solid var(--trait);
+}
+
+.faq__item h3 {
+  font-family: var(--police-texte);
+}
+
+.faq__question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  min-height: 60px;
+  padding: 14px 0;
+  border: 0;
+  background: none;
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.35;
+  text-align: left;
+  cursor: pointer;
+}
+
+.faq__signe {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--trait);
+  border-radius: 50%;
+  color: var(--framboise);
+  font-size: 1.3rem;
+  font-weight: 400;
+}
+
+/* overflow: hidden pour que le texte ne déborde pas pendant l'animation de hauteur */
+.faq__reponse {
+  overflow: hidden;
+}
+
+.faq__reponse p {
+  padding-bottom: 18px;
+  max-width: 56ch;
+  color: var(--creme-doux);
+}
+
+@media (min-width: 900px) {
+  .faq {
+    padding-block: 112px;
+  }
+
+  .faq__grille {
+    grid-template-columns: 1fr 1.6fr;
+    gap: 64px;
+  }
+}
