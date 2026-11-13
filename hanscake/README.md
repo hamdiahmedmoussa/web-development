@@ -34,12 +34,15 @@ Sur ton téléphone (même Wi-Fi) : `npm run dev -- --host`, puis ouvre l'adress
 | # | Section | Composant |
 |---|---|---|
 | 1 | Ouverture : arc rétro en 3D avec tous les gâteaux et pâtisseries (ou le film, au choix) | `components/Arc`, `components/Film` |
-| 2 | Carrousel des parfums | `components/Carrousel` |
+| 2 | Carrousel des parfums (ingrédients aspirés puis rejaillis, répulsion du pointeur, gâteau qui s'incline, vermicelles) | `components/Carrousel` |
+| 2b | Occasions : anniversaire, mariage, naissance, Aïd, fin d'année | `components/Occasions` |
+| 2c | Calculateur de parts | `components/Calculateur` |
 | 3 | Vitrine | `components/Vitrine` |
 | 4 | Composez votre boîte | `components/Boite` |
+| 4b | Avis clients (vrais avis seulement) | `components/Avis` |
 | 5 | Questions fréquentes | `components/FAQ` |
 | 6 | Commande + confirmation en verre dépoli | `components/Commande` |
-| 7 | Pied de page | `components/PiedDePage` |
+| 7 | Boutiques (ouvert / fermé, Google Maps), contact | `components/PiedDePage` |
 
 Barre « Commander » fixée en bas : `components/BarreCommande`.
 
@@ -53,6 +56,9 @@ Barre « Commander » fixée en bas : `components/BarreCommande`.
 | Parfums du carrousel (couleurs, prix, ingrédients) | `src/data/parfums.ts` |
 | Pâtisseries de la vitrine et de la boîte | `src/data/vitrine.ts` |
 | Questions fréquentes | `src/data/faq.ts` |
+| Occasions et gâteau conseillé | `src/data/occasions.ts` |
+| Avis clients (vrais avis uniquement) | `src/data/avis.ts` |
+| Horaires de chaque boutique, lien Maps | `boutiques` dans `src/config.ts` |
 | Couleurs générales et polices | `src/styles/variables.css` |
 
 ⚠️ Pour tes essais, mets **ton** numéro dans `config.whatsapp` : sinon chaque test envoie une vraie

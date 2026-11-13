@@ -1,0 +1,47 @@
+.avis {
+  padding-block: 72px;
+}
+
+.avis__titre {
+  font-size: clamp(2.4rem, 8vw, 4.4rem);
+  font-variation-settings: var(--axes-titre);
+  margin-bottom: 28px;
+}
+
+.avis__liste {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.avis__carte {
+  padding: 24px;
+  border: 1px solid var(--trait);
+  border-radius: var(--rayon);
+  background: var(--panneau);
+}
+
+.avis__carte blockquote {
+  margin: 0 0 14px;
+  font-family: var(--police-titre);
+  font-variation-settings: var(--axes-titre);
+  font-size: 1.25rem;
+  line-height: 1.35;
+}
+
+.avis__auteur {
+  color: var(--texte-doux);
+  font-size: 0.9rem;
+}
+
+/* Cadre en pointillés : montre où iront les avis, sans en inventer. */
+.avis__emplacement {
+  padding: 28px;
+  border: 2px dashed var(--trait);
+  border-radius: var(--rayon);
+  color: var(--texte-doux);
+  max-width: 60ch;
+}

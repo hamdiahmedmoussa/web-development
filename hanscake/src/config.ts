@@ -3,6 +3,8 @@
   Quand Han'sCake donne ses vraies informations, on modifie ce fichier
   et le dossier data/, jamais les composants.
 */
+import type { Horaires } from "./types";
+
 export const config = {
   nom: "Han'sCake",
   estUneMaquette: true,
@@ -23,14 +25,30 @@ export const config = {
   /** Nombre de pâtisseries dans une boîte. */
   tailleBoite: 3,
 
-  /** Boutiques : il y en a plusieurs, à compléter. Horaires = EXEMPLE À CONFIRMER. */
+  /**
+   * Boutiques : il y en a plusieurs, ajoute-les ici. HORAIRES = EXEMPLES À CONFIRMER.
+   * horaires : pour chaque jour (0 = dimanche … 6 = samedi), [ouverture, fermeture]
+   * au format "HH:MM", ou null si la boutique est fermée ce jour-là.
+   * recherche : ce que Google Maps doit chercher pour trouver la boutique.
+   */
   boutiques: [
     {
       nom: "Han'sCake, rue de Rome",
       adresse: "Rue de Rome, Djibouti",
-      horaires: ["Samedi au jeudi : 7 h à 21 h", "Vendredi : 15 h à 21 h"],
+      recherche: "Han'sCake, Rue de Rome, Djibouti",
+      horaires: {
+        0: ["07:00", "21:00"],
+        1: ["07:00", "21:00"],
+        2: ["07:00", "21:00"],
+        3: ["07:00", "21:00"],
+        4: ["07:00", "21:00"],
+        5: ["15:00", "21:00"], // vendredi
+        6: ["07:00", "21:00"],
+      } as Horaires,
     },
   ],
+  /** Fuseau horaire des boutiques : l'état « ouvert » est juste même pour un visiteur à l'étranger. */
+  fuseau: "Africa/Djibouti",
 
   /** Réseaux sociaux : remplacer « # » par les vrais liens. */
   reseaux: [

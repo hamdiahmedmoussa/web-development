@@ -49,7 +49,8 @@ function Contenu({ article, fermer }: { article: Article; fermer: () => void }) 
     prenom: "",
     date: "",
     heure: "",
-    parts: config.partsMinimum,
+    // Si le calculateur a conseillé une taille, on la pré-remplit.
+    parts: article.type === "gateau" && article.parts ? article.parts : config.partsMinimum,
     inscription: "",
   });
   const [dateMin] = useState(() => dateMinimum(new Date(), config.delaiJours));

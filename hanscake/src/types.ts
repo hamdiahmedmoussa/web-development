@@ -43,7 +43,31 @@ export interface Patisserie {
 }
 
 /** Ce que le client commande : un gâteau du carrousel ou une boîte de pâtisseries. */
-export type Article = { type: "gateau"; parfum: Parfum } | { type: "boite"; patisseries: Patisserie[] };
+/** Ce que le client commande : un gâteau (avec un nombre de parts conseillé) ou une boîte. */
+export type Article = { type: "gateau"; parfum: Parfum; parts?: number } | { type: "boite"; patisseries: Patisserie[] };
+
+/** Horaires d'une boutique : jour (0 = dimanche … 6 = samedi) → [ouverture, fermeture] ou null. */
+export type Horaires = Record<number, [string, string] | null>;
+
+/** Une occasion de fête et le gâteau qu'on conseille pour elle. */
+export interface Occasion {
+  id: string;
+  nom: string;
+  texte: string;
+  /** id du parfum conseillé (voir data/parfums.ts) */
+  parfumId: string;
+  emoji: string;
+  couleur: string;
+  encre: string;
+}
+
+/** Un avis client. Uniquement de VRAIS avis, fournis par la pâtisserie. */
+export interface Avis {
+  prenom: string;
+  texte: string;
+  /** Où l'avis a été donné : Google, Facebook, WhatsApp… */
+  source: string;
+}
 
 /** Ce que le client saisit dans le formulaire. */
 export interface InfosCommande {

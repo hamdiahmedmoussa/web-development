@@ -1,10 +1,11 @@
-import { AnimatePresence, motion, useReducedMotion, type PanInfo } from "motion/react";
-import type { CSSProperties, KeyboardEvent } from "react";
+import { AnimatePresence, motion, useReducedMotion, useSpring, type PanInfo } from "motion/react";
+import { useEffect, useRef, type CSSProperties, type KeyboardEvent } from "react";
 import { config, formaterPrix } from "../../config";
 import { useCommande } from "../../context/CommandeContext";
 import { parfums } from "../../data/parfums";
 import { Visuel } from "../Visuel/Visuel";
 import { Ingredient } from "./Ingredient";
+import { Vermicelles } from "./Vermicelles";
 import "./Carrousel.css";
 
 /*
@@ -40,6 +41,51 @@ export function Carrousel() {
 
   const distance = reduit ? 0 : 340;
 
+  // Position du pointeur (souris ou doigt), partagée avec les ingrédients pour la répulsion.
+  const pointeur = useRef({ x: -9999, y: -9999 });
+  const refScene = useRef<HTMLDivElement>(null);
+
+  // Inclinaison du gâteau : des « ressorts » pour un mouvement souple.
+  const inclinaisonX = useSpring(0, { stiffness: 120, damping: 14 });
+  const inclinaisonY = useSpring(0, { stiffness: 120, damping: 14 });
+
+  useEffect(() => {
+    if (reduit) return;
+
+    // Souris ou doigt : le gâteau se penche vers le pointeur.
+    function bouger(e: PointerEvent) {
+      pointeur.current = { x: e.clientX, y: e.clientY };
+      const r = refScene.current?.getBoundingClientRect();
+      if (!r || e.pointerType === "touch") return;
+      const nx = (e.clientX - (r.left + r.width / 2)) / r.width; // -0,5 à 0,5
+      const ny = (e.clientY - (r.top + r.height / 2)) / r.height;
+      inclinaisonY.set(Math.max(-1, Math.min(1, nx)) * 26);
+      inclinaisonX.set(Math.max(-1, Math.min(1, -ny)) * 18);
+    }
+    function quitter() {
+      pointeur.current = { x: -9999, y: -9999 };
+    }
+
+    // Téléphone : le gâteau suit l'inclinaison de l'appareil (Android ;
+    // sur iPhone, Safari demande une autorisation : on s'en passe).
+    function pencher(e: DeviceOrientationEvent) {
+      if (e.gamma === null || e.beta === null) return;
+      inclinaisonY.set(Math.max(-1, Math.min(1, e.gamma / 35)) * 22);
+      inclinaisonX.set(Math.max(-1, Math.min(1, (e.beta - 45) / 35)) * -14);
+    }
+
+    window.addEventListener("pointermove", bouger, { passive: true });
+    window.addEventListener("pointerup", quitter);
+    document.addEventListener("pointerleave", quitter);
+    window.addEventListener("deviceorientation", pencher);
+    return () => {
+      window.removeEventListener("pointermove", bouger);
+      window.removeEventListener("pointerup", quitter);
+      document.removeEventListener("pointerleave", quitter);
+      window.removeEventListener("deviceorientation", pencher);
+    };
+  }, [reduit, inclinaisonX, inclinaisonY]);
+
   return (
     <motion.section
       id="parfums"
@@ -55,7 +101,8 @@ export function Carrousel() {
     >
       <h2 className="visuellement-cache">Nos gâteaux</h2>
 
-      <div className="carrousel__scene">
+      <div className="carrousel__scene" ref={refScene}>
+        {!reduit && <Vermicelles />}
         {/* Le mot géant, derrière le gâteau */}
         <AnimatePresence initial={false} custom={direction}>
           <motion.p
@@ -88,10 +135,12 @@ export function Carrousel() {
             onDragEnd={finGlisse}
           >
             {parfum.ingredients.map((ingredient, i) => (
-              <Ingredient key={i} ingredient={ingredient} position={i} />
+              <Ingredient key={i} ingredient={ingredient} position={i} pointeur={pointeur} />
             ))}
             {/* Les éléments flottants sont décoratifs : on décrit le gâteau en une phrase. */}
-            <GateauImage id={parfum.id} nom={parfum.nom} />
+            <motion.div className="carrousel__inclinaison" style={{ rotateX: inclinaisonX, rotateY: inclinaisonY }}>
+              <GateauImage id={parfum.id} nom={parfum.nom} />
+            </motion.div>
           </motion.div>
         </AnimatePresence>
 

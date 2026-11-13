@@ -1,0 +1,109 @@
+.calculateur {
+  padding-block: 72px;
+  background: var(--fond-profond);
+}
+
+.calculateur__grille {
+  display: grid;
+  gap: 28px;
+}
+
+.calculateur__titre {
+  font-size: clamp(2.4rem, 8vw, 4.4rem);
+  font-variation-settings: var(--axes-titre);
+  margin-bottom: 12px;
+}
+
+.calculateur__intro {
+  color: var(--texte-doux);
+  max-width: 36ch;
+}
+
+.calculateur__panneau {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px;
+  border: 1px solid var(--trait);
+  border-radius: var(--rayon);
+  background: var(--panneau);
+}
+
+.calculateur__champ {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-weight: 600;
+  color: var(--texte-doux);
+}
+
+.calculateur__nombre {
+  font-family: var(--police-titre);
+  font-variation-settings: var(--axes-titre);
+  font-size: 3rem;
+  line-height: 1;
+  color: var(--texte);
+}
+
+/* Curseur : la piste et la poignée aux couleurs du site */
+.calculateur__curseur {
+  width: 100%;
+  height: 44px; /* grande zone de toucher */
+  accent-color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.calculateur__select {
+  min-height: 48px;
+  padding: 10px 12px;
+  border: 1px solid var(--trait);
+  border-radius: 12px;
+  background: var(--champ);
+  color: var(--texte);
+  font: inherit;
+  font-size: 1rem;
+}
+
+.calculateur__resultat {
+  min-height: 92px;
+  padding: 14px 0 4px;
+}
+
+.calculateur__taille {
+  font-size: 1.25rem;
+}
+
+.calculateur__taille strong {
+  font-family: var(--police-titre);
+  font-variation-settings: var(--axes-titre);
+  font-size: 1.6rem;
+  color: var(--accent);
+}
+
+.calculateur__prix {
+  margin-top: 4px;
+  font-weight: 600;
+}
+
+.calculateur__prix span {
+  font-weight: 400;
+  font-size: 0.85rem;
+  color: var(--texte-doux);
+}
+
+@media (min-width: 900px) {
+  .calculateur {
+    padding-block: 112px;
+  }
+
+  .calculateur__grille {
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+}
+
+[data-theme="retro"] .calculateur__panneau {
+  border: var(--contour);
+  box-shadow: var(--ombre-retro);
+}

@@ -212,3 +212,49 @@
     grid-column: 1 / -1;
   }
 }
+
+/* Le gâteau s'incline en 3D vers le pointeur : « perspective » donne la profondeur. */
+.carrousel__gateau {
+  perspective: 900px;
+}
+
+.carrousel__inclinaison {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+}
+
+/* Pluie de vermicelles derrière le gâteau */
+.vermicelles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.vermicelles span {
+  position: absolute;
+  top: -20px;
+  width: 4px;
+  height: 14px;
+  border-radius: 3px;
+  opacity: 0.85;
+  animation-name: tomber;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes tomber {
+  from {
+    transform: translateY(0) rotate(var(--rotation));
+  }
+  to {
+    transform: translateY(620px) rotate(calc(var(--rotation) + 300deg));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vermicelles {
+    display: none;
+  }
+}

@@ -1,10 +1,12 @@
 import { config } from "../../config";
+import { lienMaps, resumerHoraires } from "../../lib/horaires";
+import { Statut } from "./Statut";
 import "./PiedDePage.css";
 
-/** Adresse, horaires, contact, réseaux et mention de maquette. */
+/** Boutiques (état ouvert / fermé, horaires, itinéraire), contact, réseaux et mention de maquette. */
 export function PiedDePage() {
   return (
-    <footer className="pied">
+    <footer className="pied" id="boutiques">
       <div className="conteneur">
         <p className="pied__logo">
           Han's<span>Cake</span>
@@ -12,14 +14,18 @@ export function PiedDePage() {
 
         <div className="pied__grille">
           {config.boutiques.map((b) => (
-            <div key={b.adresse}>
-              <h2 className="pied__titre">Nous trouver</h2>
+            <div key={b.nom} className="pied__boutique">
+              <h2 className="pied__titre">{b.nom}</h2>
+              <Statut horaires={b.horaires} />
               <address className="pied__adresse">{b.adresse}</address>
               <ul className="pied__liste">
-                {b.horaires.map((h) => (
-                  <li key={h}>{h}</li>
+                {resumerHoraires(b.horaires).map((ligne) => (
+                  <li key={ligne}>{ligne}</li>
                 ))}
               </ul>
+              <a className="pied__maps" href={lienMaps(b.recherche)} target="_blank" rel="noopener noreferrer">
+                Itinéraire dans Google Maps
+              </a>
             </div>
           ))}
 
