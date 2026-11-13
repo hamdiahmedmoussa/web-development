@@ -10,7 +10,7 @@
   top: 0;
   height: 100svh;
   overflow: hidden;
-  background: var(--brun);
+  background: var(--fond-page);
 }
 
 /* Téléphone : le film (format paysage) occupe le haut, les textes le bas. */
@@ -36,7 +36,7 @@
     rgba(55, 44, 43, 0.6) 0,
     rgba(55, 44, 43, 0) 24%,
     rgba(55, 44, 43, 0) 70%,
-    var(--brun) 100%
+    var(--fond-page) 100%
   );
   pointer-events: none;
 }
@@ -50,7 +50,7 @@
   border: 1px solid var(--trait);
   border-radius: 999px;
   background: rgba(43, 33, 32, 0.85);
-  color: var(--creme-doux);
+  color: var(--texte-doux);
   font-size: 0.78rem;
 }
 
@@ -67,7 +67,7 @@
 }
 
 .film__numero {
-  color: var(--or);
+  color: var(--detail);
   font-size: 0.85rem;
   font-weight: 500;
   margin-bottom: 8px;
@@ -75,14 +75,14 @@
 
 .film__titre {
   font-size: clamp(2.6rem, 11vw, 6.4rem);
-  font-variation-settings: "opsz" 96;
+  font-variation-settings: var(--axes-titre);
   letter-spacing: -0.01em;
   margin-bottom: 14px;
 }
 
 .film__texte {
   max-width: 34ch;
-  color: var(--creme-doux);
+  color: var(--texte-doux);
 }
 
 .film__invitation {
@@ -97,7 +97,7 @@
   content: "";
   width: 1px;
   height: 34px;
-  background: linear-gradient(var(--creme), transparent);
+  background: linear-gradient(var(--texte), transparent);
 }
 
 .film__repere {
@@ -112,7 +112,7 @@
 .film__repere span {
   display: block;
   height: 100%;
-  background: var(--framboise);
+  background: var(--accent);
   transform-origin: top;
 }
 
@@ -130,7 +130,7 @@
   }
 
   .film__ecran::after {
-    background: linear-gradient(90deg, var(--brun) 0, rgba(55, 44, 43, 0.8) 24%, rgba(55, 44, 43, 0) 56%);
+    background: linear-gradient(90deg, var(--fond-page) 0, rgba(55, 44, 43, 0.8) 24%, rgba(55, 44, 43, 0) 56%);
   }
 
   .film__textes {

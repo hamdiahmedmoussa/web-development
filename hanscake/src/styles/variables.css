@@ -1,25 +1,69 @@
 /*
-  Couleurs, polices et tailles du site. Changer l'ambiance = modifier ce fichier.
-  Les couleurs propres à chaque parfum sont dans src/data/parfums.ts.
+  LES DEUX VERSIONS DU SITE
+  Les composants n'utilisent que des noms « neutres » (--texte, --fond-page, --accent…).
+  Chaque version donne ses propres valeurs à ces noms : on change toute l'ambiance
+  sans toucher aux composants. La version active est écrite sur <html data-theme="…">.
+
+  Les couleurs propres à chaque parfum sont dans src/data/parfums.ts (communes aux deux).
 */
-:root {
-  /* L'univers du film : le mur brun de la pâtisserie */
-  --brun: #372c2b;
-  --brun-profond: #2b2120;
-  --brun-panneau: #463938;
-  --creme: #f7ecdc;
-  --creme-doux: #d2c0b4;
-  --framboise: #ec5c84; /* accent sur fond brun */
-  --framboise-bouton: #c9305c; /* fond des boutons : le blanc y reste lisible */
-  --or: #e2bd86;
+
+/* ---------- Version « Cinéma » : sombre, le film, Bodoni ---------- */
+:root,
+:root[data-theme="cinema"] {
+  --schema: dark;
+  --fond-page: #372c2b; /* le mur brun du film */
+  --fond-profond: #2b2120;
+  --panneau: #463938;
+  --texte: #f7ecdc; /* crème */
+  --texte-doux: #d2c0b4;
+  --accent: #ec5c84; /* framboise */
+  --sur-accent: #f7ecdc;
+  --bouton-fond: #c9305c;
+  --bouton-texte: #ffffff;
+  --detail: #e2bd86; /* or */
   --trait: rgba(247, 236, 220, 0.18);
+  --vitrine-fond: #f7ecdc;
+  --vitrine-texte: #372c2b;
+  --vitrine-doux: #6e5a55;
+  --verre: rgba(70, 57, 56, 0.72);
+  --champ: rgba(43, 33, 32, 0.7);
+  --voile: rgba(20, 13, 13, 0.55);
   --vert-ok: #3ccf7a;
 
-  /* Polices */
   --police-titre: "Bodoni Moda Variable", "Bodoni 72", Didot, Georgia, serif;
-  --police-texte: "Figtree Variable", "Segoe UI", system-ui, sans-serif;
+  --axes-titre: "opsz" 96;
+}
 
-  /* Mise en page */
+/* ---------- Version « Rétro » : pâtisserie des années 70, l'arc, Fraunces ---------- */
+:root[data-theme="retro"] {
+  --schema: light;
+  --fond-page: #fdf0dc; /* vanille */
+  --fond-profond: #f5d9b8; /* biscuit */
+  --panneau: #fff8ee;
+  --texte: #3b1f1a; /* chocolat */
+  --texte-doux: #6b4a40;
+  --accent: #d7263d; /* cerise */
+  --sur-accent: #fdf0dc;
+  --bouton-fond: #c41e36;
+  --bouton-texte: #ffffff;
+  --detail: #9c5410; /* caramel foncé, lisible sur la vanille */
+  --trait: rgba(59, 31, 26, 0.22);
+  --vitrine-fond: #8fd1c1; /* menthe */
+  --vitrine-texte: #1d2f2a;
+  --vitrine-doux: #2c4a42;
+  --verre: rgba(255, 248, 238, 0.75);
+  --champ: rgba(255, 255, 255, 0.75);
+  --voile: rgba(59, 31, 26, 0.35);
+  --vert-ok: #1f9d55;
+
+  /* Fraunces : « SOFT » arrondit les lettres, « WONK » les penche façon années 70. */
+  --police-titre: "Fraunces Variable", "Cooper Black", Georgia, serif;
+  --axes-titre: "opsz" 96, "SOFT" 100, "WONK" 1;
+}
+
+/* Valeurs communes aux deux versions */
+:root {
+  --police-texte: "Figtree Variable", "Segoe UI", system-ui, sans-serif;
   --largeur-max: 1180px;
   --marge: 16px;
   --hauteur-barre: 68px;

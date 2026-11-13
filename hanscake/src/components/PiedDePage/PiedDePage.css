@@ -1,6 +1,6 @@
 .pied {
   padding-block: 56px 32px;
-  background: var(--brun-profond);
+  background: var(--fond-profond);
   border-top: 1px solid var(--trait);
 }
 
@@ -14,7 +14,7 @@
 }
 
 .pied__logo span {
-  color: var(--framboise);
+  color: var(--accent);
 }
 
 .pied__grille {
@@ -27,7 +27,7 @@
   font-family: var(--police-texte);
   font-size: 0.95rem;
   font-weight: 600;
-  color: var(--or);
+  color: var(--detail);
   margin-bottom: 10px;
 }
 
@@ -40,7 +40,7 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  color: var(--creme-doux);
+  color: var(--texte-doux);
 }
 
 .pied__liste a {
@@ -51,6 +51,6 @@
 .pied__mention {
   margin-top: 40px;
   max-width: 70ch;
-  color: var(--creme-doux);
+  color: var(--texte-doux);
   font-size: 0.82rem;
 }

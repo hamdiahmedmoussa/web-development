@@ -4,7 +4,7 @@
   z-index: 10;
   padding-bottom: env(safe-area-inset-bottom);
   border-top: 1px solid var(--trait);
-  background: rgba(43, 33, 32, 0.9);
+  background: color-mix(in srgb, var(--fond-profond) 92%, transparent);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
@@ -38,12 +38,12 @@
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  border: 2px solid var(--creme);
+  border: 2px solid var(--texte);
   transition: background-color 0.4s;
 }
 
 .barre__prix {
-  color: var(--creme-doux);
+  color: var(--texte-doux);
   font-size: 0.85rem;
 }
 

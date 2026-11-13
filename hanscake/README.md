@@ -6,6 +6,17 @@ une boîte de pâtisseries, puis envoie sa commande sur WhatsApp, déjà rédig�
 
 React, Vite, TypeScript, Motion (`motion/react`), CSS simple. Pas de base de données ni de paiement en ligne.
 
+## Deux versions dans le même site
+
+| Version | Adresse | Ouverture | Ambiance |
+|---|---|---|---|
+| **Cinéma** (par défaut) | `/` ou `/?version=cinema` | le film au défilement | sombre : brun, crème, framboise ; titres Bodoni Moda |
+| **Rétro** | `/?version=retro` | l'arc 3D de tous les gâteaux | années 70 : vanille, chocolat, cerise, menthe ; titres Fraunces, contours épais |
+
+Un bouton en haut de page permet de passer de l'une à l'autre pendant la présentation.
+Les couleurs de chaque version sont dans `src/styles/variables.css`, les touches rétro dans
+`src/styles/retro.css`, et le choix de la version dans `src/version.ts`.
+
 ## Lancer le site
 
 ```bash
@@ -37,7 +48,7 @@ Barre « Commander » fixée en bas : `components/BarreCommande`.
 | Je veux changer… | Fichier |
 |---|---|
 | Numéro WhatsApp, horaires, adresse, réseaux | `src/config.ts` |
-| Ouverture en arc ou en film | `ouverture` dans `src/config.ts` |
+| Version affichée par défaut | `PAR_DEFAUT` dans `src/version.ts` |
 | Textes et temps du film | `src/data/film.ts` |
 | Parfums du carrousel (couleurs, prix, ingrédients) | `src/data/parfums.ts` |
 | Pâtisseries de la vitrine et de la boîte | `src/data/vitrine.ts` |

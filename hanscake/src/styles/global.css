@@ -7,13 +7,13 @@
 html {
   overflow-x: clip;
   -webkit-text-size-adjust: 100%;
-  color-scheme: dark;
+  color-scheme: var(--schema);
 }
 
 body {
   margin: 0;
-  background: var(--brun);
-  color: var(--creme);
+  background: var(--fond-page);
+  color: var(--texte);
   font-family: var(--police-texte);
   font-size: 1.0625rem;
   line-height: 1.55;
@@ -51,7 +51,7 @@ a {
 }
 
 :focus-visible {
-  outline: 2px solid var(--or);
+  outline: 2px solid var(--detail);
   outline-offset: 3px;
 }
 
@@ -72,8 +72,8 @@ a {
   padding: 12px 26px;
   border: 0;
   border-radius: 999px;
-  background: var(--framboise-bouton);
-  color: #fff;
+  background: var(--bouton-fond);
+  color: var(--bouton-texte);
   font-weight: 600;
   text-decoration: none;
   cursor: pointer;
@@ -92,7 +92,7 @@ a {
 
 /* Bouton sombre, utilisé sur les fonds colorés des parfums. */
 .bouton--encre {
-  background: var(--encre, var(--brun-profond));
+  background: var(--encre, var(--fond-profond));
   color: var(--fond, #fff);
 }
 

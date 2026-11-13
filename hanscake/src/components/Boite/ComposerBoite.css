@@ -1,6 +1,6 @@
 .boite {
   padding-block: 72px;
-  background: var(--brun-profond);
+  background: var(--fond-profond);
 }
 
 .boite__grille {
@@ -15,12 +15,12 @@
 
 .boite__titre {
   font-size: clamp(2.4rem, 8vw, 4.4rem);
-  font-variation-settings: "opsz" 96;
+  font-variation-settings: var(--axes-titre);
   margin-bottom: 12px;
 }
 
 .boite__intro {
-  color: var(--creme-doux);
+  color: var(--texte-doux);
   margin-bottom: 28px;
   max-width: 40ch;
 }
@@ -161,7 +161,7 @@
 .boite__retirer .visuel-manquant {
   width: 100%;
   font-size: 0;
-  color: var(--brun);
+  color: var(--fond-page);
 }
 
 .boite__retirer > span {
@@ -173,8 +173,8 @@
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: var(--brun-profond);
-  color: var(--creme);
+  background: var(--fond-profond);
+  color: var(--texte);
   font-size: 1rem;
   line-height: 1;
 }
@@ -197,7 +197,7 @@
 }
 
 .boite__etat {
-  color: var(--creme-doux);
+  color: var(--texte-doux);
   font-size: 0.9rem;
 }
 

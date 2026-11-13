@@ -8,7 +8,7 @@
   min-height: 100svh;
   padding-top: 92px;
   padding-bottom: 24px;
-  background: var(--brun);
+  background: var(--fond-page);
   isolation: isolate;
 }
 
@@ -21,7 +21,7 @@
   aspect-ratio: 1;
   translate: -50% 50%;
   z-index: -2;
-  background: repeating-conic-gradient(from 0deg, #3e3230 0deg 6deg, var(--brun) 6deg 12deg);
+  background: repeating-conic-gradient(from 0deg, color-mix(in srgb, var(--texte) 8%, var(--fond-page)) 0deg 6deg, var(--fond-page) 6deg 12deg);
   -webkit-mask-image: radial-gradient(circle, #000 10%, transparent 48%);
   mask-image: radial-gradient(circle, #000 10%, transparent 48%);
 }
@@ -45,7 +45,7 @@
 
 .arc__titre {
   font-size: clamp(2.6rem, 9vw, 4.6rem);
-  font-variation-settings: "opsz" 96;
+  font-variation-settings: var(--axes-titre);
   font-style: italic;
   letter-spacing: -0.02em;
   max-width: 13ch;
@@ -55,7 +55,7 @@
 .arc__texte {
   max-width: 44ch;
   margin: 0 auto 24px;
-  color: var(--creme-doux);
+  color: var(--texte-doux);
 }
 
 .arc__actions {
@@ -68,7 +68,7 @@
 
 .arc__lien {
   padding: 12px 4px;
-  border-bottom: 1px solid var(--creme-doux);
+  border-bottom: 1px solid var(--texte-doux);
   text-decoration: none;
   font-weight: 600;
 }
@@ -173,8 +173,8 @@
   flex-direction: column;
   padding: 8px 12px;
   border-radius: 14px;
-  background: var(--creme);
-  color: var(--brun);
+  background: #fff8ee;
+  color: #3b1f1a;
   line-height: 1.2;
 }
 
@@ -199,6 +199,11 @@
 }
 
 @media (max-width: 759px) {
+  /* Sur téléphone, l'en-tête passe sur deux lignes : on laisse plus de place au-dessus du titre. */
+  .arc {
+    padding-top: 136px;
+  }
+
   /* Sur téléphone, le tampon n'a pas de place : on l'enlève plutôt que de tout serrer. */
   .arc__tampon {
     display: none;

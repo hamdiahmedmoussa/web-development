@@ -19,7 +19,7 @@
   place-items: center;
   margin: 0;
   font-family: var(--police-titre);
-  font-variation-settings: "opsz" 96;
+  font-variation-settings: var(--axes-titre);
   font-weight: 700;
   font-style: italic;
   font-size: clamp(5rem, 27vw, 19rem);
@@ -108,7 +108,7 @@
 
 .carrousel__nom {
   font-size: clamp(2.2rem, 8vw, 3.6rem);
-  font-variation-settings: "opsz" 72;
+  font-variation-settings: var(--axes-titre);
   margin-bottom: 8px;
 }
 

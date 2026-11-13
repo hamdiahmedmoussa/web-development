@@ -17,11 +17,11 @@ export function Tampon() {
       <defs>
         <path id="cercle-tampon" d="M60 60 m-44 0 a44 44 0 1 1 88 0 a44 44 0 1 1 -88 0" />
       </defs>
-      <circle cx="60" cy="60" r="58" fill="var(--framboise)" />
-      <text fontSize="11.5" fontWeight="600" letterSpacing="2.4" fill="var(--creme)">
+      <circle cx="60" cy="60" r="58" fill="var(--accent)" />
+      <text fontSize="11.5" fontWeight="600" letterSpacing="2.4" fill="var(--sur-accent)">
         <textPath href="#cercle-tampon">FAIT MAIN ✦ RUE DE ROME ✦ DJIBOUTI ✦</textPath>
       </text>
-      <text x="60" y="68" textAnchor="middle" fontSize="24" fontStyle="italic" fontFamily="var(--police-titre)" fill="var(--creme)">
+      <text x="60" y="68" textAnchor="middle" fontSize="24" fontStyle="italic" fontFamily="var(--police-titre)" fill="var(--sur-accent)">
         H'C
       </text>
     </motion.svg>

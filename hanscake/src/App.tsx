@@ -8,8 +8,8 @@ import { FAQ } from "./components/FAQ/FAQ";
 import { Film } from "./components/Film/Film";
 import { PiedDePage } from "./components/PiedDePage/PiedDePage";
 import { Vitrine } from "./components/Vitrine/Vitrine";
-import { config } from "./config";
 import { CommandeProvider } from "./context/CommandeContext";
+import { version } from "./version";
 
 /** La page entière, section par section, dans l'ordre du brief. */
 export default function App() {
@@ -18,7 +18,8 @@ export default function App() {
       <div id="haut" className="page">
         <Entete />
         <main>
-          {config.ouverture === "film" ? <Film /> : <Arc />}
+          {/* L'ouverture dépend de la version : le film (Cinéma) ou l'arc (Rétro). */}
+          {version === "cinema" ? <Film /> : <Arc />}
           <Carrousel />
           <Vitrine />
           <ComposerBoite />

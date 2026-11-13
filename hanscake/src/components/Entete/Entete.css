@@ -19,14 +19,31 @@
 }
 
 .entete__logo span {
-  color: var(--framboise);
+  color: var(--accent);
 }
 
 .entete__mention {
   padding: 4px 12px;
   border: 1px solid var(--trait);
   border-radius: 999px;
-  background: rgba(43, 33, 32, 0.6);
-  color: var(--creme-doux);
+  background: color-mix(in srgb, var(--fond-profond) 70%, transparent);
+  color: var(--texte-doux);
   font-size: 0.72rem;
+}
+
+.entete__demo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.entete__version {
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--sur-accent);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-decoration: none;
 }

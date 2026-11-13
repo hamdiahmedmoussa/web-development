@@ -1,0 +1,67 @@
+/*
+  Les touches graphiques propres à la version Rétro :
+  contours chocolat épais et ombres « décalées » sans flou,
+  comme les étiquettes et affiches imprimées des années 70.
+*/
+:root[data-theme="retro"] {
+  --contour: 2px solid var(--texte);
+  --ombre-retro: 4px 4px 0 var(--texte);
+}
+
+[data-theme="retro"] h1,
+[data-theme="retro"] h2,
+[data-theme="retro"] h3 {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+[data-theme="retro"] .bouton {
+  border: var(--contour);
+  box-shadow: var(--ombre-retro);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+[data-theme="retro"] .bouton:hover {
+  filter: none;
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--texte);
+}
+
+[data-theme="retro"] .bouton:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--texte);
+}
+
+[data-theme="retro"] .arc__lien-carte,
+[data-theme="retro"] .vitrine__carte,
+[data-theme="retro"] .boite__ajout {
+  border: var(--contour);
+  box-shadow: var(--ombre-retro);
+}
+
+[data-theme="retro"] .vitrine__carte {
+  color: inherit;
+}
+
+[data-theme="retro"] .arc__etiquette {
+  border: var(--contour);
+}
+
+[data-theme="retro"] .carrousel__vignette[aria-pressed="true"] {
+  box-shadow: 3px 3px 0 var(--encre);
+}
+
+[data-theme="retro"] .commande__carte {
+  border: var(--contour);
+  box-shadow: 8px 8px 0 var(--texte);
+}
+
+[data-theme="retro"] .barre {
+  border-top: var(--contour);
+}
+
+/* Le grain de papier se voit mieux sur fond clair en mode « multiply ». */
+[data-theme="retro"] .arc__grain {
+  mix-blend-mode: multiply;
+  opacity: 0.18;
+}
