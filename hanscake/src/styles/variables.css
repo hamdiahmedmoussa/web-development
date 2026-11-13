@@ -31,7 +31,9 @@
   --vert-ok: #3ccf7a;
 
   --police-titre: "Bodoni Moda Variable", "Bodoni 72", Didot, Georgia, serif;
-  --axes-titre: "opsz" 96;
+  /* « normal » : le navigateur choisit lui-même la taille optique (opsz) selon la taille
+     du texte. Traits très fins sur les grands titres, plus épais sur les petits : lisible partout. */
+  --axes-titre: normal;
 }
 
 /* ---------- Version « Rétro » : pâtisserie des années 70, l'arc, Fraunces ---------- */
@@ -58,7 +60,7 @@
 
   /* Fraunces : « SOFT » arrondit les lettres, « WONK » les penche façon années 70. */
   --police-titre: "Fraunces Variable", "Cooper Black", Georgia, serif;
-  --axes-titre: "opsz" 96, "SOFT" 100, "WONK" 1;
+  --axes-titre: "SOFT" 100, "WONK" 1;
 }
 
 /* Valeurs communes aux deux versions */

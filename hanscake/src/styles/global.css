@@ -128,3 +128,13 @@ a {
 .page {
   position: relative;
 }
+
+/*
+  Bodoni a des traits très fins : parfaits en très grand, trop fragiles en petit
+  sur un écran de téléphone. Les titres de taille moyenne passent donc en semi-gras.
+*/
+[data-theme="cinema"] h3,
+[data-theme="cinema"] .verre__titre,
+[data-theme="cinema"] .commande__titre {
+  font-weight: 600;
+}
