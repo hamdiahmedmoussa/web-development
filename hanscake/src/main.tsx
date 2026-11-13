@@ -1,8 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 // Polices hébergées avec le site. Le navigateur ne télécharge que celles réellement utilisées.
-import "@fontsource-variable/bodoni-moda/opsz.css"; // titres de la version Cinéma
-import "@fontsource-variable/bodoni-moda/opsz-italic.css";
+import "@fontsource-variable/bricolage-grotesque/wdth.css"; // version Cinéma (titres étroits et textes)
 import "@fontsource-variable/fraunces/full.css"; // titres de la version Rétro
 import "@fontsource-variable/fraunces/full-italic.css";
 import "@fontsource-variable/figtree"; // textes des deux versions

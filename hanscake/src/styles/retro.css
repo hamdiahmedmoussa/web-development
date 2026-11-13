@@ -8,13 +8,6 @@
   --ombre-retro: 4px 4px 0 var(--texte);
 }
 
-[data-theme="retro"] h1,
-[data-theme="retro"] h2,
-[data-theme="retro"] h3 {
-  font-weight: 700;
-  letter-spacing: -0.01em;
-}
-
 [data-theme="retro"] .bouton {
   border: var(--contour);
   box-shadow: var(--ombre-retro);

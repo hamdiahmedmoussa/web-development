@@ -14,7 +14,7 @@ export function Avis() {
     <section className="avis" aria-labelledby="titre-avis">
       <div className="conteneur">
         <h2 id="titre-avis" className="avis__titre">
-          Ils en parlent
+          Ce qu'en disent les clients
         </h2>
 
         {avis.length > 0 ? (

@@ -12,9 +12,9 @@ export function Vitrine() {
     <section id="vitrine" className="vitrine" aria-labelledby="titre-vitrine">
       <div className="conteneur">
         <h2 id="titre-vitrine" className="vitrine__titre">
-          Les classiques de la maison
+          Au comptoir, sans commander
         </h2>
-        <p className="vitrine__intro">Chaque matin en vitrine, rue de Rome. Prix à l'unité.</p>
+        <p className="vitrine__intro">Ce qu'on trouve en vitrine rue de Rome. Prix à la pièce.</p>
 
         <ul className="vitrine__grille">
           {vitrine.map((p) => (

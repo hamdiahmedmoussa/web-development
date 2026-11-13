@@ -28,7 +28,7 @@ export function Calculateur() {
           <h2 id="titre-calculateur" className="calculateur__titre">
             Combien d'invités ?
           </h2>
-          <p className="calculateur__intro">Indiquez le nombre de personnes, nous vous disons quelle taille commander.</p>
+          <p className="calculateur__intro">C'est la question qu'on nous pose le plus. Bougez le curseur.</p>
         </div>
 
         <div className="calculateur__panneau">

@@ -46,7 +46,7 @@
 .arc__titre {
   font-size: clamp(2.6rem, 9vw, 4.6rem);
   font-variation-settings: var(--axes-titre);
-  font-style: italic;
+  font-style: var(--style-titre);
   letter-spacing: -0.02em;
   max-width: 13ch;
   margin: 0 auto 16px;
@@ -180,7 +180,7 @@
 
 .arc__etiquette strong {
   font-family: var(--police-titre);
-  font-style: italic;
+  font-style: var(--style-titre);
   font-size: 1.05rem;
   font-weight: 600;
 }
@@ -201,7 +201,7 @@
 @media (max-width: 759px) {
   /* Sur téléphone, l'en-tête passe sur deux lignes : on laisse plus de place au-dessus du titre. */
   .arc {
-    padding-top: 136px;
+    padding-top: 172px;
   }
 
   /* Sur téléphone, le tampon n'a pas de place : on l'enlève plutôt que de tout serrer. */

@@ -56,7 +56,6 @@ export interface Occasion {
   texte: string;
   /** id du parfum conseillé (voir data/parfums.ts) */
   parfumId: string;
-  emoji: string;
   couleur: string;
   encre: string;
 }

@@ -44,9 +44,9 @@ export function ComposerBoite() {
       <div className="conteneur boite__grille">
         <div>
           <h2 id="titre-boite" className="boite__titre">
-            Composez votre boîte
+            Une boîte de trois
           </h2>
-          <p className="boite__intro">Choisissez {taille} pâtisseries, nous les préparons ensemble dans une jolie boîte.</p>
+          <p className="boite__intro">Prenez {taille} pâtisseries, même deux fois la même. On les met en boîte pour vous.</p>
 
           <ul className="boite__liste">
             {vitrine.map((p) => (

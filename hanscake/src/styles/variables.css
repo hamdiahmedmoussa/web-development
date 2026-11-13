@@ -7,7 +7,7 @@
   Les couleurs propres à chaque parfum sont dans src/data/parfums.ts (communes aux deux).
 */
 
-/* ---------- Version « Cinéma » : sombre, le film, Bodoni ---------- */
+/* ---------- Version « Cinéma » : sombre, le film, Bricolage Grotesque ---------- */
 :root,
 :root[data-theme="cinema"] {
   --schema: dark;
@@ -30,10 +30,21 @@
   --voile: rgba(20, 13, 13, 0.55);
   --vert-ok: #3ccf7a;
 
-  --police-titre: "Bodoni Moda Variable", "Bodoni 72", Didot, Georgia, serif;
-  /* « normal » : le navigateur choisit lui-même la taille optique (opsz) selon la taille
-     du texte. Traits très fins sur les grands titres, plus épais sur les petits : lisible partout. */
+  /*
+    Une seule famille, Bricolage Grotesque, utilisée de deux façons :
+    très étroite et grasse pour les titres (comme un générique de film ou une affiche),
+    normale pour les textes. Une famille, deux voix : plus cohérent que deux polices.
+  */
+  --police-titre: "Bricolage Grotesque Variable", "Arial Narrow", system-ui, sans-serif;
+  --police-texte: "Bricolage Grotesque Variable", "Segoe UI", system-ui, sans-serif;
   --axes-titre: normal;
+  --etroit-titre: 75%; /* largeur des lettres des titres : 75 % = condensé */
+  --graisse-titre: 750;
+  --style-titre: normal; /* pas d'italique : cette police n'en a pas */
+  --approche-titre: -0.02em;
+  /* Formes droites, presque carrées : le contraire des pilules arrondies partout. */
+  --rayon: 6px;
+  --rayon-bouton: 6px;
 }
 
 /* ---------- Version « Rétro » : pâtisserie des années 70, l'arc, Fraunces ---------- */
@@ -61,15 +72,20 @@
   /* Fraunces : « SOFT » arrondit les lettres, « WONK » les penche façon années 70. */
   --police-titre: "Fraunces Variable", "Cooper Black", Georgia, serif;
   --axes-titre: "SOFT" 100, "WONK" 1;
+  --police-texte: "Figtree Variable", "Segoe UI", system-ui, sans-serif;
+  --etroit-titre: 100%;
+  --graisse-titre: 700;
+  --style-titre: italic;
+  --approche-titre: -0.01em;
+  --rayon: 22px;
+  --rayon-bouton: 999px;
 }
 
 /* Valeurs communes aux deux versions */
 :root {
-  --police-texte: "Figtree Variable", "Segoe UI", system-ui, sans-serif;
   --largeur-max: 1180px;
   --marge: 16px;
   --hauteur-barre: 68px;
-  --rayon: 22px;
 }
 
 @media (min-width: 760px) {

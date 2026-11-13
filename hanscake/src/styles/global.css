@@ -26,7 +26,9 @@ h1,
 h2,
 h3 {
   font-family: var(--police-titre);
-  font-weight: 500;
+  font-stretch: var(--etroit-titre);
+  font-weight: var(--graisse-titre);
+  letter-spacing: var(--approche-titre);
   line-height: 1.02;
   margin: 0;
   text-wrap: balance;
@@ -71,7 +73,7 @@ a {
   min-height: 48px;
   padding: 12px 26px;
   border: 0;
-  border-radius: 999px;
+  border-radius: var(--rayon-bouton);
   background: var(--bouton-fond);
   color: var(--bouton-texte);
   font-weight: 600;
@@ -129,12 +131,3 @@ a {
   position: relative;
 }
 
-/*
-  Bodoni a des traits très fins : parfaits en très grand, trop fragiles en petit
-  sur un écran de téléphone. Les titres de taille moyenne passent donc en semi-gras.
-*/
-[data-theme="cinema"] h3,
-[data-theme="cinema"] .verre__titre,
-[data-theme="cinema"] .commande__titre {
-  font-weight: 600;
-}

@@ -12,8 +12,9 @@
 
 .entete__logo {
   font-family: var(--police-titre);
-  font-style: italic;
+  font-style: var(--style-titre);
   font-weight: 700;
+  font-stretch: var(--etroit-titre);
   font-size: 1.6rem;
   text-decoration: none;
 }

@@ -14,9 +14,9 @@ export function Occasions() {
     <section id="occasions" className="occasions" aria-labelledby="titre-occasions">
       <div className="conteneur">
         <h2 id="titre-occasions" className="occasions__titre">
-          Pour quelle fête ?
+          C'est pour quoi ?
         </h2>
-        <p className="occasions__intro">Choisissez l'occasion, nous vous conseillons le gâteau.</p>
+        <p className="occasions__intro">Dites-nous la fête, on vous dit quel gâteau prendre.</p>
 
         <ul className="occasions__liste">
           {occasions.map((o) => {
@@ -24,9 +24,6 @@ export function Occasions() {
             const parfum = parfums[index];
             return (
               <li key={o.id} className="occasions__carte" style={{ background: o.couleur, color: o.encre }}>
-                <span className="occasions__emoji" aria-hidden="true">
-                  {o.emoji}
-                </span>
                 <h3 className="occasions__nom">{o.nom}</h3>
                 <p className="occasions__texte">{o.texte}</p>
                 <p className="occasions__conseil">

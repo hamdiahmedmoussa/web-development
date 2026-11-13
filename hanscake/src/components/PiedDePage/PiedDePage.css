@@ -6,8 +6,9 @@
 
 .pied__logo {
   font-family: var(--police-titre);
-  font-style: italic;
+  font-style: var(--style-titre);
   font-weight: 700;
+  font-stretch: var(--etroit-titre);
   font-size: clamp(3rem, 14vw, 7rem);
   line-height: 1;
   margin-bottom: 36px;
