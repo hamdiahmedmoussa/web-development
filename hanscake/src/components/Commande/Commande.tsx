@@ -81,7 +81,7 @@ function Contenu({ article, fermer }: { article: Article; fermer: () => void }) 
           <ApercuMessage
             key="ok"
             message={message}
-            lien={creerLienWhatsApp(config.whatsapp, message)}
+            lien={creerLienWhatsApp(config.whatsappCommandes, message)}
             retour={() => setMessage(null)}
           />
         ) : (

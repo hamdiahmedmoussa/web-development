@@ -17,6 +17,14 @@ export const config = {
   whatsapp: "25377525293",
   telephoneAffiche: "+253 77 52 52 93",
 
+  /**
+   * Numéro qui REÇOIT les commandes du formulaire.
+   * Pendant la démonstration : le numéro professionnel de Hamdi (77 58 37 19),
+   * pour que la commande test arrive sur son téléphone devant le gérant.
+   * Pour le vrai site : remettre le numéro de la pâtisserie, "25377525293".
+   */
+  whatsappCommandes: "25377583719",
+
   devise: "FDJ",
   partsMinimum: 8,
   choixParts: [8, 10, 12, 16, 20, 24],

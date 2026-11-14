@@ -34,7 +34,7 @@ export function ApercuMessage({ message, lien, retour }: Props) {
       <div className="apercu__conversation">
         <p className="apercu__contact">
           <span aria-hidden="true">H'C</span>
-          {config.nom}, {config.telephoneAffiche}
+          {config.nom}
         </p>
         <motion.p
           className="apercu__bulle"
