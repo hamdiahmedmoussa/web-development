@@ -41,6 +41,9 @@ Le site :
 - `config.whatsappCommandes` = numéro de Hamdi pendant la démo ; remettre `25377525293` pour le vrai site.
 - À confirmer avec eux : noms et prix des gâteaux, horaires, adresse Cité Saoudi, liens Facebook/TikTok, logo.
 
+En ligne : https://web-development.hamdiahmedmoussa.workers.dev (Cloudflare Workers, construit depuis `main`,
+dossier `hanscake`). Pour publier : fusionner la branche de travail dans `main`.
+
 Prospection : Han'sCake n'a pas acheté, mais **a accepté que Hamdi montre le site comme exemple** (portfolio, prospection) : c'est aussi une publicité pour eux.
 
 ## Projet 2 : `diva-salon/` (salon de beauté)
