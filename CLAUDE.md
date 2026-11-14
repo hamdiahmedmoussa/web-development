@@ -41,7 +41,7 @@ Le site :
 - `config.whatsappCommandes` = numéro de Hamdi pendant la démo ; remettre `25377525293` pour le vrai site.
 - À confirmer avec eux : noms et prix des gâteaux, horaires, adresse Cité Saoudi, liens Facebook/TikTok, logo.
 
-Prospection : message et aperçu prêts (envoi conseillé en semaine, 9 h - 11 h). Pas encore de réponse connue.
+Prospection : message envoyé, **Han'sCake a refusé** (novembre 2026). Démo privée : ne pas publier leurs photos ni leur nom ; code réutilisable pour une autre pâtisserie.
 
 ## Projet 2 : `diva-salon/` (salon de beauté)
 
@@ -56,11 +56,12 @@ Prospection : message et aperçu prêts (envoi conseillé en semaine, 9 h - 11 h
 
 - Pâtisseries : Sweet Home Bakery (@shbakery_253), La Maison Sucrée (Facebook), L'Ô Délices, Le Fournil, Le Moulin.
 - Restaurants : L'Atypique (@atypique_djibouti). Concurrence à connaître : DJIBMENU (menus), BALAAN (réservation).
+- Restaurants connus (à vérifier : site ? Instagram ?) : La Chaumière (place du 27-Juin), Chez Marco, Les Sept Frères (yéménite), Janateyn, Sushi-Do, Allo Pizza (livraison). Exclu : Melting Pot (a un site, meltingpotdj.com).
 - Salles de sport : Moulk Center, Olympus Gym. Traiteurs : demander des recommandations à Han'sCake.
 - Exclus (ont déjà un site) : Bunna House, Naan-STOP.
 
 ## Prochaines étapes
 
-1. Han'sCake : envoyer le message, obtenir le rendez-vous, confirmer le contenu, mettre en ligne (Cloudflare Pages ou Netlify : Vercel gratuit = non commercial).
+1. Restaurants : vérifier les candidats, choisir le premier, adapter une démo (carte + commande/réservation WhatsApp).
 2. Diva Salon : récupérer les photos, puis préparer l'aperçu et le message.
 3. Offre écrite : `offre/offre.md` (3 formules 35 000 / 60 000 / 100 000 FDJ, 3 abonnements 2 500 / 5 000 / 15 000 FDJ). Reste : version image une page pour WhatsApp.
