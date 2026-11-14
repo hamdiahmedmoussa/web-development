@@ -78,3 +78,58 @@
   font-size: 0.88rem;
   color: var(--texte);
 }
+
+/* Contacts : une icône dans un rond, l'identifiant en gras, une précision en dessous. */
+.pied__contacts {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pied__contacts a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 52px;
+  padding: 4px 0;
+  text-decoration: none;
+}
+
+.pied__contacts svg {
+  flex: none;
+  box-sizing: content-box;
+  padding: 9px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--accent) 16%, transparent);
+  color: var(--accent);
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.pied__contacts a:hover svg {
+  background: var(--accent);
+  color: var(--sur-accent);
+}
+
+.pied__contacts span {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+
+.pied__contacts strong {
+  font-weight: 600;
+}
+
+.pied__contacts small {
+  color: var(--texte-doux);
+  font-size: 0.82rem;
+}
+
+.pied__maps {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+}

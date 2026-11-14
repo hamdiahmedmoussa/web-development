@@ -66,10 +66,15 @@ export const config = {
   fuseau: "Africa/Djibouti",
 
   /** Réseaux sociaux : remplacer « # » par les vrais liens. */
+  /**
+   * Réseaux sociaux : chacun avec son icône et l'identifiant affiché à côté.
+   * Leurs publications montrent aussi une page Facebook « Han's Cake » et un compte TikTok :
+   * ajoute-les ici quand tu auras leurs adresses exactes, par exemple
+   * { reseau: "facebook", pseudo: "Han's Cake", lien: "https://www.facebook.com/…" },
+   */
   reseaux: [
-    // Ajouter Facebook ici quand on aura l'adresse exacte de leur page.
-    { nom: "Instagram", lien: "https://www.instagram.com/hanscake.cafeteria/" },
-  ],
+    { reseau: "instagram", pseudo: "@hanscake.cafeteria", lien: "https://www.instagram.com/hanscake.cafeteria/" },
+  ] as { reseau: "instagram" | "facebook" | "tiktok"; pseudo: string; lien: string }[],
 };
 
 /** 3500 → « 3 500 FDJ » */

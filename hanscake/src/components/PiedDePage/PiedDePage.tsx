@@ -1,5 +1,6 @@
 import { config } from "../../config";
 import { lienMaps, resumerHoraires } from "../../lib/horaires";
+import { IconeFacebook, IconeInstagram, IconeItineraire, IconeTelephone, IconeTiktok, IconeWhatsApp } from "../Icones/Icones";
 import { Statut } from "./Statut";
 import "./PiedDePage.css";
 
@@ -24,27 +25,48 @@ export function PiedDePage() {
                 ))}
               </ul>
               <a className="pied__maps" href={lienMaps(b.recherche)} target="_blank" rel="noopener noreferrer">
-                Itinéraire dans Google Maps
+                <IconeItineraire />
+                Y aller
               </a>
             </div>
           ))}
 
           <div>
             <h2 className="pied__titre">Nous joindre</h2>
-            <ul className="pied__liste">
-              <li>
-                <a href={`tel:+${config.whatsapp}`}>{config.telephoneAffiche}</a>
-              </li>
+            {/* Chaque contact : son icône, puis ce qu'on y trouve vraiment (numéro, identifiant) */}
+            <ul className="pied__contacts">
               <li>
                 <a href={`https://wa.me/${config.whatsapp}`} target="_blank" rel="noopener noreferrer">
-                  WhatsApp
+                  <IconeWhatsApp />
+                  <span>
+                    <strong>{config.telephoneAffiche.replace("+253 ", "")}</strong>
+                    <small>Commandes sur WhatsApp</small>
+                  </span>
                 </a>
               </li>
-              {config.reseaux.map((r) => (
-                <li key={r.nom}>
-                  <a href={r.lien}>{r.nom}</a>
-                </li>
-              ))}
+              <li>
+                <a href={`tel:+${config.whatsapp}`}>
+                  <IconeTelephone />
+                  <span>
+                    <strong>Appeler la boutique</strong>
+                    <small>{config.telephoneAffiche}</small>
+                  </span>
+                </a>
+              </li>
+              {config.reseaux.map((r) => {
+                const Icone = { instagram: IconeInstagram, facebook: IconeFacebook, tiktok: IconeTiktok }[r.reseau];
+                return (
+                  <li key={r.lien}>
+                    <a href={r.lien} target="_blank" rel="noopener noreferrer">
+                      <Icone />
+                      <span>
+                        <strong>{r.pseudo}</strong>
+                        <small>Nos derniers gâteaux sur {r.reseau === "tiktok" ? "TikTok" : r.reseau[0].toUpperCase() + r.reseau.slice(1)}</small>
+                      </span>
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>
