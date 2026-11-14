@@ -61,6 +61,6 @@ Prospection : message et aperçu prêts (envoi conseillé en semaine, 9 h - 11 h
 
 ## Prochaines étapes
 
-1. Han'sCake : envoyer le message, obtenir le rendez-vous, confirmer le contenu, mettre en ligne sur Vercel.
+1. Han'sCake : envoyer le message, obtenir le rendez-vous, confirmer le contenu, mettre en ligne (Cloudflare Pages ou Netlify : Vercel gratuit = non commercial).
 2. Diva Salon : récupérer les photos, puis préparer l'aperçu et le message.
-3. Rédiger l'offre écrite (pack site + Google + abonnement mensuel).
+3. Offre écrite : `offre/offre.md` (3 formules 35 000 / 60 000 / 100 000 FDJ, 3 abonnements 2 500 / 5 000 / 15 000 FDJ). Reste : version image une page pour WhatsApp.
