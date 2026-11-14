@@ -41,7 +41,7 @@ Le site :
 - `config.whatsappCommandes` = numéro de Hamdi pendant la démo ; remettre `25377525293` pour le vrai site.
 - À confirmer avec eux : noms et prix des gâteaux, horaires, adresse Cité Saoudi, liens Facebook/TikTok, logo.
 
-Prospection : message envoyé, **Han'sCake a refusé** (novembre 2026). Démo privée : ne pas publier leurs photos ni leur nom ; code réutilisable pour une autre pâtisserie.
+Prospection : Han'sCake n'a pas acheté, mais **a accepté que Hamdi montre le site comme exemple** (portfolio, prospection) : c'est aussi une publicité pour eux.
 
 ## Projet 2 : `diva-salon/` (salon de beauté)
 
@@ -51,6 +51,14 @@ Prospection : message envoyé, **Han'sCake a refusé** (novembre 2026). Démo pr
   demande de rendez-vous (jour + matin / après-midi / fin de journée), aperçu WhatsApp, bon à savoir, salon.
 - Manque : **photos** (Hamdi doit envoyer des captures de leur Instagram), liste exacte des prestations,
   horaires, téléphone. Aucun prix affiché volontairement.
+
+## Projet 3 : `portfolio/` (portfolio de Hamdi)
+
+- Scène 3D (Three.js via @react-three/fiber) : étoiles, mer de nuages, poussière, caméra pilotée par le défilement (Lenis).
+- Intro : « PORTFOLIO » en particules dorées → « HAMDI ». Noir bleuté + or pâle ; Instrument Serif, Inter, JetBrains Mono.
+- Faites : étapes 1 et 2. À venir : accueil + photo, manifeste, projets (Han'sCake, Diva Salon), compétences,
+  parcours, contact. Chiffres et certifications : uniquement des vrais.
+- Contenu dans `src/data.ts`. Téléphone : particules ÷ 3, sans effets lourds.
 
 ## Autres prospects repérés (à vérifier avant contact)
 
