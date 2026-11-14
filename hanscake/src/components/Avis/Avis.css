@@ -37,11 +37,3 @@
   font-size: 0.9rem;
 }
 
-/* Cadre en pointillés : montre où iront les avis, sans en inventer. */
-.avis__emplacement {
-  padding: 28px;
-  border: 2px dashed var(--trait);
-  border-radius: var(--rayon);
-  color: var(--texte-doux);
-  max-width: 60ch;
-}

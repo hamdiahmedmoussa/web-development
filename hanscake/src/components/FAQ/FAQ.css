@@ -10,54 +10,26 @@
 .faq__titre {
   font-size: clamp(2.4rem, 8vw, 4.4rem);
   font-variation-settings: var(--axes-titre);
-  max-width: 9ch;
+}
+
+.faq__liste {
+  display: grid;
+  gap: 0;
+  margin: 0;
 }
 
 .faq__item {
-  border-bottom: 1px solid var(--trait);
+  padding: 16px 0;
+  border-top: 1px solid var(--trait);
 }
 
-.faq__item h3 {
-  font-family: var(--police-texte);
+.faq__item dt {
+  font-weight: 700;
+  margin-bottom: 4px;
 }
 
-.faq__question {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-  width: 100%;
-  min-height: 60px;
-  padding: 14px 0;
-  border: 0;
-  background: none;
-  font-size: 1.05rem;
-  font-weight: 600;
-  line-height: 1.35;
-  text-align: left;
-  cursor: pointer;
-}
-
-.faq__signe {
-  flex: none;
-  display: grid;
-  place-items: center;
-  width: 32px;
-  height: 32px;
-  border: 1px solid var(--trait);
-  border-radius: 50%;
-  color: var(--accent);
-  font-size: 1.3rem;
-  font-weight: 400;
-}
-
-/* overflow: hidden pour que le texte ne déborde pas pendant l'animation de hauteur */
-.faq__reponse {
-  overflow: hidden;
-}
-
-.faq__reponse p {
-  padding-bottom: 18px;
+.faq__item dd {
+  margin: 0;
   max-width: 56ch;
   color: var(--texte-doux);
 }
@@ -68,7 +40,13 @@
   }
 
   .faq__grille {
-    grid-template-columns: 1fr 1.6fr;
+    grid-template-columns: 1fr 2fr;
     gap: 64px;
+  }
+
+  /* Deux colonnes de réponses, comme une affichette */
+  .faq__liste {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 40px;
   }
 }
