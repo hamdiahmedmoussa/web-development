@@ -1,0 +1,76 @@
+/* Une bulle de message posée en bas à droite, avec un coin « pointu » comme une vraie bulle. */
+.bulle {
+  position: fixed;
+  right: var(--marge);
+  bottom: calc(16px + env(safe-area-inset-bottom));
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: min(320px, calc(100% - 2 * var(--marge)));
+  padding: 10px 16px 10px 10px;
+  border: 1px solid var(--trait);
+  border-radius: 20px 20px 4px 20px;
+  background: var(--panneau);
+  color: var(--texte);
+  text-align: left;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.bulle:hover {
+  border-color: var(--accent);
+}
+
+.bulle__avatar {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--sur-accent);
+  font-family: var(--police-titre);
+  font-stretch: var(--etroit-titre);
+  font-style: var(--style-titre);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.bulle__texte {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+
+.bulle__texte strong {
+  font-size: 0.98rem;
+}
+
+.bulle__texte span {
+  font-size: 0.8rem;
+  color: var(--texte-doux);
+}
+
+[data-theme="retro"] .bulle {
+  border: var(--contour);
+  box-shadow: var(--ombre-retro);
+}
+
+/* Téléphone : une seule ligne, pour ne pas cacher le contenu de la page. */
+@media (max-width: 599px) {
+  .bulle {
+    padding: 6px 14px 6px 6px;
+  }
+
+  .bulle__avatar {
+    width: 34px;
+    height: 34px;
+    font-size: 0.82rem;
+  }
+
+  .bulle__texte span {
+    display: none;
+  }
+}

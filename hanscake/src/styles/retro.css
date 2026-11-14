@@ -48,10 +48,6 @@
   box-shadow: 8px 8px 0 var(--texte);
 }
 
-[data-theme="retro"] .barre {
-  border-top: var(--contour);
-}
-
 /* Le grain de papier se voit mieux sur fond clair en mode « multiply ». */
 [data-theme="retro"] .arc__grain {
   mix-blend-mode: multiply;

@@ -69,45 +69,13 @@
   font-weight: 600;
 }
 
-/* Pastille « Ouvert / Fermé » (utilisée aussi dans l'en-tête) */
+/* L'état de la boutique : une simple phrase, en italique discret. */
 .statut {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 4px 12px;
-  border-radius: 999px;
-  border: 1px solid var(--trait);
-  font-size: 0.82rem;
-  font-weight: 600;
-}
-
-.statut__point {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-}
-
-.statut--ouvert .statut__point {
-  background: var(--vert-ok);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--vert-ok) 30%, transparent);
-}
-
-.statut--ferme .statut__point {
-  background: var(--texte-doux);
+  font-style: italic;
+  color: var(--texte-doux);
 }
 
 .statut--compact {
-  font-size: 0.72rem;
-  padding: 3px 10px;
-  background: color-mix(in srgb, var(--fond-profond) 70%, transparent);
-}
-
-.pied__logo small {
-  margin-left: 8px;
-  font-family: var(--police-texte);
-  font-stretch: 100%;
-  font-style: normal;
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: var(--texte-doux);
+  font-size: 0.88rem;
+  color: var(--texte);
 }

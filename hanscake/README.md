@@ -44,7 +44,7 @@ Sur ton téléphone (même Wi-Fi) : `npm run dev -- --host`, puis ouvre l'adress
 | 6 | Commande + confirmation en verre dépoli | `components/Commande` |
 | 7 | Boutiques (ouvert / fermé, Google Maps), contact | `components/PiedDePage` |
 
-Barre « Commander » fixée en bas : `components/BarreCommande`.
+Bulle « Un gâteau pour quand ? » en bas à droite : `components/Bulle`.
 
 ## Où modifier quoi
 

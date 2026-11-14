@@ -2,7 +2,7 @@ import { Arc } from "./components/Arc/Arc";
 import { Avis } from "./components/Avis/Avis";
 import { Calculateur } from "./components/Calculateur/Calculateur";
 import { Galerie } from "./components/Galerie/Galerie";
-import { BarreCommande } from "./components/BarreCommande/BarreCommande";
+import { Bulle } from "./components/Bulle/Bulle";
 import { ComposerBoite } from "./components/Boite/ComposerBoite";
 import { Carrousel } from "./components/Carrousel/Carrousel";
 import { Commande } from "./components/Commande/Commande";
@@ -33,7 +33,7 @@ export default function App() {
         </main>
         <PiedDePage />
       </div>
-      <BarreCommande />
+      <Bulle />
       <Commande />
     </CommandeProvider>
   );

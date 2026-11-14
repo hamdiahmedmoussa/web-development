@@ -85,7 +85,6 @@
 :root {
   --largeur-max: 1180px;
   --marge: 16px;
-  --hauteur-barre: 68px;
 }
 
 @media (min-width: 760px) {

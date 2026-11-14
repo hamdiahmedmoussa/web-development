@@ -38,6 +38,8 @@ export interface Etat {
   ouvert: boolean;
   /** Phrase courte : « ferme à 21 h », « ouvre à 15 h », « ouvre demain à 7 h »… */
   detail: string;
+  /** La même chose, dite comme le dirait la vendeuse : « Nous rouvrons demain à 7 h ». */
+  phrase: string;
 }
 
 export function etatBoutique(horaires: Horaires, date: Date, fuseau: string): Etat {
@@ -46,8 +48,14 @@ export function etatBoutique(horaires: Horaires, date: Date, fuseau: string): Et
 
   if (aujourdhui) {
     const [ouv, ferm] = aujourdhui.map(enMinutes);
-    if (minutes >= ouv && minutes < ferm) return { ouvert: true, detail: `ferme à ${formaterHeure(aujourdhui[1])}` };
-    if (minutes < ouv) return { ouvert: false, detail: `ouvre à ${formaterHeure(aujourdhui[0])}` };
+    if (minutes >= ouv && minutes < ferm) {
+      const h = formaterHeure(aujourdhui[1]);
+      return { ouvert: true, detail: `ferme à ${h}`, phrase: `Ouvert jusqu'à ${h}` };
+    }
+    if (minutes < ouv) {
+      const h = formaterHeure(aujourdhui[0]);
+      return { ouvert: false, detail: `ouvre à ${h}`, phrase: `Nous ouvrons à ${h}` };
+    }
   }
 
   // Fermé pour aujourd'hui : on cherche le prochain jour d'ouverture.
@@ -56,10 +64,11 @@ export function etatBoutique(horaires: Horaires, date: Date, fuseau: string): Et
     const plage = horaires[j];
     if (plage) {
       const quand = ecart === 1 ? "demain" : JOURS[j];
-      return { ouvert: false, detail: `ouvre ${quand} à ${formaterHeure(plage[0])}` };
+      const h = formaterHeure(plage[0]);
+      return { ouvert: false, detail: `ouvre ${quand} à ${h}`, phrase: `Nous rouvrons ${quand} à ${h}` };
     }
   }
-  return { ouvert: false, detail: "horaires à venir" };
+  return { ouvert: false, detail: "horaires à venir", phrase: "Horaires à venir" };
 }
 
 /** Résumé lisible des horaires, en regroupant les jours identiques. */

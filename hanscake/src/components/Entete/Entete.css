@@ -42,3 +42,12 @@
 .entete__statut {
   text-decoration: none;
 }
+
+/* Posée sur le film : une ombre légère pour rester lisible sur les images claires. */
+.entete__statut .statut {
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.55);
+}
+
+[data-theme="retro"] .entete__statut .statut {
+  text-shadow: none;
+}

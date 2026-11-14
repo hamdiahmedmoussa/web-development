@@ -18,8 +18,6 @@ body {
   font-size: 1.0625rem;
   line-height: 1.55;
   overflow-x: clip;
-  /* La barre « Commander » est fixée en bas : on lui laisse la place. */
-  padding-bottom: calc(var(--hauteur-barre) + env(safe-area-inset-bottom));
 }
 
 h1,

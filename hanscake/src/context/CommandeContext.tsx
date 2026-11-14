@@ -5,8 +5,8 @@ import type { Article, Parfum } from "../types";
 /*
   LE CONTEXTE DE COMMANDE
   Plusieurs composants éloignés partagent les mêmes informations :
-   - l'arc d'ouverture, le carrousel et la barre du bas montrent le même parfum ;
-   - le carrousel, la boîte et la barre du bas ouvrent le formulaire.
+   - l'arc d'ouverture, le carrousel et la bulle de message utilisent le même parfum ;
+   - le carrousel, la boîte et la bulle de message ouvrent le formulaire.
   Au lieu de passer ces données de parent en enfant (« prop drilling »),
   on les place dans un contexte : tout composant peut les lire avec useCommande().
 */
