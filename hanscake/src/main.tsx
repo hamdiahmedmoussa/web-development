@@ -16,6 +16,13 @@ import { version } from "./version";
 document.documentElement.dataset.theme = version;
 document.querySelector('meta[name="theme-color"]')?.setAttribute("content", version === "retro" ? "#fdf0dc" : "#372c2b");
 
+// La signature côté développeurs : visible dans la console du navigateur (F12).
+console.log(
+  "%cHan'sCake%c  site conçu et développé par Hamdi · wa.me/25377583719",
+  "font: italic 700 16px Georgia, serif; color: #d6336c",
+  "font: 12px system-ui, sans-serif; color: #6b4a40",
+);
+
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <App />

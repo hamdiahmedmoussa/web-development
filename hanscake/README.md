@@ -1,6 +1,7 @@
 # Han'sCake · site démo « marque premium »
 
-Maquette de démonstration (site **non officiel**) pour la pâtisserie Han'sCake, rue de Rome, Djibouti.
+Site de démonstration pour la pâtisserie Han'sCake (Djibouti), conçu et développé par Hamdi,
+montré comme exemple **avec l'accord de Han'sCake**.
 Le visiteur suit la fabrication d'un gâteau en faisant défiler un film, choisit son parfum, compose
 une boîte de pâtisseries, puis envoie sa commande sur WhatsApp, déjà rédigée.
 
@@ -10,10 +11,10 @@ React, Vite, TypeScript, Motion (`motion/react`), CSS simple. Pas de base de don
 
 | Version | Adresse | Ouverture | Ambiance |
 |---|---|---|---|
-| **Cinéma** (par défaut) | `/` ou `/?version=cinema` | le film au défilement | sombre : brun, crème, framboise ; titres Bodoni Moda |
-| **Rétro** | `/?version=retro` | l'arc 3D de tous les gâteaux | années 70 : vanille, chocolat, cerise, menthe ; titres Fraunces, contours épais |
+| **Cinéma** | `/?version=cinema` | le film au défilement | sombre : brun, crème, framboise ; titres Bodoni Moda |
+| **Rétro** (par défaut) | `/` ou `/?version=retro` | l'arc 3D de tous les gâteaux | années 70 : vanille, chocolat, cerise, menthe ; titres Fraunces, contours épais |
 
-Un bouton en haut de page permet de passer de l'une à l'autre pendant la présentation.
+La version Rétro s'affiche par défaut ; la version Cinéma reste accessible avec `?version=cinema` (sans lien visible).
 Les couleurs de chaque version sont dans `src/styles/variables.css`, les touches rétro dans
 `src/styles/retro.css`, et le choix de la version dans `src/version.ts`.
 
@@ -63,6 +64,16 @@ Bulle « Un gâteau pour quand ? » en bas à droite : `components/Bulle`.
 
 ⚠️ Les commandes partent vers `config.whatsappCommandes` (ton numéro pendant la démo). Pour le vrai site, remets celui de la pâtisserie (`25377525293`).
 
+## Finitions « site fini »
+
+- Pied de page : copyright, puis la **signature** « Site conçu et développé par Hamdi » (un clic ouvre WhatsApp
+  avec un message prêt). Réglages dans `createur` de `src/config.ts`.
+- Une ligne honnête (bas de page et aperçu de commande) tant que `estUneMaquette` vaut `true` :
+  les commandes du formulaire arrivent chez Hamdi, pas chez Han'sCake.
+- Aperçu de partage (`public/apercu-partage.jpg`, 1200 × 630) et icônes (`favicon.svg`, `apple-touch-icon.png`).
+  Après la mise en ligne, mettre l'adresse complète de l'image dans `og:image` (`index.html`).
+- Signature aussi dans la console du navigateur (F12).
+
 ## Images
 
 Les photos viennent du compte Instagram de la pâtisserie (**hanscake.cafeteria**) et de son réfrigérateur
@@ -100,7 +111,10 @@ ffmpeg -i nouveau.mp4 -an -vf scale=854:-2 -c:v libx264 -preset slow -crf 28 -g 
 
 Les temps des étapes (0,8 s, 7,9 s, 13,3 s, 14,5 s, 24,1 s) se règlent dans `src/data/film.ts`.
 
-## Mettre en ligne sur Vercel
+## Mettre en ligne
+
+Pour un site commercial, préférer Cloudflare Pages ou Netlify (l'offre gratuite de Vercel est non commerciale).
+Pour le portfolio, Vercel convient :
 
 1. vercel.com → connexion avec GitHub → **Add New… → Project** → dépôt `web-development`.
 2. **Root Directory : `hanscake`**.

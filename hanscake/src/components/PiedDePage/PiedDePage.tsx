@@ -4,7 +4,10 @@ import { IconeFacebook, IconeInstagram, IconeItineraire, IconeTelephone, IconeTi
 import { Statut } from "./Statut";
 import "./PiedDePage.css";
 
-/** Boutiques (état ouvert / fermé, horaires, itinéraire), contact, réseaux et mention de maquette. */
+/** Année du copyright, calculée une seule fois au chargement de la page. */
+const ANNEE = new Date().getFullYear();
+
+/** Boutiques (état ouvert / fermé, horaires, itinéraire), contact, réseaux, puis la signature du créateur. */
 export function PiedDePage() {
   return (
     <footer className="pied" id="boutiques">
@@ -71,10 +74,26 @@ export function PiedDePage() {
           </div>
         </div>
 
+        <div className="pied__bas">
+          <p>
+            © {ANNEE} {config.nom} · Pâtisserie & Café, Djibouti
+          </p>
+          {/* La signature : un clic ouvre WhatsApp avec un message déjà prêt pour Hamdi. */}
+          <a
+            className="signature"
+            href={`https://wa.me/${config.createur.whatsapp}?text=${encodeURIComponent(config.createur.message)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Site conçu et développé par <span className="signature__nom">{config.createur.nom}</span>
+          </a>
+        </div>
+
         {config.estUneMaquette && (
           <p className="pied__mention">
-            Maquette de démonstration, site non officiel. Réalisée par Hamdi pour présenter une idée de site à Han'sCake.
-            Photos, parfums, prix et horaires sont des exemples à confirmer.
+            Site de démonstration, présenté avec l'accord de {config.nom}. Les demandes envoyées par le formulaire
+            arrivent chez son créateur : pour une vraie commande, écrivez directement à la boutique au{" "}
+            {config.telephoneAffiche}.
           </p>
         )}
       </div>

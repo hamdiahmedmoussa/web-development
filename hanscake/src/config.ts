@@ -7,7 +7,18 @@ import type { Horaires } from "./types";
 
 export const config = {
   nom: "Han'sCake",
+  /**
+   * Site de démonstration (présenté avec l'accord de Han'sCake) : affiche une ligne honnête
+   * en bas de page et dans l'aperçu de commande. Mettre false pour un vrai site client.
+   */
   estUneMaquette: true,
+
+  /** La signature en bas de page : qui a créé le site, et comment le joindre. */
+  createur: {
+    nom: "Hamdi",
+    whatsapp: "25377583719",
+    message: "Bonjour Hamdi, j'ai vu le site de Han'sCake. Je voudrais un site pour mon commerce.",
+  },
 
   /**
    * Numéro WhatsApp qui reçoit les commandes : indicatif + numéro, sans « + » ni espaces.

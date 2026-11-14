@@ -46,6 +46,14 @@ export function ApercuMessage({ message, lien, retour }: Props) {
         </motion.p>
       </div>
 
+      {config.estUneMaquette && (
+        // Honnêteté : sur le site de démonstration, le message n'arrive pas chez Han'sCake.
+        <p className="apercu__demo">
+          Site de démonstration : ce message arrivera chez {config.createur.nom}, qui a créé ce site. Pour une vraie
+          commande, écrivez à {config.nom} au {config.telephoneAffiche}.
+        </p>
+      )}
+
       <a className="bouton apercu__envoyer" href={lien} target="_blank" rel="noopener noreferrer">
         Envoyer sur WhatsApp
       </a>
