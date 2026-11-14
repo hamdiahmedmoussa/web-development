@@ -1,0 +1,173 @@
+.pied {
+  padding-block: 56px 32px;
+  background: var(--fond-profond);
+  border-top: 1px solid var(--trait);
+}
+
+.pied__logo {
+  font-family: var(--police-logo);
+  font-weight: 400;
+  font-size: 2.4rem;
+  line-height: 1;
+  margin-bottom: 28px;
+}
+
+.pied__logo span {
+  color: var(--accent);
+}
+
+.pied__grille {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 32px;
+}
+
+.pied__titre {
+  font-family: var(--police-texte);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--detail);
+  margin-bottom: 10px;
+}
+
+.pied__adresse {
+  font-style: normal;
+  margin-bottom: 6px;
+}
+
+.pied__liste {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--texte-doux);
+}
+
+.pied__liste a {
+  display: inline-block;
+  padding-block: 6px;
+}
+
+.pied__mention {
+  margin-top: 14px;
+  max-width: 70ch;
+  color: var(--texte-doux);
+  font-size: 0.78rem;
+}
+
+/* Dernière ligne : copyright à gauche, signature à droite (l'une sous l'autre sur téléphone). */
+.pied__bas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 24px;
+  margin-top: 48px;
+  padding-top: 20px;
+  border-top: 1px solid var(--trait);
+  color: var(--texte-doux);
+  font-size: 0.85rem;
+}
+
+.pied__bas p {
+  margin: 0;
+}
+
+/* La signature : le prénom en écriture attachée, comme signé à la main. */
+.signature {
+  color: var(--texte-doux);
+  text-decoration: none;
+}
+
+.signature__nom {
+  margin-left: 4px;
+  font-family: var(--police-logo);
+  font-size: 1.7rem;
+  line-height: 1;
+  color: var(--accent);
+  transition: color 0.2s;
+}
+
+.signature:hover .signature__nom,
+.signature:focus-visible .signature__nom {
+  color: var(--texte);
+}
+
+.pied__boutique {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.pied__maps {
+  margin-top: 4px;
+  padding-block: 8px;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* L'état de la boutique : une simple phrase, en italique discret. */
+.statut {
+  font-style: italic;
+  color: var(--texte-doux);
+}
+
+.statut--compact {
+  font-size: 0.88rem;
+  color: var(--texte);
+}
+
+/* Contacts : une icône dans un rond, l'identifiant en gras, une précision en dessous. */
+.pied__contacts {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pied__contacts a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 52px;
+  padding: 4px 0;
+  text-decoration: none;
+}
+
+.pied__contacts svg {
+  flex: none;
+  box-sizing: content-box;
+  padding: 9px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--accent) 16%, transparent);
+  color: var(--accent);
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.pied__contacts a:hover svg {
+  background: var(--accent);
+  color: var(--sur-accent);
+}
+
+.pied__contacts span {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+
+.pied__contacts strong {
+  font-weight: 600;
+}
+
+.pied__contacts small {
+  color: var(--texte-doux);
+  font-size: 0.82rem;
+}
+
+.pied__maps {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+}

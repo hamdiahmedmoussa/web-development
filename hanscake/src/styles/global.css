@@ -1,0 +1,132 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: clip;
+  -webkit-text-size-adjust: 100%;
+  color-scheme: var(--schema);
+}
+
+body {
+  margin: 0;
+  background: var(--fond-page);
+  color: var(--texte);
+  font-family: var(--police-texte);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  overflow-x: clip;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--police-titre);
+  font-stretch: var(--etroit-titre);
+  font-weight: var(--graisse-titre);
+  letter-spacing: var(--approche-titre);
+  line-height: 1.02;
+  margin: 0;
+  text-wrap: balance;
+}
+
+p {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--detail);
+  outline-offset: 3px;
+}
+
+.conteneur {
+  width: 100%;
+  max-width: var(--largeur-max);
+  margin-inline: auto;
+  padding-inline: var(--marge);
+}
+
+/* Bouton principal. */
+.bouton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 12px 26px;
+  border: 0;
+  border-radius: var(--rayon-bouton);
+  background: var(--bouton-fond);
+  color: var(--bouton-texte);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: filter 0.2s;
+}
+
+.bouton:hover {
+  filter: brightness(1.12);
+}
+
+.bouton:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  filter: none;
+}
+
+/* Bouton sombre, utilisé sur les fonds colorés des parfums. */
+.bouton--encre {
+  background: var(--encre, var(--fond-profond));
+  color: var(--fond, #fff);
+}
+
+/* Texte réservé aux lecteurs d'écran. */
+.visuellement-cache {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Petite pastille « exemple » sur les contenus à confirmer. */
+.exemple {
+  display: inline-block;
+  padding: 1px 8px;
+  border: 1px dashed currentColor;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Le logo de l'en-tête se place par rapport à la page. */
+.page {
+  position: relative;
+}
+
+

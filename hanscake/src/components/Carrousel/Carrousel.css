@@ -1,0 +1,281 @@
+.carrousel {
+  position: relative;
+  overflow: hidden;
+  padding-block: 72px 56px;
+  background: var(--fond-profond);
+}
+
+.carrousel__titre {
+  font-size: clamp(2.4rem, 8vw, 4.4rem);
+  font-variation-settings: var(--axes-titre);
+  margin-bottom: 10px;
+}
+
+.carrousel__intro {
+  color: var(--texte-doux);
+  max-width: 44ch;
+  margin-bottom: 24px;
+}
+
+/* La vraie photo du réfrigérateur, floutée et assombrie : le gâteau ressort devant. */
+.carrousel__frigo {
+  position: absolute;
+  inset: 0;
+  background: url("/images/boutique/frigo-1.webp") center / cover;
+  filter: blur(14px) brightness(0.55) saturate(1.1);
+  scale: 1.1;
+}
+
+/* L'étagère grillagée sur laquelle le gâteau est posé */
+.carrousel__etagere {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 9%;
+  height: 22px;
+  background:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.55) 0 2px, transparent 2px 18px),
+    linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.25));
+  background-size: auto, 100% 3px;
+  background-repeat: repeat, no-repeat;
+  opacity: 0.6;
+}
+
+/* L'étiquette de prix en papier, écrite à la main */
+.carrousel__etiquette {
+  position: absolute;
+  left: max(var(--marge), 8%);
+  bottom: calc(9% - 26px);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 14px 6px;
+  border-radius: 3px;
+  background: #fffaf0;
+  color: #2b1a14;
+  font-family: "Great Vibes", cursive;
+  font-size: 1.7rem;
+  line-height: 1;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+}
+
+.carrousel__etiquette small {
+  font-family: var(--police-texte);
+  font-size: 0.72rem;
+  opacity: 0.7;
+}
+
+/* La zone du gâteau : le mot géant derrière, le gâteau au centre, les flèches sur les côtés. */
+.carrousel__scene {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: min(100vw, 520px);
+  overflow: hidden;
+}
+
+
+.carrousel__gateau {
+  position: relative;
+  width: min(78vw, 440px);
+  aspect-ratio: 1;
+  cursor: grab;
+  touch-action: pan-y; /* le doigt peut encore faire défiler la page verticalement */
+}
+
+.carrousel__gateau:active {
+  cursor: grabbing;
+}
+
+.carrousel__image {
+  position: absolute;
+  inset: 12%;
+  width: 76%;
+  height: 76%;
+  object-fit: cover;
+  border-radius: 50%;
+  filter: drop-shadow(0 28px 30px rgba(0, 0, 0, 0.28));
+}
+
+.ingredient {
+  position: absolute;
+  z-index: 1;
+  filter: drop-shadow(0 12px 14px rgba(0, 0, 0, 0.22));
+}
+
+.ingredient .visuel-manquant {
+  font-size: 0.55rem;
+  padding: 4%;
+}
+
+.ingredient .visuel-manquant small {
+  display: none;
+}
+
+.carrousel__fleche {
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1.5px solid var(--texte);
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--fond-profond) 60%, transparent);
+  color: var(--texte);
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.carrousel__fleche:hover {
+  background: var(--texte);
+  color: var(--fond-page);
+}
+
+.carrousel__fleche--gauche {
+  left: var(--marge);
+}
+
+.carrousel__fleche--droite {
+  right: var(--marge);
+}
+
+.carrousel__fleche--droite svg {
+  rotate: 180deg;
+}
+
+.carrousel__infos {
+  display: grid;
+  gap: 20px;
+}
+
+.carrousel__nom {
+  font-size: clamp(2.2rem, 8vw, 3.6rem);
+  font-variation-settings: var(--axes-titre);
+  margin-bottom: 8px;
+}
+
+.carrousel__description {
+  max-width: 40ch;
+}
+
+.carrousel__achat {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 20px;
+}
+
+.carrousel__prix {
+  font-family: var(--police-titre);
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+
+.carrousel__prix span {
+  font-family: var(--police-texte);
+  font-size: 0.9rem;
+  font-weight: 500;
+  opacity: 0.75;
+}
+
+.carrousel__vignettes {
+  display: flex;
+  gap: 10px;
+}
+
+.carrousel__vignette {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  border: 2px solid var(--texte);
+  border-radius: 50%;
+  background: var(--panneau);
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.carrousel__vignette span {
+  /* Nom visible au survol sur ordinateur, lu par les lecteurs d'écran partout */
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  translate: -50% 0;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: var(--texte);
+  color: var(--fond-page);
+  font-size: 0.75rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+.carrousel__vignette:focus-visible span {
+  opacity: 1;
+}
+
+@media (hover: hover) {
+  .carrousel__vignette:hover span {
+    opacity: 1;
+  }
+}
+
+.carrousel__vignette[aria-pressed="true"] {
+  opacity: 1;
+  transform: scale(1.15);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--fond-profond), 0 0 0 5px var(--accent);
+}
+
+@media (min-width: 900px) {
+  .carrousel {
+    display: flex;
+    flex-direction: column;
+    min-height: 100svh;
+    padding-block: 40px 56px;
+  }
+
+  .carrousel__scene {
+    flex: 1;
+    height: auto;
+    min-height: 380px;
+  }
+
+  .carrousel__gateau {
+    width: min(58svh, 440px);
+  }
+
+  .carrousel__infos {
+    grid-template-columns: 1fr auto;
+    align-items: end;
+  }
+
+  .carrousel__vignettes {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Le gâteau s'incline en 3D vers le pointeur : « perspective » donne la profondeur. */
+.carrousel__gateau {
+  perspective: 900px;
+}
+
+.carrousel__inclinaison {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+}
+
+
+.carrousel__vignette img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}

@@ -1,0 +1,97 @@
+/*
+  COULEURS, POLICES ET RÈGLES DE BASE
+  Noir bleuté, brume gris chaud, un seul éclat : l'or pâle.
+*/
+:root {
+  --fond: #07080c;
+  --fond-haut: #0d0f16;
+  --brume: #cfccc4;
+  --or: #f3e6c4;
+  --or-vif: #fff6dd;
+  --texte: #ece8df;
+  --texte-doux: #8a8a90;
+  --trait: rgba(255, 255, 255, 0.18);
+
+  /* Trois familles : serif pour les titres, sans-serif pour le texte, mono pour les petits repères. */
+  --serif: "Instrument Serif", "Times New Roman", serif;
+  --sans: "Inter Variable", "Segoe UI", system-ui, sans-serif;
+  --mono: "JetBrains Mono Variable", ui-monospace, monospace;
+
+  --marge: 16px;
+  /* Courbe « expo.out » : démarre vite, termine très doucement. */
+  --doux: cubic-bezier(0.16, 1, 0.3, 1);
+  --progression: 0;
+}
+
+@media (min-width: 760px) {
+  :root {
+    --marge: 40px;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--fond);
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(var(--fond), var(--fond-haut));
+  color: var(--texte);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+/* Lenis gère le défilement : on désactive le défilement fluide natif pour éviter un double effet. */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 1px solid var(--or);
+  outline-offset: 4px;
+}
+
+.mono {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--texte-doux);
+}
+
+/* Texte lu par les lecteurs d'écran, invisible à l'écran. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

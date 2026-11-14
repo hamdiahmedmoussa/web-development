@@ -1,0 +1,10 @@
+// Réglages Cloudflare : le site est une simple page statique, construite dans dist/.
+// Le nom doit être exactement celui du Worker créé dans le tableau de bord Cloudflare.
+{
+  "name": "web-development",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "single-page-application"
+  }
+}

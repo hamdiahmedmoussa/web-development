@@ -1,0 +1,96 @@
+/*
+  LES DEUX VERSIONS DU SITE
+  Les composants n'utilisent que des noms « neutres » (--texte, --fond-page, --accent…).
+  Chaque version donne ses propres valeurs à ces noms : on change toute l'ambiance
+  sans toucher aux composants. La version active est écrite sur <html data-theme="…">.
+
+  Les couleurs propres à chaque parfum sont dans src/data/parfums.ts (communes aux deux).
+*/
+
+/* ---------- Version « Cinéma » : sombre, le film, Bricolage Grotesque ---------- */
+:root,
+:root[data-theme="cinema"] {
+  --schema: dark;
+  --fond-page: #372c2b; /* le mur brun du film */
+  --fond-profond: #2b2120;
+  --panneau: #463938;
+  --texte: #f7ecdc; /* crème */
+  --texte-doux: #d2c0b4;
+  --accent: #ec5c84; /* framboise */
+  --sur-accent: #f7ecdc;
+  --bouton-fond: #c9305c;
+  --bouton-texte: #ffffff;
+  --detail: #e2bd86; /* or */
+  --trait: rgba(247, 236, 220, 0.18);
+  --vitrine-fond: #f7ecdc;
+  --vitrine-texte: #372c2b;
+  --vitrine-doux: #6e5a55;
+  --verre: rgba(70, 57, 56, 0.72);
+  --champ: rgba(43, 33, 32, 0.7);
+  --voile: rgba(20, 13, 13, 0.55);
+  --vert-ok: #3ccf7a;
+
+  /*
+    Une seule famille, Bricolage Grotesque, utilisée de deux façons :
+    très étroite et grasse pour les titres (comme un générique de film ou une affiche),
+    normale pour les textes. Une famille, deux voix : plus cohérent que deux polices.
+  */
+  --police-titre: "Bricolage Grotesque Variable", "Arial Narrow", system-ui, sans-serif;
+  --police-texte: "Bricolage Grotesque Variable", "Segoe UI", system-ui, sans-serif;
+  --axes-titre: normal;
+  --etroit-titre: 75%; /* largeur des lettres des titres : 75 % = condensé */
+  --graisse-titre: 750;
+  --style-titre: normal; /* pas d'italique : cette police n'en a pas */
+  --approche-titre: -0.02em;
+  /* Formes droites, presque carrées : le contraire des pilules arrondies partout. */
+  --rayon: 6px;
+  --rayon-bouton: 6px;
+}
+
+/* ---------- Version « Rétro » : pâtisserie des années 70, l'arc, Fraunces ---------- */
+:root[data-theme="retro"] {
+  --schema: light;
+  --fond-page: #fdf0dc; /* vanille */
+  --fond-profond: #f5d9b8; /* biscuit */
+  --panneau: #fff8ee;
+  --texte: #3b1f1a; /* chocolat */
+  --texte-doux: #6b4a40;
+  --accent: #d6336c; /* le rose de leur enseigne */
+  --sur-accent: #fdf0dc;
+  --bouton-fond: #c2255c;
+  --bouton-texte: #ffffff;
+  --detail: #9c5410; /* caramel foncé, lisible sur la vanille */
+  --trait: rgba(59, 31, 26, 0.22);
+  --vitrine-fond: #8fd1c1; /* menthe */
+  --vitrine-texte: #1d2f2a;
+  --vitrine-doux: #2c4a42;
+  --verre: rgba(255, 248, 238, 0.75);
+  --champ: rgba(255, 255, 255, 0.75);
+  --voile: rgba(59, 31, 26, 0.35);
+  --vert-ok: #1f9d55;
+
+  /* Fraunces : « SOFT » arrondit les lettres, « WONK » les penche façon années 70. */
+  --police-titre: "Fraunces Variable", "Cooper Black", Georgia, serif;
+  --axes-titre: "SOFT" 100, "WONK" 1;
+  --police-texte: "Figtree Variable", "Segoe UI", system-ui, sans-serif;
+  --etroit-titre: 100%;
+  --graisse-titre: 700;
+  --style-titre: italic;
+  --approche-titre: -0.01em;
+  --rayon: 22px;
+  --rayon-bouton: 999px;
+}
+
+/* Valeurs communes aux deux versions */
+:root {
+  /* Le nom de la boutique, en écriture attachée comme sur l'enseigne et les plaques en chocolat */
+  --police-logo: "Great Vibes", "Brush Script MT", cursive;
+  --largeur-max: 1180px;
+  --marge: 16px;
+}
+
+@media (min-width: 760px) {
+  :root {
+    --marge: 32px;
+  }
+}

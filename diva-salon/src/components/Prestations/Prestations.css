@@ -1,0 +1,86 @@
+.prestations {
+  padding-block: 72px;
+  background: var(--texte);
+  color: var(--fond-page);
+}
+
+.prestations .intro-section {
+  color: #6b5560;
+}
+
+/* Une colonne par catégorie, séparées par un filet doré */
+.prestations__carte {
+  display: grid;
+  gap: 28px;
+}
+
+.prestations__categorie h3 {
+  font-size: 1.6rem;
+  padding-bottom: 8px;
+  margin-bottom: 4px;
+  border-bottom: 2px solid var(--detail);
+}
+
+.prestations__categorie ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.prestations__categorie button {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 12px;
+  width: 100%;
+  padding: 12px 0;
+  border: 0;
+  border-bottom: 1px solid rgba(36, 18, 28, 0.12);
+  background: none;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.prestations__nom {
+  font-weight: 700;
+}
+
+.prestations__detail {
+  grid-column: 1;
+  font-size: 0.88rem;
+  color: #6b5560;
+}
+
+.prestations__action {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  align-self: center;
+  color: var(--bouton-fond);
+  font-size: 0.85rem;
+  font-weight: 700;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.prestations__categorie button:hover .prestations__action,
+.prestations__categorie button:focus-visible .prestations__action {
+  opacity: 1;
+}
+
+/* Sur téléphone, pas de survol : l'action est toujours visible */
+@media (hover: none) {
+  .prestations__action {
+    opacity: 1;
+  }
+}
+
+@media (min-width: 900px) {
+  .prestations {
+    padding-block: 112px;
+  }
+
+  .prestations__carte {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px 48px;
+  }
+}

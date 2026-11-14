@@ -1,0 +1,222 @@
+.boite {
+  padding-block: 72px;
+  background: var(--fond-profond);
+}
+
+.boite__grille {
+  display: grid;
+  gap: 40px;
+}
+
+/* Dans les petites cases, le cercle suffit : le nom du fichier est déjà dans la vitrine. */
+.boite .visuel-manquant small {
+  display: none;
+}
+
+.boite__titre {
+  font-size: clamp(2.4rem, 8vw, 4.4rem);
+  font-variation-settings: var(--axes-titre);
+  margin-bottom: 12px;
+}
+
+.boite__intro {
+  color: var(--texte-doux);
+  margin-bottom: 28px;
+  max-width: 40ch;
+}
+
+.boite__liste {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.boite__ajout {
+  position: relative;
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 10px;
+  align-items: center;
+  width: 100%;
+  min-height: 64px;
+  padding: 10px 34px 10px 10px;
+  border: 0;
+  border-radius: 16px;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+
+.boite__ajout:active:not(:disabled) {
+  transform: scale(0.96);
+}
+
+.boite__ajout:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.boite__ajout-image {
+  grid-row: 1 / 3;
+  width: 44px;
+}
+
+.boite__ajout-image .visuel-manquant,
+.boite__retirer .visuel-manquant {
+  font-size: 0;
+  border-width: 1.5px;
+  padding: 0;
+}
+
+.boite__ajout-nom {
+  font-weight: 600;
+  font-size: 0.88rem;
+  line-height: 1.2;
+}
+
+.boite__ajout-prix {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+.boite__plus {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  translate: 0 -50%;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+/* La boîte en carton kraft, vue de dessus */
+.boite__panneau {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.boite__carton {
+  position: relative;
+  padding: 26px 18px 18px;
+  border-radius: 14px;
+  background: linear-gradient(160deg, #c99b6b, #a8784a);
+  box-shadow: inset 0 0 0 6px rgba(0, 0, 0, 0.08), 0 30px 50px rgba(0, 0, 0, 0.35);
+}
+
+/* Le couvercle ouvert, derrière la boîte */
+.boite__couvercle {
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  top: -18px;
+  height: 22px;
+  border-radius: 10px 10px 0 0;
+  background: #b8875a;
+  transform: perspective(300px) rotateX(35deg);
+  transform-origin: bottom;
+}
+
+.boite__cases {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.boite__case {
+  aspect-ratio: 1;
+  border-radius: 12px;
+  background: rgba(60, 35, 15, 0.25);
+  box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.boite__case--pleine {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+}
+
+.boite__retirer {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 8%;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.boite__retirer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.boite__retirer .visuel-manquant {
+  width: 100%;
+  font-size: 0;
+  color: var(--fond-page);
+}
+
+.boite__retirer > span {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--fond-profond);
+  color: var(--texte);
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.boite__resume {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.boite__total {
+  font-size: 1.1rem;
+}
+
+.boite__total strong {
+  font-family: var(--police-titre);
+  font-size: 1.8rem;
+  margin-left: 6px;
+}
+
+.boite__etat {
+  color: var(--texte-doux);
+  font-size: 0.9rem;
+}
+
+@media (min-width: 900px) {
+  .boite {
+    padding-block: 112px;
+  }
+
+  .boite__grille {
+    grid-template-columns: 1.1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+}
+
+.boite__ajout-image img {
+  width: 44px;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;
+}

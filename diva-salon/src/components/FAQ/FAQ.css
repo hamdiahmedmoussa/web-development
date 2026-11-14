@@ -1,0 +1,51 @@
+.faq {
+  padding-block: 72px;
+}
+
+.faq__grille {
+  display: grid;
+  gap: 28px;
+}
+
+.faq__titre {
+  font-size: clamp(2.4rem, 8vw, 4.2rem);
+}
+
+.faq__liste {
+  display: grid;
+  gap: 0;
+  margin: 0;
+}
+
+.faq__item {
+  padding: 16px 0;
+  border-top: 1px solid var(--trait);
+}
+
+.faq__item dt {
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.faq__item dd {
+  margin: 0;
+  max-width: 56ch;
+  color: var(--texte-doux);
+}
+
+@media (min-width: 900px) {
+  .faq {
+    padding-block: 112px;
+  }
+
+  .faq__grille {
+    grid-template-columns: 1fr 2fr;
+    gap: 64px;
+  }
+
+  /* Deux colonnes de réponses, comme une affichette */
+  .faq__liste {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 40px;
+  }
+}

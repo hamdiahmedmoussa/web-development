@@ -1,0 +1,199 @@
+.reservation {
+  width: min(460px, calc(100% - 24px));
+  max-height: calc(100dvh - 24px);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--texte);
+  overflow: visible;
+}
+
+.reservation::backdrop {
+  background: var(--voile);
+  backdrop-filter: blur(4px);
+}
+
+.reservation__carte {
+  position: relative;
+  max-height: calc(100dvh - 24px);
+  overflow: auto;
+  border: 1px solid var(--trait);
+  border-top: 3px solid var(--accent);
+  border-radius: 8px;
+  background: var(--verre);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+}
+
+.reservation__fermer {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.reservation__formulaire {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 24px 22px 22px;
+}
+
+.reservation__sur-titre {
+  color: var(--detail);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.reservation__titre {
+  font-size: 2rem;
+  padding-right: 40px;
+}
+
+.champ {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--texte-doux);
+}
+
+.champ input:not([type="radio"]),
+.champ textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: 10px 12px;
+  border: 1px solid var(--trait);
+  border-radius: 6px;
+  background: var(--champ);
+  color: var(--texte);
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.champ textarea {
+  resize: vertical;
+}
+
+.champ--moments legend {
+  margin-bottom: 6px;
+}
+
+.champ--moments div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Les trois moments de la journée : de vrais boutons radio, habillés en étiquettes */
+.moment {
+  position: relative;
+}
+
+.moment input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.moment span {
+  display: block;
+  padding: 10px 14px;
+  border: 1px solid var(--trait);
+  border-radius: 999px;
+  color: var(--texte);
+  font-weight: 600;
+}
+
+.moment input:checked + span {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--sur-accent);
+}
+
+.moment input:focus-visible + span {
+  outline: 2px solid var(--detail);
+  outline-offset: 2px;
+}
+
+/* Aperçu du message, comme dans WhatsApp */
+.apercu {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 26px 20px 20px;
+}
+
+.apercu__titre {
+  font-size: 1.6rem;
+  padding-right: 40px;
+}
+
+.apercu__conversation {
+  max-height: 46dvh;
+  overflow: auto;
+  padding: 12px;
+  border-radius: 10px;
+  background: #efe7dd;
+}
+
+.apercu__contact {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  color: #3b4a54;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.apercu__contact span {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--police-titre);
+}
+
+.apercu__bulle {
+  margin-left: 12%;
+  padding: 8px 10px;
+  border-radius: 10px 0 10px 10px;
+  background: #d9fdd3;
+  color: #111b21;
+  font-size: 0.86rem;
+  line-height: 1.4;
+  white-space: pre-wrap;
+}
+
+.apercu__envoyer {
+  width: 100%;
+  background: #1f9d55;
+}
+
+.apercu__retour {
+  align-self: center;
+  padding: 8px;
+  border: 0;
+  background: none;
+  color: var(--texte-doux);
+  text-decoration: underline;
+  cursor: pointer;
+}

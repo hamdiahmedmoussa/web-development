@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Les initiales H'C sur la vanille du site, le C dans le rose de l'enseigne -->
+  <rect width="64" height="64" rx="14" fill="#fdf0dc"/>
+  <text x="31" y="45" text-anchor="end" font-family="Georgia, serif" font-style="italic" font-weight="700" font-size="34" fill="#3b1f1a">H</text>
+  <text x="33" y="45" font-family="Georgia, serif" font-style="italic" font-weight="700" font-size="34" fill="#d6336c">C</text>
+</svg>

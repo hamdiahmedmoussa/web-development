@@ -1,0 +1,64 @@
+.accueil {
+  min-height: 92svh;
+  display: flex;
+  align-items: center;
+  padding-block: 120px 56px;
+  background: radial-gradient(ellipse 70% 60% at 80% 40%, rgba(217, 119, 63, 0.16), transparent 70%), var(--fond-page);
+}
+
+.accueil__grille {
+  display: grid;
+  gap: 24px;
+  align-items: center;
+}
+
+.accueil__promesse {
+  color: var(--detail);
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.accueil__titre {
+  font-size: clamp(3rem, 12vw, 6.4rem);
+  max-width: 10ch;
+  margin-bottom: 20px;
+}
+
+.accueil__texte {
+  max-width: 40ch;
+  color: var(--texte-doux);
+  margin-bottom: 28px;
+}
+
+.accueil__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 24px;
+}
+
+.accueil__lien {
+  padding: 12px 2px;
+  border-bottom: 1px solid var(--texte-doux);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Le motif de henné : couleur du henné, discret sur téléphone, grand sur ordinateur */
+.henne {
+  justify-self: center;
+  width: min(60vw, 240px);
+  color: var(--accent);
+  opacity: 0.9;
+}
+
+@media (min-width: 900px) {
+  .accueil__grille {
+    grid-template-columns: 1.4fr 1fr;
+  }
+
+  .henne {
+    width: 100%;
+    max-width: 380px;
+  }
+}

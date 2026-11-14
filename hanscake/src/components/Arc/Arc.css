@@ -1,0 +1,204 @@
+/*
+  Ambiance rétro : soleil à rayons, grain de papier, rayures sur les cartes,
+  étiquettes arrondies comme sur les boîtes de pâtisserie d'autrefois.
+*/
+.arc {
+  position: relative;
+  overflow: hidden;
+  min-height: 100svh;
+  padding-top: 120px;
+  padding-bottom: 24px;
+  background: var(--fond-page);
+  isolation: isolate;
+}
+
+/* Soleil rétro : des rayons alternés qui partent du bas de l'écran. */
+.arc__soleil {
+  position: absolute;
+  left: 50%;
+  bottom: -30%;
+  width: 220vmax;
+  aspect-ratio: 1;
+  translate: -50% 50%;
+  z-index: -2;
+  background: repeating-conic-gradient(from 0deg, color-mix(in srgb, var(--texte) 8%, var(--fond-page)) 0deg 6deg, var(--fond-page) 6deg 12deg);
+  -webkit-mask-image: radial-gradient(circle, #000 10%, transparent 48%);
+  mask-image: radial-gradient(circle, #000 10%, transparent 48%);
+}
+
+/* Grain de papier : un bruit SVG très léger posé sur toute la section. */
+.arc__grain {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0.12;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23g)'/></svg>");
+}
+
+.arc__entete {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.arc__titre {
+  font-size: clamp(2.6rem, 9vw, 4.6rem);
+  font-variation-settings: var(--axes-titre);
+  font-style: var(--style-titre);
+  letter-spacing: -0.02em;
+  max-width: 13ch;
+  margin: 0 auto 16px;
+}
+
+.arc__texte {
+  max-width: 44ch;
+  margin: 0 auto 24px;
+  color: var(--texte-doux);
+}
+
+.arc__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 12px 24px;
+}
+
+.arc__lien {
+  padding: 12px 4px;
+  border-bottom: 1px solid var(--texte-doux);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* La scène 3D : « perspective » règle la profondeur (plus petit = plus spectaculaire). */
+.arc__scene {
+  --largeur: clamp(132px, 15vw, 190px);
+  position: relative;
+  /* hauteur d'une carte (largeur × 1,4) + la place des cartes du bord, plus grandes */
+  height: calc(var(--largeur) * 1.75);
+  margin-top: 32px;
+  cursor: grab;
+}
+
+.arc__scene:active {
+  cursor: grabbing;
+}
+
+/* « perspective » doit être sur le parent DIRECT des cartes pour que la 3D s'applique.
+   Plus la valeur est petite, plus l'effet de profondeur est fort. */
+.arc__liste {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  perspective: 1100px;
+  perspective-origin: 50% 30%;
+}
+
+/* Toutes les cartes partent du centre ; le JavaScript les place sur l'arc. */
+.arc__carte {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  width: var(--largeur);
+  margin-left: calc(var(--largeur) / -2);
+  will-change: transform;
+}
+
+.arc__lien-carte {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  aspect-ratio: 3 / 4.2;
+  overflow: hidden;
+  padding: 10px;
+  border-radius: 26px 26px 26px 26px / 22px 22px 22px 22px;
+  text-decoration: none;
+  box-shadow: 0 24px 40px rgba(0, 0, 0, 0.35), inset 0 0 0 3px rgba(255, 255, 255, 0.18);
+  transition: translate 0.25s;
+}
+
+.arc__lien-carte:hover {
+  translate: 0 -8px;
+}
+
+/* Rayures horizontales rétro dans le bas de la carte. */
+.arc__rayures {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 46%;
+  background: repeating-linear-gradient(180deg, transparent 0 9px, rgba(0, 0, 0, 0.08) 9px 18px);
+}
+
+/* Le disque derrière le produit, comme un soleil ou une assiette. */
+.arc__disque {
+  position: absolute;
+  top: 12%;
+  left: 50%;
+  width: 78%;
+  aspect-ratio: 1;
+  translate: -50% 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0.08) 70%);
+}
+
+.arc__image {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  width: 82%;
+  translate: -50% 0;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;
+  filter: drop-shadow(0 14px 12px rgba(0, 0, 0, 0.3));
+}
+
+.arc__image.visuel-manquant {
+  font-size: 0.62rem;
+}
+
+.arc__image.visuel-manquant small {
+  display: none;
+}
+
+/* Étiquette arrondie, comme un autocollant de boîte à gâteaux. */
+.arc__etiquette {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 12px;
+  border-radius: 14px;
+  background: #fff8ee;
+  color: #3b1f1a;
+  line-height: 1.2;
+}
+
+.arc__etiquette strong {
+  font-family: var(--police-titre);
+  font-style: var(--style-titre);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.arc__etiquette span {
+  font-size: 0.78rem;
+  opacity: 0.75;
+}
+
+
+@media (max-width: 759px) {
+  /* Sur téléphone, l'en-tête passe sur deux lignes : on laisse plus de place au-dessus du titre. */
+  .arc {
+    padding-top: 128px;
+  }
+
+  .arc__liste {
+    perspective: 760px;
+  }
+}

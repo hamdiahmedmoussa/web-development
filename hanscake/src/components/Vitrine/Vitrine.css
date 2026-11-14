@@ -1,0 +1,130 @@
+.vitrine {
+  padding-block: 72px;
+  background: var(--vitrine-fond);
+  color: var(--vitrine-texte);
+}
+
+.vitrine__grille {
+  display: grid;
+  gap: 32px;
+}
+
+.vitrine__titre {
+  font-size: clamp(2.4rem, 8vw, 4.4rem);
+  font-variation-settings: var(--axes-titre);
+  max-width: 12ch;
+  margin-bottom: 12px;
+}
+
+.vitrine__intro {
+  color: var(--vitrine-doux);
+  max-width: 34ch;
+}
+
+.vitrine__liste {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 2px solid currentColor;
+}
+
+.vitrine__ligne {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 16px;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid color-mix(in srgb, currentColor 25%, transparent);
+}
+
+.vitrine__pastille {
+  display: block;
+  width: 64px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+
+.vitrine__visuel {
+  display: block;
+  padding: 6%;
+  filter: drop-shadow(0 8px 8px rgba(0, 0, 0, 0.2));
+}
+
+.vitrine__visuel img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Dans une si petite pastille, le cercle suffit : pas de nom de fichier. */
+.vitrine__visuel .visuel-manquant {
+  font-size: 0;
+  border-width: 1.5px;
+}
+
+.vitrine__visuel .visuel-manquant small {
+  display: none;
+}
+
+.vitrine__texte {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+/* Nom ....... prix : les pointillés remplissent l'espace entre les deux. */
+.vitrine__haut {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.vitrine__nom {
+  font-family: var(--police-titre);
+  font-stretch: var(--etroit-titre);
+  font-variation-settings: var(--axes-titre);
+  font-size: 1.3rem;
+  font-weight: var(--graisse-titre);
+  line-height: 1.15;
+}
+
+.vitrine__points {
+  flex: 1;
+  min-width: 16px;
+  border-bottom: 2px dotted currentColor;
+  opacity: 0.45;
+  translate: 0 -4px;
+}
+
+.vitrine__prix {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.vitrine__description {
+  color: var(--vitrine-doux);
+  font-size: 0.9rem;
+}
+
+@media (min-width: 900px) {
+  .vitrine {
+    padding-block: 112px;
+  }
+
+  .vitrine__grille {
+    grid-template-columns: 1fr 1.5fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .vitrine__ligne {
+    grid-template-columns: 80px 1fr;
+    gap: 24px;
+  }
+
+  .vitrine__pastille {
+    width: 80px;
+  }
+}
