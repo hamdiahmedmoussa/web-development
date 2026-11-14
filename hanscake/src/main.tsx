@@ -5,6 +5,7 @@ import "@fontsource-variable/bricolage-grotesque/wdth.css"; // version Cinéma (
 import "@fontsource-variable/fraunces/full.css"; // titres de la version Rétro
 import "@fontsource-variable/fraunces/full-italic.css";
 import "@fontsource-variable/figtree"; // textes des deux versions
+import "@fontsource/great-vibes"; // le logo, en écriture attachée comme leur enseigne
 import "./styles/variables.css";
 import "./styles/global.css";
 import "./styles/retro.css";

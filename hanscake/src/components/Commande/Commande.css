@@ -111,50 +111,70 @@
   color: var(--texte-doux);
 }
 
-/* Confirmation en verre dépoli */
-.verre {
-  position: relative;
-  overflow: hidden;
-  padding: 44px 26px 28px;
-  text-align: center;
+/* Aperçu du message : une petite conversation WhatsApp */
+.apercu {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 26px 20px 20px;
 }
 
-/* Lueur verte diffuse derrière la coche, que le verre adoucit. */
-.verre__halo {
-  position: absolute;
-  top: -60px;
-  left: 50%;
-  width: 260px;
-  height: 260px;
-  translate: -50% 0;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(60, 207, 122, 0.35), transparent 65%);
-  pointer-events: none;
-}
-
-.verre__coche {
-  position: relative;
-  margin: 0 auto 18px;
-}
-
-.verre__titre {
-  font-size: 1.9rem;
+.apercu__titre {
+  font-size: 1.6rem;
   font-variation-settings: var(--axes-titre);
+  padding-right: 40px;
+}
+
+/* Le fond beige et les couleurs reprennent l'écran de conversation de WhatsApp. */
+.apercu__conversation {
+  max-height: 46dvh;
+  overflow: auto;
+  padding: 12px;
+  border-radius: 12px;
+  background: #efe7dd;
+}
+
+.apercu__contact {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   margin-bottom: 10px;
+  color: #3b4a54;
+  font-size: 0.8rem;
+  font-weight: 600;
 }
 
-.verre__texte {
-  color: var(--texte-doux);
-  margin-bottom: 22px;
+.apercu__contact span {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.7rem;
 }
 
-.verre__bouton {
+/* La bulle verte du message envoyé, avec son coin « pointu » en haut à droite */
+.apercu__bulle {
+  margin-left: 12%;
+  padding: 8px 10px;
+  border-radius: 10px 0 10px 10px;
+  background: #d9fdd3;
+  color: #111b21;
+  font-size: 0.86rem;
+  line-height: 1.4;
+  white-space: pre-wrap; /* garde les retours à la ligne du message */
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.apercu__envoyer {
   width: 100%;
   background: #1f9d55; /* vert WhatsApp foncé : le blanc y reste lisible */
 }
 
-.verre__retour {
-  margin-top: 12px;
+.apercu__retour {
+  align-self: center;
   padding: 8px;
   border: 0;
   background: none;

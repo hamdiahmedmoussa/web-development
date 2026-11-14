@@ -16,7 +16,6 @@ export const parfums: Parfum[] = [
     // Photo envoyée par la pâtisserie elle-même comme modèle.
     id: "chocolat-perles",
     nom: "Chocolat perles dorées",
-    motGeant: "Ganache",
     description: "Ganache brillante, carrés de chocolat et perles dorées. Le prénom de votre choix écrit au centre.",
     prix: 3500,
     fond: "#4e2d20",
@@ -26,7 +25,6 @@ export const parfums: Parfum[] = [
   {
     id: "chocolat-miroir",
     nom: "Chocolat glaçage miroir",
-    motGeant: "Miroir",
     description: "Le gâteau de notre vitrine : crème au chocolat, glaçage qui coule sur les bords, plaque Han's Cake sur le dessus.",
     prix: 3500,
     fond: "#6b4434",
@@ -36,7 +34,6 @@ export const parfums: Parfum[] = [
   {
     id: "moka",
     nom: "Moka",
-    motGeant: "Moka",
     description: "Crème au café, coulure de chocolat et rosaces, avec une fraise sur le dessus.",
     prix: 3500,
     fond: "#d8bd9c",
@@ -46,7 +43,6 @@ export const parfums: Parfum[] = [
   {
     id: "dubai-chocolate",
     nom: "Dubai chocolate",
-    motGeant: "Dubaï",
     description: "La nouveauté de la maison, inspirée du chocolat de Dubaï : chocolat et pistache, en couches.",
     prix: 4000,
     fond: "#a3c27a",
@@ -56,7 +52,6 @@ export const parfums: Parfum[] = [
   {
     id: "kitkat",
     nom: "Kit Kat",
-    motGeant: "Kit Kat",
     description: "Chocolat, rosaces de crème et barres Kit Kat sur le dessus.",
     prix: 4000,
     fond: "#c8102e",

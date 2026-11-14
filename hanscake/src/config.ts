@@ -67,7 +67,7 @@ export const config = {
 
   /** Réseaux sociaux : remplacer « # » par les vrais liens. */
   reseaux: [
-    { nom: "Facebook", lien: "#" },
+    // Ajouter Facebook ici quand on aura l'adresse exacte de leur page.
     { nom: "Instagram", lien: "https://www.instagram.com/hanscake.cafeteria/" },
   ],
 };

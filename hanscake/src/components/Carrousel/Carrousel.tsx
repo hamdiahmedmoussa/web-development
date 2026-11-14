@@ -1,5 +1,5 @@
 import { AnimatePresence, motion, useReducedMotion, useSpring, type PanInfo } from "motion/react";
-import { useEffect, useRef, type CSSProperties, type KeyboardEvent } from "react";
+import { useEffect, useRef, type KeyboardEvent } from "react";
 import { config, formaterPrix } from "../../config";
 import { useCommande } from "../../context/CommandeContext";
 import { parfums } from "../../data/parfums";
@@ -86,36 +86,21 @@ export function Carrousel() {
   }, [reduit, inclinaisonX, inclinaisonY]);
 
   return (
-    <motion.section
-      id="parfums"
-      className="carrousel"
-      aria-roledescription="carrousel"
-      aria-label="Nos gâteaux"
-      onKeyDown={clavier}
-      animate={{ backgroundColor: parfum.fond, color: parfum.encre }}
-      initial={false}
-      transition={{ duration: reduit ? 0 : 0.6, ease: "easeInOut" }}
-      // Variables CSS utilisées par les boutons et vignettes de cette section.
-      style={{ "--fond": parfum.fond, "--encre": parfum.encre } as CSSProperties}
-    >
-      <h2 className="visuellement-cache">Nos gâteaux</h2>
+    <section id="parfums" className="carrousel" aria-roledescription="carrousel" aria-labelledby="titre-frigo" onKeyDown={clavier}>
+      <div className="conteneur">
+        <h2 id="titre-frigo" className="carrousel__titre">
+          Dans notre frigo aujourd'hui
+        </h2>
+        <p className="carrousel__intro">Les gâteaux prêts à emporter, ou à commander pour le jour de votre choix.</p>
+      </div>
 
+      {/*
+        La scène : la vraie photo du réfrigérateur de la boutique, floutée, en fond.
+        Le gâteau est posé sur l'étagère, son étiquette de prix accrochée devant.
+      */}
       <div className="carrousel__scene" ref={refScene}>
-        {/* Le mot géant, derrière le gâteau */}
-        <AnimatePresence initial={false} custom={direction}>
-          <motion.p
-            key={parfum.motGeant}
-            className="carrousel__mot"
-            aria-hidden="true"
-            custom={direction}
-            initial={{ opacity: 0, x: direction * distance * 0.5 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -direction * distance * 0.5 }}
-            transition={{ duration: reduit ? 0 : 0.5 }}
-          >
-            {parfum.motGeant}
-          </motion.p>
-        </AnimatePresence>
+        <div className="carrousel__frigo" aria-hidden="true" />
+        <div className="carrousel__etagere" aria-hidden="true" />
 
         {/* Le gâteau et ses ingrédients : on peut le faire glisser au doigt */}
         <AnimatePresence initial={false} custom={direction} mode="popLayout">
@@ -142,6 +127,22 @@ export function Carrousel() {
           </motion.div>
         </AnimatePresence>
 
+        {/* L'étiquette de prix, écrite à la main, accrochée au bord de l'étagère */}
+        <AnimatePresence initial={false} mode="wait">
+          <motion.p
+            key={parfum.id}
+            className="carrousel__etiquette"
+            initial={reduit ? { opacity: 0 } : { opacity: 0, rotate: -14, y: -16 }}
+            animate={{ opacity: 1, rotate: -4, y: 0 }}
+            exit={reduit ? { opacity: 0 } : { opacity: 0, rotate: 6, y: 10 }}
+            transition={{ type: "spring", stiffness: 260, damping: 18 }}
+            aria-hidden="true"
+          >
+            {formaterPrix(parfum.prix)}
+            <small>{config.partsMinimum} parts</small>
+          </motion.p>
+        </AnimatePresence>
+
         <button type="button" className="carrousel__fleche carrousel__fleche--gauche" onClick={() => allerA(index - 1)} aria-label="Gâteau précédent">
           <Fleche />
         </button>
@@ -160,8 +161,8 @@ export function Carrousel() {
           <p className="carrousel__prix">
             {formaterPrix(parfum.prix)} <span>{config.partsMinimum} parts</span>
           </p>
-          <button type="button" className="bouton bouton--encre" onClick={() => ouvrir({ type: "gateau", parfum })}>
-            Commander
+          <button type="button" className="bouton" onClick={() => ouvrir({ type: "gateau", parfum })}>
+            Commander celui-ci
           </button>
         </div>
 
@@ -171,17 +172,18 @@ export function Carrousel() {
               key={p.id}
               type="button"
               className="carrousel__vignette"
-              style={{ background: p.fond }}
               aria-pressed={i === index}
               aria-label={p.nom}
               onClick={() => i !== index && allerA(i)}
             >
+              {/* Une miniature de chaque gâteau, au lieu de pastilles de couleur */}
+              <Visuel chemin={`/images/parfums/${p.id}`} alt="" />
               <span>{p.nom}</span>
             </button>
           ))}
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 }
 

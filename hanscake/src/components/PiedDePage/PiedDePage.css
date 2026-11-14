@@ -5,11 +5,10 @@
 }
 
 .pied__logo {
-  font-family: var(--police-titre);
-  font-style: var(--style-titre);
-  font-weight: 700;
-  font-stretch: var(--etroit-titre);
-  font-size: 1.4rem;
+  font-family: var(--police-logo);
+  font-weight: 400;
+  font-size: 2.4rem;
+  line-height: 1;
   margin-bottom: 28px;
 }
 

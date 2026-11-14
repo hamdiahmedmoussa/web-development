@@ -40,7 +40,7 @@
 }
 
 [data-theme="retro"] .carrousel__vignette[aria-pressed="true"] {
-  box-shadow: 3px 3px 0 var(--encre);
+  box-shadow: 3px 3px 0 var(--texte);
 }
 
 [data-theme="retro"] .commande__carte {

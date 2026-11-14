@@ -14,7 +14,8 @@ export const VERSIONS: Record<Version, string> = {
 };
 
 /** Version utilisée quand l'adresse ne précise rien. */
-const PAR_DEFAUT: Version = "cinema";
+// Rétro par défaut : elle s'ouvre sur leurs vrais gâteaux. Le film (Cinéma) n'est pas tourné chez eux.
+const PAR_DEFAUT: Version = "retro";
 
 function lireVersion(): Version {
   const demandee = new URLSearchParams(window.location.search).get("version");

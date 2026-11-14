@@ -4,7 +4,7 @@ import { config, formaterPrix } from "../../config";
 import { useCommande } from "../../context/CommandeContext";
 import { creerLienWhatsApp, creerMessage, dateMinimum, resumerBoite, totalBoite } from "../../lib/whatsapp";
 import type { Article, InfosCommande } from "../../types";
-import { ConfirmationVerre } from "./ConfirmationVerre";
+import { ApercuMessage } from "./ApercuMessage";
 import "./Commande.css";
 
 /*
@@ -55,7 +55,7 @@ function Contenu({ article, fermer }: { article: Article; fermer: () => void }) 
     idee: "",
   });
   const [dateMin] = useState(() => dateMinimum(new Date(), config.delaiJours));
-  const [lien, setLien] = useState<string | null>(null);
+  const [message, setMessage] = useState<string | null>(null);
 
   function modifier<C extends keyof InfosCommande>(champ: C, valeur: InfosCommande[C]) {
     setInfos((anciennes) => ({ ...anciennes, [champ]: valeur }));
@@ -63,7 +63,7 @@ function Contenu({ article, fermer }: { article: Article; fermer: () => void }) 
 
   function valider(e: FormEvent) {
     e.preventDefault(); // un formulaire rechargerait la page sinon
-    setLien(creerLienWhatsApp(config.whatsapp, creerMessage(article, infos)));
+    setMessage(creerMessage(article, infos));
   }
 
   const estGateau = article.type === "gateau";
@@ -77,8 +77,13 @@ function Contenu({ article, fermer }: { article: Article; fermer: () => void }) 
       </button>
 
       <AnimatePresence mode="wait" initial={false}>
-        {lien ? (
-          <ConfirmationVerre key="ok" lien={lien} prenom={infos.prenom} retour={() => setLien(null)} />
+        {message ? (
+          <ApercuMessage
+            key="ok"
+            message={message}
+            lien={creerLienWhatsApp(config.whatsapp, message)}
+            retour={() => setMessage(null)}
+          />
         ) : (
           <motion.form
             key="formulaire"

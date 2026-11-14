@@ -22,8 +22,6 @@ export interface Ingredient {
 export interface Parfum {
   id: string;
   nom: string;
-  /** Mot géant affiché derrière le gâteau. */
-  motGeant: string;
   description: string;
   prix: number;
   /** Couleur de fond de l'écran et couleur du texte posé dessus. */

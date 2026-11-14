@@ -55,9 +55,9 @@
   --panneau: #fff8ee;
   --texte: #3b1f1a; /* chocolat */
   --texte-doux: #6b4a40;
-  --accent: #d7263d; /* cerise */
+  --accent: #d6336c; /* le rose de leur enseigne */
   --sur-accent: #fdf0dc;
-  --bouton-fond: #c41e36;
+  --bouton-fond: #c2255c;
   --bouton-texte: #ffffff;
   --detail: #9c5410; /* caramel foncé, lisible sur la vanille */
   --trait: rgba(59, 31, 26, 0.22);
@@ -83,6 +83,8 @@
 
 /* Valeurs communes aux deux versions */
 :root {
+  /* Le nom de la boutique, en écriture attachée comme sur l'enseigne et les plaques en chocolat */
+  --police-logo: "Great Vibes", "Brush Script MT", cursive;
   --largeur-max: 1180px;
   --marge: 16px;
 }

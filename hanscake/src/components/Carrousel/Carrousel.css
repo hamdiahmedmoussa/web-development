@@ -1,7 +1,68 @@
 .carrousel {
   position: relative;
   overflow: hidden;
-  padding-block: 56px 48px;
+  padding-block: 72px 56px;
+  background: var(--fond-profond);
+}
+
+.carrousel__titre {
+  font-size: clamp(2.4rem, 8vw, 4.4rem);
+  font-variation-settings: var(--axes-titre);
+  margin-bottom: 10px;
+}
+
+.carrousel__intro {
+  color: var(--texte-doux);
+  max-width: 44ch;
+  margin-bottom: 24px;
+}
+
+/* La vraie photo du réfrigérateur, floutée et assombrie : le gâteau ressort devant. */
+.carrousel__frigo {
+  position: absolute;
+  inset: 0;
+  background: url("/images/boutique/frigo-1.webp") center / cover;
+  filter: blur(14px) brightness(0.55) saturate(1.1);
+  scale: 1.1;
+}
+
+/* L'étagère grillagée sur laquelle le gâteau est posé */
+.carrousel__etagere {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 9%;
+  height: 22px;
+  background:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.55) 0 2px, transparent 2px 18px),
+    linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.25));
+  background-size: auto, 100% 3px;
+  background-repeat: repeat, no-repeat;
+  opacity: 0.6;
+}
+
+/* L'étiquette de prix en papier, écrite à la main */
+.carrousel__etiquette {
+  position: absolute;
+  left: max(var(--marge), 8%);
+  bottom: calc(9% - 26px);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 14px 6px;
+  border-radius: 3px;
+  background: #fffaf0;
+  color: #2b1a14;
+  font-family: "Great Vibes", cursive;
+  font-size: 1.7rem;
+  line-height: 1;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+}
+
+.carrousel__etiquette small {
+  font-family: var(--police-texte);
+  font-size: 0.72rem;
+  opacity: 0.7;
 }
 
 /* La zone du gâteau : le mot géant derrière, le gâteau au centre, les flèches sur les côtés. */
@@ -9,29 +70,10 @@
   position: relative;
   display: grid;
   place-items: center;
-  height: min(108vw, 560px);
+  height: min(100vw, 520px);
+  overflow: hidden;
 }
 
-.carrousel__mot {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  margin: 0;
-  font-family: var(--police-titre);
-  font-variation-settings: var(--axes-titre);
-  font-weight: 800;
-  font-stretch: var(--etroit-titre);
-  font-style: var(--style-titre);
-  font-size: clamp(5rem, 27vw, 19rem);
-  line-height: 1;
-  letter-spacing: -0.03em;
-  white-space: nowrap;
-  /* Une teinte du fond, mélangée à 20 % avec la couleur du texte : présent, mais en retrait. */
-  color: color-mix(in srgb, var(--encre) 20%, var(--fond));
-  pointer-events: none;
-  user-select: none;
-}
 
 .carrousel__gateau {
   position: relative;
@@ -79,16 +121,17 @@
   place-items: center;
   width: 48px;
   height: 48px;
-  border: 1.5px solid currentColor;
+  border: 1.5px solid var(--texte);
   border-radius: 50%;
-  background: transparent;
+  background: color-mix(in srgb, var(--fond-profond) 60%, transparent);
+  color: var(--texte);
   cursor: pointer;
   transition: background-color 0.2s, color 0.2s;
 }
 
 .carrousel__fleche:hover {
-  background: var(--encre);
-  color: var(--fond);
+  background: var(--texte);
+  color: var(--fond-page);
 }
 
 .carrousel__fleche--gauche {
@@ -145,10 +188,12 @@
 
 .carrousel__vignette {
   position: relative;
-  width: 44px;
-  height: 44px;
-  border: 2px solid var(--encre);
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  border: 2px solid var(--texte);
   border-radius: 50%;
+  background: var(--panneau);
   cursor: pointer;
   opacity: 0.6;
   transition: opacity 0.2s, transform 0.2s;
@@ -162,8 +207,8 @@
   translate: -50% 0;
   padding: 2px 8px;
   border-radius: 6px;
-  background: var(--encre);
-  color: var(--fond);
+  background: var(--texte);
+  color: var(--fond-page);
   font-size: 0.75rem;
   white-space: nowrap;
   opacity: 0;
@@ -184,7 +229,8 @@
 .carrousel__vignette[aria-pressed="true"] {
   opacity: 1;
   transform: scale(1.15);
-  box-shadow: 0 0 0 3px var(--fond), 0 0 0 5px var(--encre);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--fond-profond), 0 0 0 5px var(--accent);
 }
 
 @media (min-width: 900px) {
@@ -226,3 +272,10 @@
   transform-style: preserve-3d;
 }
 
+
+.carrousel__vignette img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}

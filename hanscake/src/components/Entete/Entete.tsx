@@ -20,7 +20,7 @@ export function Entete() {
       <div className="entete__ligne">
         {/* Logo provisoire en texte : remplacer par public/images/logo/logo.png */}
         <a className="entete__logo" href="#haut" aria-label={`${config.nom}, retour en haut`}>
-          Han's<span>Cake</span>
+          Han's <span>Cake</span>
         </a>
         {/* État de la boutique principale ; un clic mène aux boutiques en bas de page */}
         <a href="#boutiques" className="entete__statut">
