@@ -1,0 +1,23 @@
+/* Emplacement d'une image pas encore fournie. */
+.visuel-manquant {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  border: 2px dashed currentColor;
+  border-radius: 50%;
+  opacity: 0.75;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.3;
+  padding: 8%;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+}
+
+.visuel-manquant small {
+  display: block;
+  font-weight: 400;
+  opacity: 0.8;
+  font-size: 0.7rem;
+}

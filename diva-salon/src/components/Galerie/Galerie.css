@@ -1,0 +1,116 @@
+.galerie {
+  padding-block: 72px;
+}
+
+.galerie__onglets {
+  display: flex;
+  gap: 8px;
+  margin: 0 calc(var(--marge) * -1) 18px;
+  padding: 0 var(--marge) 6px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.galerie__onglet {
+  flex: none;
+  min-height: 44px;
+  padding: 8px 18px;
+  border: 1px solid var(--trait);
+  border-radius: var(--rayon-bouton);
+  background: transparent;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.galerie__onglet[aria-selected="true"] {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--sur-accent);
+}
+
+.galerie__texte {
+  max-width: 56ch;
+  margin-bottom: 18px;
+}
+
+/* Photos en arche : la forme des miroirs de salon */
+.galerie__photos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.galerie__photo {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--trait);
+  border-radius: 999px 999px var(--rayon) var(--rayon);
+  background: var(--panneau);
+  text-align: left;
+  cursor: pointer;
+}
+
+.galerie__photo img,
+.galerie__photo .visuel-manquant {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+.galerie__photo .visuel-manquant {
+  border: 0;
+  opacity: 0.55;
+}
+
+.galerie__photo::after {
+  content: "";
+  position: absolute;
+  inset: 45% 0 0 0;
+  background: linear-gradient(transparent, rgba(26, 12, 20, 0.85));
+  pointer-events: none;
+}
+
+.galerie__legende,
+.galerie__action {
+  position: absolute;
+  z-index: 1;
+  left: 12px;
+  right: 12px;
+  color: #fff;
+}
+
+.galerie__legende {
+  bottom: 34px;
+  font-size: 0.8rem;
+  line-height: 1.25;
+}
+
+.galerie__action {
+  bottom: 12px;
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+@media (min-width: 900px) {
+  .galerie {
+    padding-block: 112px;
+  }
+
+  .galerie__onglets {
+    margin-inline: 0;
+    padding-inline: 0;
+  }
+
+  .galerie__photos {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+  }
+}

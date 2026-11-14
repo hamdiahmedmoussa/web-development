@@ -1,0 +1,116 @@
+.pied {
+  padding-block: 56px 32px;
+  background: var(--fond-profond);
+  border-top: 1px solid var(--trait);
+}
+
+.pied__logo {
+  font-family: var(--police-titre);
+  font-size: 2rem;
+  margin-bottom: 28px;
+}
+
+.pied__logo span {
+  color: var(--accent);
+}
+
+.pied__grille {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 32px;
+}
+
+.pied__bloc {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.pied__bloc address {
+  font-style: normal;
+}
+
+.pied__titre {
+  font-family: var(--police-texte);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--detail);
+  margin-bottom: 10px;
+}
+
+.pied__liste {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--texte-doux);
+}
+
+.pied__maps {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding-block: 8px;
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.pied__contacts {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pied__contacts a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 52px;
+  text-decoration: none;
+}
+
+.pied__contacts svg {
+  flex: none;
+  box-sizing: content-box;
+  padding: 9px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--accent) 18%, transparent);
+  color: var(--accent);
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.pied__contacts a:hover svg {
+  background: var(--accent);
+  color: var(--sur-accent);
+}
+
+.pied__contacts span {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+
+.pied__contacts small {
+  color: var(--texte-doux);
+  font-size: 0.82rem;
+}
+
+.statut {
+  font-style: italic;
+  color: var(--texte-doux);
+}
+
+.statut--compact {
+  font-size: 0.88rem;
+  color: var(--texte);
+}
+
+.pied__mention {
+  margin-top: 40px;
+  max-width: 70ch;
+  color: var(--texte-doux);
+  font-size: 0.82rem;
+}

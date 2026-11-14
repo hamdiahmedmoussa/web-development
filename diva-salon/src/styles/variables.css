@@ -1,0 +1,37 @@
+/*
+  DIVA SALON · « Henné et lumière du soir »
+  Pas le rose poudré de tous les sites de beauté : la couleur du henné,
+  posée sur un prune profond, avec un filet doré et un ivoire chaud.
+*/
+:root {
+  color-scheme: dark;
+  --fond-page: #24121c; /* prune profond */
+  --fond-profond: #1a0c14;
+  --panneau: #321a27;
+  --texte: #f6ede4; /* ivoire */
+  --texte-doux: #cdb9ae;
+  --accent: #d9773f; /* henné */
+  --sur-accent: #1a0c14;
+  --bouton-fond: #c4612b;
+  --bouton-texte: #ffffff;
+  --detail: #c9a35c; /* or */
+  --trait: rgba(246, 237, 228, 0.16);
+  --champ: rgba(26, 12, 20, 0.7);
+  --voile: rgba(10, 4, 8, 0.6);
+  --verre: rgba(50, 26, 39, 0.92);
+
+  --police-titre: "Gloock", Georgia, serif;
+  --police-texte: "Figtree Variable", "Segoe UI", system-ui, sans-serif;
+  --axes-titre: normal;
+
+  --largeur-max: 1180px;
+  --marge: 16px;
+  --rayon: 4px;
+  --rayon-bouton: 999px;
+}
+
+@media (min-width: 760px) {
+  :root {
+    --marge: 32px;
+  }
+}

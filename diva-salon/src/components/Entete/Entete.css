@@ -1,0 +1,35 @@
+.entete {
+  position: absolute;
+  inset: 0 0 auto 0;
+  z-index: 5;
+}
+
+.entete__maquette {
+  padding: 6px var(--marge);
+  background: var(--fond-profond);
+  color: var(--texte-doux);
+  font-size: 0.72rem;
+}
+
+.entete__ligne {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-block: 14px;
+}
+
+.entete__logo {
+  font-family: var(--police-titre);
+  font-size: 1.7rem;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.entete__logo span {
+  color: var(--accent);
+}
+
+.entete__statut {
+  text-decoration: none;
+}
