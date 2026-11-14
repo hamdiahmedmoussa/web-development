@@ -61,8 +61,7 @@ Bulle « Un gâteau pour quand ? » en bas à droite : `components/Bulle`.
 | Horaires de chaque boutique, lien Maps | `boutiques` dans `src/config.ts` |
 | Couleurs générales et polices | `src/styles/variables.css` |
 
-⚠️ Les commandes partent vers `config.whatsappCommandes` (ton numéro pendant la démo). Pour le vrai site, remets celui de la pâtisserie : sinon chaque test envoie une vraie
-commande à la pâtisserie.
+⚠️ Les commandes partent vers `config.whatsappCommandes` (ton numéro pendant la démo). Pour le vrai site, remets celui de la pâtisserie (`25377525293`).
 
 ## Images
 
