@@ -80,10 +80,13 @@ Prospection : Han'sCake n'a pas acheté, mais **a accepté que Hamdi montre le s
 - `station-meteo/` : ESP32 + BME280 + PMS5003 (réveillé 30 s / 5 min), ressenti NOAA, niveaux PM EPA 2024, tendance pression.
 - Les 5 projets prévus sont faits (code + tests ; aucun encore compilé pour ESP32 ni testé avec du vrai matériel).
 - Sécurité (`SECURITE.md`, `commun/securite.h` recopié par `outils/verifier-securite.sh`) : Digest auth sur chaque page,
-  compilation refusée avec mots de passe d'exemple, en-tête X-Tableau contre CSRF (clim). Projets cyber suivants :
-  détecteur d'arnaques SMS. Règle : jamais sans autorisation écrite.
+  compilation refusée avec mots de passe d'exemple, en-tête X-Tableau contre CSRF (clim).
+  Règle cyber : jamais sans autorisation écrite.
+- `detecteur-arnaques/` : règles explicables + Bayes naïf maison (Python stdlib), page locale port 8090.
+  L'IA seule ne peut pas accuser. Données = exemples écrits pour l'apprentissage (à compléter, anonymisés).
 - `labo-ot/` : poste électrique simulé (Modbus écrit à la main, Python sans dépendance), pare-feu Modbus
-  (regles.py), supervision web soft, démo d'attaque bornée (--labo, IP privées). 13 tests. Suite : version ESP32 + Raspberry Pi.
+  (regles.py), supervision web soft, démo d'attaque bornée (--labo, IP privées). 13 tests.
+  Version ESP32 faite (firmware/automate-esp32, réseau Wi-Fi isolé « Labo-OT », poste.h testé). Suite : pare-feu sur Raspberry Pi.
 - `drone-gestes/` : simulateur de drone piloté par les gestes
   (webcam + MediaPipe + 3D, 15 tests). Suite : vrai drone DJI Tello via un pont Python (`djitellopy`).
   Vérifier la réglementation drones à Djibouti avant achat.
