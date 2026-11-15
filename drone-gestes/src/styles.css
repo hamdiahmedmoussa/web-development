@@ -1,0 +1,254 @@
+/*
+  L'ÉCRAN DU SIMULATEUR
+  La scène 3D occupe tout le fond ; trois panneaux sont posés par-dessus :
+  le tableau de bord (en haut à droite), les gestes (en bas à gauche), la caméra (en bas à droite).
+  Sur téléphone, les panneaux passent sous la scène, les uns après les autres.
+*/
+:root {
+  --fond: #0b1220;
+  --panneau: rgba(15, 23, 42, 0.82);
+  --trait: rgba(148, 163, 184, 0.22);
+  --texte: #e2e8f0;
+  --doux: #94a3b8;
+  --accent: #38bdf8;
+  --danger: #ef4444;
+  --marge: 16px;
+  font-family: system-ui, "Segoe UI", Roboto, sans-serif;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--fond);
+  color: var(--texte);
+  line-height: 1.5;
+}
+
+.page {
+  position: relative;
+  min-height: 100vh;
+}
+
+.scene {
+  position: fixed;
+  inset: 0;
+}
+
+.titre {
+  position: absolute;
+  top: var(--marge);
+  left: var(--marge);
+  pointer-events: none;
+}
+.titre h1 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+.titre p {
+  margin: 2px 0 0;
+  color: var(--doux);
+  font-size: 0.85rem;
+}
+
+.panneau {
+  position: absolute;
+  padding: 14px;
+  border: 1px solid var(--trait);
+  border-radius: 10px;
+  background: var(--panneau);
+  backdrop-filter: blur(6px);
+}
+
+/* ---------- Tableau de bord ---------- */
+.tableau {
+  top: var(--marge);
+  right: var(--marge);
+  width: 260px;
+}
+.tableau dl {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+}
+.tableau dl div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+.tableau dt {
+  color: var(--doux);
+}
+.tableau dd {
+  margin: 0;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.phase--pose { color: #cbd5e1; }
+.phase--decollage { color: #facc15; }
+.phase--vol { color: #4ade80; }
+.phase--atterrissage { color: #fb923c; }
+
+.alerte {
+  min-height: 1.5em;
+  margin: 8px 0;
+  color: #fca5a5;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* ---------- Boutons ---------- */
+.bouton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #082f49;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+.bouton:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+.bouton:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+.bouton--urgence {
+  width: 100%;
+  background: var(--danger);
+  color: #fff;
+}
+
+kbd {
+  padding: 1px 6px;
+  border: 1px solid var(--trait);
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.3);
+  font: 0.8em ui-monospace, monospace;
+}
+
+/* ---------- Aide : les gestes ---------- */
+.aide {
+  bottom: var(--marge);
+  left: var(--marge);
+  width: 300px;
+}
+.aide h2 {
+  margin: 0 0 8px;
+  font-size: 0.95rem;
+}
+.aide ul {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.aide li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.88rem;
+}
+.aide li strong {
+  display: block;
+}
+.aide li span:last-child {
+  color: var(--doux);
+}
+.aide li strong {
+  color: var(--texte);
+}
+.aide__geste {
+  flex: none;
+  width: 2.2em;
+  font-size: 1.3rem;
+  text-align: center;
+}
+.aide__clavier {
+  margin: 10px 0 0;
+  color: var(--doux);
+  font-size: 0.8rem;
+}
+
+/* ---------- Caméra ---------- */
+.camera {
+  right: var(--marge);
+  bottom: var(--marge);
+  width: 340px;
+  padding: 8px;
+}
+.camera__cadre {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 6px;
+  background: #020617;
+}
+/* Miroir : on lève la main droite, elle apparaît à droite. Plus naturel pour piloter. */
+.camera video,
+.camera canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1);
+}
+.camera__voile {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px;
+  text-align: center;
+}
+.camera__note,
+.camera__erreur {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--doux);
+}
+.camera__erreur {
+  color: #fca5a5;
+}
+
+/* ---------- Téléphone et petits écrans : tout passe en colonne sous la scène ---------- */
+@media (max-width: 900px) {
+  .scene {
+    position: relative;
+    height: 55vh;
+  }
+  .page {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-bottom: var(--marge);
+  }
+  .titre {
+    position: absolute;
+  }
+  .panneau {
+    position: static;
+    width: auto;
+    margin: 0 var(--marge);
+  }
+  /* Ordre sur téléphone : scène, tableau de bord, caméra, puis l'aide. */
+  .aide {
+    order: 2;
+  }
+}

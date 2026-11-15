@@ -63,6 +63,14 @@ Prospection : Han'sCake n'a pas acheté, mais **a accepté que Hamdi montre le s
   parcours, contact. Chiffres et certifications : uniquement des vrais.
 - Contenu dans `src/data.ts`. Téléphone : particules ÷ 3, sans effets lourds.
 
+## Projet 4 : `drone-gestes/` (projet d'ingénierie)
+
+- Simulateur : webcam + MediaPipe (21 points de la main) → geste → drone 3D. 15 tests (gestes, stabilisation, simulation).
+- Gestes : main ouverte = décoller / sur place (inclinée = gauche-droite), index = monter, V = descendre, poing = atterrir.
+  Sécurité : poing prioritaire, main perdue 0,8 s → atterrissage, Espace = urgence.
+- Modèle `public/modeles/hand_landmarker.task` versionné ; moteur wasm copié par `postinstall`.
+- Suite : vrai drone DJI Tello via un pont Python (`djitellopy`). Vérifier la réglementation drones à Djibouti avant achat.
+
 ## Autres prospects repérés (à vérifier avant contact)
 
 - Pâtisseries : Sweet Home Bakery (@shbakery_253), La Maison Sucrée (Facebook), L'Ô Délices, Le Fournil, Le Moulin.
