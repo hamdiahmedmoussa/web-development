@@ -72,7 +72,9 @@ Prospection : Han'sCake n'a pas acheté, mais **a accepté que Hamdi montre le s
 - `suivi-solaire/` : ESP32 + INA219 + DS18B20, production, perte due à la chaleur, puissance à 25 °C,
   courbe du jour, repère de nettoyage (poussière). Même style d'interface que le compteur (sable, terre cuite, phrases).
 - Interfaces des projets ESP32 : chaleureuses et douces (demande de Hamdi), pas de tableau de bord sombre générique.
-- Ordre des projets suivants : coupure clim, bras robot gestes, station météo.
+- `coupure-clim/` : ESP32 + LED et récepteur infrarouge (IRremoteESP8266, protocole selon la marque) + radar LD2410 + DHT22.
+  Aucun 220 V. Règles testées (pièce vide 15 min, jamais la nuit 22 h-7 h, éco 24 °C une fois, alerte surchauffe).
+- Ordre des projets suivants : bras robot gestes, station météo.
 - `drone-gestes/` : simulateur de drone piloté par les gestes
   (webcam + MediaPipe + 3D, 15 tests). Suite : vrai drone DJI Tello via un pont Python (`djitellopy`).
   Vérifier la réglementation drones à Djibouti avant achat.
