@@ -80,8 +80,10 @@ Prospection : Han'sCake n'a pas acheté, mais **a accepté que Hamdi montre le s
 - `station-meteo/` : ESP32 + BME280 + PMS5003 (réveillé 30 s / 5 min), ressenti NOAA, niveaux PM EPA 2024, tendance pression.
 - Les 5 projets prévus sont faits (code + tests ; aucun encore compilé pour ESP32 ni testé avec du vrai matériel).
 - Sécurité (`SECURITE.md`, `commun/securite.h` recopié par `outils/verifier-securite.sh`) : Digest auth sur chaque page,
-  compilation refusée avec mots de passe d'exemple, en-tête X-Tableau contre CSRF (clim). Prochain projet cyber :
-  laboratoire de sécurité industrielle (Modbus) ; puis détecteur d'arnaques SMS. Règle : jamais sans autorisation écrite.
+  compilation refusée avec mots de passe d'exemple, en-tête X-Tableau contre CSRF (clim). Projets cyber suivants :
+  détecteur d'arnaques SMS. Règle : jamais sans autorisation écrite.
+- `labo-ot/` : poste électrique simulé (Modbus écrit à la main, Python sans dépendance), pare-feu Modbus
+  (regles.py), supervision web soft, démo d'attaque bornée (--labo, IP privées). 13 tests. Suite : version ESP32 + Raspberry Pi.
 - `drone-gestes/` : simulateur de drone piloté par les gestes
   (webcam + MediaPipe + 3D, 15 tests). Suite : vrai drone DJI Tello via un pont Python (`djitellopy`).
   Vérifier la réglementation drones à Djibouti avant achat.
