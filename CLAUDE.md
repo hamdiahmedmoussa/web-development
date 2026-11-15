@@ -69,7 +69,10 @@ Prospection : Han'sCake n'a pas acheté, mais **a accepté que Hamdi montre le s
 - `compteur-energie/` : ESP32 + pince SCT-013-030, tableau de bord web servi par l'ESP32 (W, kWh, FDJ selon
   le tarif saisi), mode simulation, tests des calculs en C++. Pas encore compilé pour ESP32 (outils Arduino
   inaccessibles depuis cette session) : premier téléversement à faire par Hamdi. Suite prévue : PZEM-004T.
-- Ordre des projets suivants : panneau solaire, coupure clim, bras robot gestes, station météo.
+- `suivi-solaire/` : ESP32 + INA219 + DS18B20, production, perte due à la chaleur, puissance à 25 °C,
+  courbe du jour, repère de nettoyage (poussière). Même style d'interface que le compteur (sable, terre cuite, phrases).
+- Interfaces des projets ESP32 : chaleureuses et douces (demande de Hamdi), pas de tableau de bord sombre générique.
+- Ordre des projets suivants : coupure clim, bras robot gestes, station météo.
 - `drone-gestes/` : simulateur de drone piloté par les gestes
   (webcam + MediaPipe + 3D, 15 tests). Suite : vrai drone DJI Tello via un pont Python (`djitellopy`).
   Vérifier la réglementation drones à Djibouti avant achat.
