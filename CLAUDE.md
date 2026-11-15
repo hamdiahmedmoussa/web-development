@@ -63,13 +63,12 @@ Prospection : Han'sCake n'a pas acheté, mais **a accepté que Hamdi montre le s
   parcours, contact. Chiffres et certifications : uniquement des vrais.
 - Contenu dans `src/data.ts`. Téléphone : particules ÷ 3, sans effets lourds.
 
-## Projet 4 : `drone-gestes/` (projet d'ingénierie)
+## Projets d'ingénierie : dépôt séparé `hamdiahmedmoussa/engineering-project`
 
-- Simulateur : webcam + MediaPipe (21 points de la main) → geste → drone 3D. 15 tests (gestes, stabilisation, simulation).
-- Gestes : main ouverte = décoller / sur place (inclinée = gauche-droite), index = monter, V = descendre, poing = atterrir.
-  Sécurité : poing prioritaire, main perdue 0,8 s → atterrissage, Espace = urgence.
-- Modèle `public/modeles/hand_landmarker.task` versionné ; moteur wasm copié par `postinstall`.
-- Suite : vrai drone DJI Tello via un pont Python (`djitellopy`). Vérifier la réglementation drones à Djibouti avant achat.
+- `drone-gestes/` (branche `claude/drone-gestes`) : simulateur de drone piloté par les gestes
+  (webcam + MediaPipe + 3D, 15 tests). Suite : vrai drone DJI Tello via un pont Python (`djitellopy`).
+  Vérifier la réglementation drones à Djibouti avant achat.
+- Ce dépôt-ci (`web-development`) reste réservé aux sites web.
 
 ## Autres prospects repérés (à vérifier avant contact)
 
