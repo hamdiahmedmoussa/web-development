@@ -65,7 +65,12 @@ Prospection : Han'sCake n'a pas acheté, mais **a accepté que Hamdi montre le s
 
 ## Projets d'ingénierie : dépôt séparé `hamdiahmedmoussa/engineering-project`
 
-- `drone-gestes/` (branche `claude/drone-gestes`) : simulateur de drone piloté par les gestes
+- Branche de travail : **`claude/projets-ingenierie`** (contient tout ; `claude/drone-gestes` = ancienne).
+- `compteur-energie/` : ESP32 + pince SCT-013-030, tableau de bord web servi par l'ESP32 (W, kWh, FDJ selon
+  le tarif saisi), mode simulation, tests des calculs en C++. Pas encore compilé pour ESP32 (outils Arduino
+  inaccessibles depuis cette session) : premier téléversement à faire par Hamdi. Suite prévue : PZEM-004T.
+- Ordre des projets suivants : panneau solaire, coupure clim, bras robot gestes, station météo.
+- `drone-gestes/` : simulateur de drone piloté par les gestes
   (webcam + MediaPipe + 3D, 15 tests). Suite : vrai drone DJI Tello via un pont Python (`djitellopy`).
   Vérifier la réglementation drones à Djibouti avant achat.
 - Ce dépôt-ci (`web-development`) reste réservé aux sites web.
