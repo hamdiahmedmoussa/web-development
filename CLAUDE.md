@@ -74,9 +74,11 @@ Prospection : Han'sCake n'a pas acheté, mais **a accepté que Hamdi montre le s
 - Interfaces des projets ESP32 : chaleureuses et douces (demande de Hamdi), pas de tableau de bord sombre générique.
 - `coupure-clim/` : ESP32 + LED et récepteur infrarouge (IRremoteESP8266, protocole selon la marque) + radar LD2410 + DHT22.
   Aucun 220 V. Règles testées (pièce vide 15 min, jamais la nuit 22 h-7 h, éco 24 °C une fois, alerte surchauffe).
-- `bras-gestes/` : React + MediaPipe → 4 angles (base, épaule, coude, pince) → Web Serial (USB) → ESP32 + ESP32Servo.
+- `bras-gestes/` : bras + main à 5 doigts (9 servos) : React + MediaPipe (points image + 3D) → Web Serial (USB) → ESP32 → PCA9685.
+  Doigts = somme des angles des articulations (3D), poignet = rotation type poignée de porte.
   Limites en double (reglages.ts et limites.h), un test vérifie qu'elles sont identiques ; l'ESP32 refuse tout hors limites.
-- Projet suivant : station météo et qualité de l'air.
+- `station-meteo/` : ESP32 + BME280 + PMS5003 (réveillé 30 s / 5 min), ressenti NOAA, niveaux PM EPA 2024, tendance pression.
+- Les 5 projets prévus sont faits (code + tests ; aucun encore compilé pour ESP32 ni testé avec du vrai matériel).
 - `drone-gestes/` : simulateur de drone piloté par les gestes
   (webcam + MediaPipe + 3D, 15 tests). Suite : vrai drone DJI Tello via un pont Python (`djitellopy`).
   Vérifier la réglementation drones à Djibouti avant achat.
