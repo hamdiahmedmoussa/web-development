@@ -8,8 +8,7 @@
   (Upwork, Fiverr, Malt). Modèle visé : site + fiche Google + **abonnement mensuel** (revenus récurrents).
 - Les démos envoient les commandes au numéro professionnel de Hamdi (voir `config.ts` de chaque projet).
 - Branche de travail : `claude/bonsoir-dfiqdz` (ne pas toucher `main`). Un commit par étape, puis push.
-- **Commits : NE PAS ajouter les lignes `Co-Authored-By` ni `Claude-Session`** (demande de Hamdi, 16/11/2026),
-  dans les deux dépôts. Pas non plus de mention « Generated with Claude Code » dans les PR.
+- Mention de co-auteur dans les commits : Hamdi la garde (il a changé d'avis le 16/11/2026), ne pas réécrire l'historique.
 - Sur son PC (Windows, Git Bash / VS Code) : `git pull`, puis `npm install`, puis `npm run dev`.
 
 ## Apprentissage (`cours/`)
